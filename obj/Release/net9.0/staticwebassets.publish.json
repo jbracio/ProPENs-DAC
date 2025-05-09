@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NLPorS/87A5CxsbZHq635cA5S2CUy1VGwGV8mLlFKvk=",
+  "Hash": "nsw3/efhpkoi4MKjvxlPNiwusKdnnKICjy5E9ES5ONg=",
   "Source": "DeutschlandDashboard",
   "BasePath": "/",
   "Mode": "Root",
@@ -199,8 +199,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "lmugtu2b56",
-      "Integrity": "DVTaPmA1R5EF6FSdp7QssLTsoqQ8KknIAVq6Dg4hRhw=",
+      "Fingerprint": "oigcdse164",
+      "Integrity": "oBunRCH2GKQ7h8GCi4y3YBaLlYieANs6z2hARiJu+IA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "obj/Release/net9.0/blazor.publish.boot.json"
@@ -2264,12 +2264,12 @@
       "OriginalItemSpec": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css"
     },
     {
-      "Identity": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.br",
+      "Identity": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.br",
       "SourceId": "DeutschlandDashboard",
       "SourceType": "Computed",
       "ContentRoot": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/",
       "BasePath": "/",
-      "RelativePath": "_framework/DeutschlandDashboard#[.{fingerprint=4scrs2ktil}]!.wasm.br",
+      "RelativePath": "_framework/DeutschlandDashboard#[.{fingerprint=nlbprpfalf}]!.wasm.br",
       "AssetKind": "Publish",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -2278,19 +2278,19 @@
       "RelatedAsset": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/webcil/publish/DeutschlandDashboard.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "v5qk33xu6o",
-      "Integrity": "jd/xc0xHCwzKFJkOZKgYpotF1cC7wyYRyqPpKxSyv+U=",
+      "Fingerprint": "g1ho872xh5",
+      "Integrity": "RFACZWfnYPF7XU2hJesV9WGucMgee36OBNlI6nddmek=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/webcil/publish/DeutschlandDashboard.wasm"
     },
     {
-      "Identity": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.gz",
+      "Identity": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.gz",
       "SourceId": "DeutschlandDashboard",
       "SourceType": "Computed",
       "ContentRoot": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/",
       "BasePath": "/",
-      "RelativePath": "_framework/DeutschlandDashboard#[.{fingerprint=4scrs2ktil}]!.wasm.gz",
+      "RelativePath": "_framework/DeutschlandDashboard#[.{fingerprint=nlbprpfalf}]!.wasm.gz",
       "AssetKind": "Publish",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -2299,8 +2299,8 @@
       "RelatedAsset": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/webcil/publish/DeutschlandDashboard.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "6xgp56wnbr",
-      "Integrity": "6t7Sq3CdhFBu/qnYzKFt7fhQUMsudnYLElcQBQKHedQ=",
+      "Fingerprint": "k2om6noz2t",
+      "Integrity": "pBqPDH7zcW7l1mmM4k6EbjhoDu2/rMe01sYRb8Dw4hs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/webcil/publish/DeutschlandDashboard.wasm"
@@ -2558,7 +2558,7 @@
       "OriginalItemSpec": "/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat"
     },
     {
-      "Identity": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-lmugtu2b56.br",
+      "Identity": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-oigcdse164.br",
       "SourceId": "DeutschlandDashboard",
       "SourceType": "Computed",
       "ContentRoot": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/",
@@ -2572,14 +2572,14 @@
       "RelatedAsset": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/blazor.publish.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "8tzebwr3pr",
-      "Integrity": "NHig8XBPsxvQ36GniHgTeKCvSD+G+6iBFL0DmT6uihE=",
+      "Fingerprint": "r0zdb0v9i1",
+      "Integrity": "dfICvUzqVSPyk2unOIMZ61BbHSRuFNPEjR7+7OKdhWQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/blazor.publish.boot.json"
     },
     {
-      "Identity": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-lmugtu2b56.gz",
+      "Identity": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-oigcdse164.gz",
       "SourceId": "DeutschlandDashboard",
       "SourceType": "Computed",
       "ContentRoot": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/",
@@ -2593,8 +2593,8 @@
       "RelatedAsset": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/blazor.publish.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "07kzyc3tba",
-      "Integrity": "/NLteP1s8hAL186Dk6ItpqkEcxupelj/fO9r8pQyjco=",
+      "Fingerprint": "ng0dl08qpu",
+      "Integrity": "aYewa4b+t8rUW8qADi6pEhJn8kYp9099W2KFP2dmeuY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/blazor.publish.boot.json"
@@ -4252,8 +4252,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "4scrs2ktil",
-      "Integrity": "jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8=",
+      "Fingerprint": "nlbprpfalf",
+      "Integrity": "BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/webcil/publish/DeutschlandDashboard.wasm"
@@ -6085,11 +6085,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"DVTaPmA1R5EF6FSdp7QssLTsoqQ8KknIAVq6Dg4hRhw=\""
+          "Value": "\"oBunRCH2GKQ7h8GCi4y3YBaLlYieANs6z2hARiJu+IA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6099,18 +6099,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-DVTaPmA1R5EF6FSdp7QssLTsoqQ8KknIAVq6Dg4hRhw="
+          "Value": "sha256-oBunRCH2GKQ7h8GCi4y3YBaLlYieANs6z2hARiJu+IA="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-lmugtu2b56.br",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-oigcdse164.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.000411015208"
+          "Quality": "0.000410846343"
         }
       ],
       "ResponseHeaders": [
@@ -6120,15 +6120,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2432"
+          "Value": "2433"
         },
         {
           "Name": "ETag",
-          "Value": "\"NHig8XBPsxvQ36GniHgTeKCvSD+G+6iBFL0DmT6uihE=\""
+          "Value": "\"dfICvUzqVSPyk2unOIMZ61BbHSRuFNPEjR7+7OKdhWQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6148,24 +6148,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"DVTaPmA1R5EF6FSdp7QssLTsoqQ8KknIAVq6Dg4hRhw=\""
+          "Value": "W/\"oBunRCH2GKQ7h8GCi4y3YBaLlYieANs6z2hARiJu+IA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-DVTaPmA1R5EF6FSdp7QssLTsoqQ8KknIAVq6Dg4hRhw="
+          "Value": "sha256-oBunRCH2GKQ7h8GCi4y3YBaLlYieANs6z2hARiJu+IA="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-lmugtu2b56.gz",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-oigcdse164.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000376789751"
+          "Quality": "0.000376364321"
         }
       ],
       "ResponseHeaders": [
@@ -6175,15 +6175,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2653"
+          "Value": "2656"
         },
         {
           "Name": "ETag",
-          "Value": "\"/NLteP1s8hAL186Dk6ItpqkEcxupelj/fO9r8pQyjco=\""
+          "Value": "\"aYewa4b+t8rUW8qADi6pEhJn8kYp9099W2KFP2dmeuY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6203,19 +6203,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"DVTaPmA1R5EF6FSdp7QssLTsoqQ8KknIAVq6Dg4hRhw=\""
+          "Value": "W/\"oBunRCH2GKQ7h8GCi4y3YBaLlYieANs6z2hARiJu+IA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-DVTaPmA1R5EF6FSdp7QssLTsoqQ8KknIAVq6Dg4hRhw="
+          "Value": "sha256-oBunRCH2GKQ7h8GCi4y3YBaLlYieANs6z2hARiJu+IA="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.br",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-lmugtu2b56.br",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-oigcdse164.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6224,7 +6224,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2432"
+          "Value": "2433"
         },
         {
           "Name": "Content-Type",
@@ -6232,11 +6232,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"NHig8XBPsxvQ36GniHgTeKCvSD+G+6iBFL0DmT6uihE=\""
+          "Value": "\"dfICvUzqVSPyk2unOIMZ61BbHSRuFNPEjR7+7OKdhWQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6254,13 +6254,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-NHig8XBPsxvQ36GniHgTeKCvSD+G+6iBFL0DmT6uihE="
+          "Value": "sha256-dfICvUzqVSPyk2unOIMZ61BbHSRuFNPEjR7+7OKdhWQ="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-lmugtu2b56.gz",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/joty8sldqc-oigcdse164.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6269,7 +6269,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2653"
+          "Value": "2656"
         },
         {
           "Name": "Content-Type",
@@ -6277,11 +6277,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/NLteP1s8hAL186Dk6ItpqkEcxupelj/fO9r8pQyjco=\""
+          "Value": "\"aYewa4b+t8rUW8qADi6pEhJn8kYp9099W2KFP2dmeuY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6299,7 +6299,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/NLteP1s8hAL186Dk6ItpqkEcxupelj/fO9r8pQyjco="
+          "Value": "sha256-aYewa4b+t8rUW8qADi6pEhJn8kYp9099W2KFP2dmeuY="
         }
       ]
     },
@@ -6541,13 +6541,13 @@
       ]
     },
     {
-      "Route": "_framework/DeutschlandDashboard.4scrs2ktil.wasm",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.br",
+      "Route": "_framework/DeutschlandDashboard.nlbprpfalf.wasm",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.000080463470"
+          "Quality": "0.000080231065"
         }
       ],
       "ResponseHeaders": [
@@ -6557,15 +6557,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12427"
+          "Value": "12463"
         },
         {
           "Name": "ETag",
-          "Value": "\"jd/xc0xHCwzKFJkOZKgYpotF1cC7wyYRyqPpKxSyv+U=\""
+          "Value": "\"RFACZWfnYPF7XU2hJesV9WGucMgee36OBNlI6nddmek=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6585,13 +6585,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8=\""
+          "Value": "W/\"BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4scrs2ktil"
+          "Value": "nlbprpfalf"
         },
         {
           "Name": "label",
@@ -6599,18 +6599,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8="
+          "Value": "sha256-BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I="
         }
       ]
     },
     {
-      "Route": "_framework/DeutschlandDashboard.4scrs2ktil.wasm",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.gz",
+      "Route": "_framework/DeutschlandDashboard.nlbprpfalf.wasm",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000068189567"
+          "Quality": "0.000068175620"
         }
       ],
       "ResponseHeaders": [
@@ -6620,15 +6620,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14664"
+          "Value": "14667"
         },
         {
           "Name": "ETag",
-          "Value": "\"6t7Sq3CdhFBu/qnYzKFt7fhQUMsudnYLElcQBQKHedQ=\""
+          "Value": "\"pBqPDH7zcW7l1mmM4k6EbjhoDu2/rMe01sYRb8Dw4hs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6648,13 +6648,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8=\""
+          "Value": "W/\"BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4scrs2ktil"
+          "Value": "nlbprpfalf"
         },
         {
           "Name": "label",
@@ -6662,12 +6662,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8="
+          "Value": "sha256-BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I="
         }
       ]
     },
     {
-      "Route": "_framework/DeutschlandDashboard.4scrs2ktil.wasm",
+      "Route": "_framework/DeutschlandDashboard.nlbprpfalf.wasm",
       "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/webcil/publish/DeutschlandDashboard.wasm",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6685,11 +6685,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8=\""
+          "Value": "\"BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6699,7 +6699,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4scrs2ktil"
+          "Value": "nlbprpfalf"
         },
         {
           "Name": "label",
@@ -6707,13 +6707,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8="
+          "Value": "sha256-BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I="
         }
       ]
     },
     {
-      "Route": "_framework/DeutschlandDashboard.4scrs2ktil.wasm.br",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.br",
+      "Route": "_framework/DeutschlandDashboard.nlbprpfalf.wasm.br",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6722,7 +6722,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12427"
+          "Value": "12463"
         },
         {
           "Name": "Content-Type",
@@ -6730,11 +6730,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"jd/xc0xHCwzKFJkOZKgYpotF1cC7wyYRyqPpKxSyv+U=\""
+          "Value": "\"RFACZWfnYPF7XU2hJesV9WGucMgee36OBNlI6nddmek=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6752,7 +6752,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4scrs2ktil"
+          "Value": "nlbprpfalf"
         },
         {
           "Name": "label",
@@ -6760,13 +6760,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-jd/xc0xHCwzKFJkOZKgYpotF1cC7wyYRyqPpKxSyv+U="
+          "Value": "sha256-RFACZWfnYPF7XU2hJesV9WGucMgee36OBNlI6nddmek="
         }
       ]
     },
     {
-      "Route": "_framework/DeutschlandDashboard.4scrs2ktil.wasm.gz",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.gz",
+      "Route": "_framework/DeutschlandDashboard.nlbprpfalf.wasm.gz",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6775,7 +6775,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14664"
+          "Value": "14667"
         },
         {
           "Name": "Content-Type",
@@ -6783,11 +6783,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6t7Sq3CdhFBu/qnYzKFt7fhQUMsudnYLElcQBQKHedQ=\""
+          "Value": "\"pBqPDH7zcW7l1mmM4k6EbjhoDu2/rMe01sYRb8Dw4hs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6805,7 +6805,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4scrs2ktil"
+          "Value": "nlbprpfalf"
         },
         {
           "Name": "label",
@@ -6813,18 +6813,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6t7Sq3CdhFBu/qnYzKFt7fhQUMsudnYLElcQBQKHedQ="
+          "Value": "sha256-pBqPDH7zcW7l1mmM4k6EbjhoDu2/rMe01sYRb8Dw4hs="
         }
       ]
     },
     {
       "Route": "_framework/DeutschlandDashboard.wasm",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.br",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.000080463470"
+          "Quality": "0.000080231065"
         }
       ],
       "ResponseHeaders": [
@@ -6834,15 +6834,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12427"
+          "Value": "12463"
         },
         {
           "Name": "ETag",
-          "Value": "\"jd/xc0xHCwzKFJkOZKgYpotF1cC7wyYRyqPpKxSyv+U=\""
+          "Value": "\"RFACZWfnYPF7XU2hJesV9WGucMgee36OBNlI6nddmek=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6862,24 +6862,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8=\""
+          "Value": "W/\"BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8="
+          "Value": "sha256-BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I="
         }
       ]
     },
     {
       "Route": "_framework/DeutschlandDashboard.wasm",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.gz",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000068189567"
+          "Quality": "0.000068175620"
         }
       ],
       "ResponseHeaders": [
@@ -6889,15 +6889,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14664"
+          "Value": "14667"
         },
         {
           "Name": "ETag",
-          "Value": "\"6t7Sq3CdhFBu/qnYzKFt7fhQUMsudnYLElcQBQKHedQ=\""
+          "Value": "\"pBqPDH7zcW7l1mmM4k6EbjhoDu2/rMe01sYRb8Dw4hs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6917,13 +6917,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8=\""
+          "Value": "W/\"BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8="
+          "Value": "sha256-BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I="
         }
       ]
     },
@@ -6946,11 +6946,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8=\""
+          "Value": "\"BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6960,13 +6960,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-jCJJZLQr5KTWEQtktWAktI4Ut8HrnE3kkBqBJcdG8q8="
+          "Value": "sha256-BYo+YTXO17GlKYrJfDMWYlCYgV7SpKIacy1s1KTYH3I="
         }
       ]
     },
     {
       "Route": "_framework/DeutschlandDashboard.wasm.br",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.br",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6975,7 +6975,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12427"
+          "Value": "12463"
         },
         {
           "Name": "Content-Type",
@@ -6983,11 +6983,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"jd/xc0xHCwzKFJkOZKgYpotF1cC7wyYRyqPpKxSyv+U=\""
+          "Value": "\"RFACZWfnYPF7XU2hJesV9WGucMgee36OBNlI6nddmek=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7005,13 +7005,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-jd/xc0xHCwzKFJkOZKgYpotF1cC7wyYRyqPpKxSyv+U="
+          "Value": "sha256-RFACZWfnYPF7XU2hJesV9WGucMgee36OBNlI6nddmek="
         }
       ]
     },
     {
       "Route": "_framework/DeutschlandDashboard.wasm.gz",
-      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-4scrs2ktil.gz",
+      "AssetFile": "/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/publish/gj10n3i2ta-nlbprpfalf.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7020,7 +7020,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14664"
+          "Value": "14667"
         },
         {
           "Name": "Content-Type",
@@ -7028,11 +7028,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6t7Sq3CdhFBu/qnYzKFt7fhQUMsudnYLElcQBQKHedQ=\""
+          "Value": "\"pBqPDH7zcW7l1mmM4k6EbjhoDu2/rMe01sYRb8Dw4hs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 11:58:01 GMT"
+          "Value": "Fri, 09 May 2025 12:10:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7050,7 +7050,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6t7Sq3CdhFBu/qnYzKFt7fhQUMsudnYLElcQBQKHedQ="
+          "Value": "sha256-pBqPDH7zcW7l1mmM4k6EbjhoDu2/rMe01sYRb8Dw4hs="
         }
       ]
     },
