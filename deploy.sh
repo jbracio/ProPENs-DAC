@@ -19,6 +19,8 @@ echo "📄 Verschiebe index.html..."
 mv docs/index.html docs/index.original.html 2>/dev/null || true
 cp dist/wwwroot/index.html docs/index.html
 
+touch docs/.nojekyll
+
 echo "✏️ Setze base href..."
 sed -i '' "s|<base href=\"/\"|<base href=\"/$REPO_NAME/\"|g" docs/index.html
 
