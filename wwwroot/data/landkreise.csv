@@ -1,0 +1,435 @@
+Bundesland	Landkreisname	CO2 Price	C02 price score	Netto CO2 	Netto C02 Score	PV yes/no	Solar yes/no
+Niedersachsen	Oldenburg	157	6	731	9	y	n
+Niedersachsen	Osnabr�ck Städte	140	4	533	3	y	y
+Niedersachsen	Osnabr�ck	157	6	458	0	n	n
+Niedersachsen	Vechta	130	2	733	9	n	y
+Niedersachsen	Wesermarsch	140	4	543	3	y	y
+Niedersachsen	Wilhelmshaven Städte	133	2	473	1	n	n
+Niedersachsen	Wittmund	174	9	661	7	n	y
+Nordrhein-Westfalen	Bochum Städte	124	1	649	7	n	y
+Nordrhein-Westfalen	Dortmund Städte	146	5	452	0	y	y
+Nordrhein-Westfalen	Ennepe-Ruhr	137	3	540	3	y	n
+Nordrhein-Westfalen	Hagen Städte	155	6	589	5	y	n
+Nordrhein-Westfalen	Hamm Städte	145	4	703	8	y	y
+Nordrhein-Westfalen	Herne Städte	155	6	549	3	n	n
+Nordrhein-Westfalen	Hochsauerlandkreis	143	4	486	1	n	y
+Nordrhein-Westfalen	M�rkischer Kreis	158	7	455	0	y	n
+Nordrhein-Westfalen	Olpe	156	6	608	5	y	y
+Nordrhein-Westfalen	Siegen-Wittgenstein	147	5	689	8	y	y
+Baden-W�rttemberg	Ostalbkreis	127	1	702	8	y	n
+Baden-W�rttemberg	Rems-Murr-Kreis	179	10	454	0	y	y
+Baden-W�rttemberg	Schw�bisch Hall	123	1	514	2	y	n
+Baden-W�rttemberg	Stuttgart Städte	176	10	604	5	y	y
+Baden-W�rttemberg	Alb-Donau	148	5	521	2	n	n
+Baden-W�rttemberg	Biberach	175	9	613	5	y	n
+Baden-W�rttemberg	Bodensee	146	5	630	6	n	y
+Baden-W�rttemberg	Ravensburg	136	3	601	5	n	y
+Baden-W�rttemberg	Reutlingen	153	6	533	3	y	n
+Baden-W�rttemberg	Sigmaringen	156	6	596	5	y	n
+Baden-W�rttemberg	T�bingen	128	2	647	7	n	y
+Baden-W�rttemberg	Ulm Städte	151	5	691	8	n	n
+Baden-W�rttemberg	Zollernalbkreis	171	9	724	9	n	y
+Bayern	Ansbach Städte	178	10	497	2	n	y
+Bayern	Ansbach	125	1	493	1	y	n
+Bayern	Erlangen-H�chstadt	159	7	504	2	y	n
+Bayern	Erlangen Städte	178	10	485	1	n	n
+Bayern	F�rth Städte	152	6	596	5	y	y
+Baden-W�rttemberg	Breisgau-Hochschwarzwald	121	0	560	4	y	n
+Baden-W�rttemberg	Emmendingen	144	4	594	5	n	n
+Baden-W�rttemberg	Freiburg	154	6	693	8	y	y
+Baden-W�rttemberg	Konstanz	149	5	454	0	y	y
+Baden-W�rttemberg	L�rrach	143	4	730	9	y	n
+Baden-W�rttemberg	Ortenaukreis	147	5	606	5	n	y
+Baden-W�rttemberg	Rottweil	130	2	547	3	y	y
+Baden-W�rttemberg	Schwarzwald-Baar-Kreis	135	3	722	9	n	y
+Baden-W�rttemberg	Tuttlingen	136	3	507	2	y	n
+Baden-W�rttemberg	Waldshut	162	7	689	8	y	y
+Baden-W�rttemberg	Baden-Baden Städte	155	6	730	9	y	y
+Baden-W�rttemberg	Calw	136	3	455	0	y	y
+Baden-W�rttemberg	Enz	137	3	549	3	y	n
+Baden-W�rttemberg	Freudenstadt	158	7	583	4	y	n
+Baden-W�rttemberg	Heidelberg Städte	147	5	472	1	n	y
+Baden-W�rttemberg	Karlsruhe Städte	179	10	604	5	n	y
+Baden-W�rttemberg	Karlsruhe	121	0	502	2	n	n
+Baden-W�rttemberg	Mannheim Städte	169	8	689	8	y	n
+Baden-W�rttemberg	Neckar-Odenwald-Kreis	143	4	641	6	n	n
+Baden-W�rttemberg	Pforzheim Städte	178	10	716	9	y	y
+Baden-W�rttemberg	Rastatt	150	5	600	5	n	n
+Baden-W�rttemberg	Rhein-Neckar-Kreis	141	4	636	6	n	n
+Baden-W�rttemberg	B�blingen	131	2	718	9	y	y
+Baden-W�rttemberg	Esslingen	168	8	607	5	n	y
+Baden-W�rttemberg	G�ppingen	171	9	592	5	n	n
+Baden-W�rttemberg	Heidenheim	169	8	719	9	n	n
+Baden-W�rttemberg	Heilbronn city Städte	166	8	483	1	y	y
+Baden-W�rttemberg	Heilbronn	141	4	627	6	n	y
+Baden-W�rttemberg	Hohenlohe	176	10	620	6	y	y
+Baden-W�rttemberg	Ludwigsburg	146	5	581	4	n	n
+Baden-W�rttemberg	Main-Tauber	150	5	650	7	y	n
+Bayern	F�rth	141	4	454	0	y	n
+Bayern	Neustadt-Bad Windsheim	145	4	468	1	n	y
+Bayern	Nuremberg Städte	168	8	718	9	n	y
+Bayern	N�rnberger Land	176	10	469	1	y	n
+Bayern	Roth	122	1	692	8	n	n
+Bayern	Schwabach Städte	143	4	479	1	y	n
+Bayern	Wei��enburg-Gunzenhausen	142	4	622	6	y	n
+Bayern	Deggendorf	180	10	615	6	n	y
+Bayern	Dingolfing-Landau	171	9	462	0	y	y
+Bayern	Freyung-Grafenau	165	8	500	2	y	y
+Bayern	Kelheim	155	6	647	7	y	y
+Bayern	Landshut Städte	164	8	674	7	y	n
+Bayern	Landshut	147	5	525	3	y	n
+Bayern	Passau Städte	138	3	713	9	n	y
+Bayern	Passau	137	3	494	1	y	y
+Bayern	Regen	123	1	701	8	y	n
+Bayern	Rottal-Inn	173	9	589	5	n	y
+Bayern	Straubing-Bogen	156	6	666	7	y	n
+Bayern	Straubing Städte	172	9	461	0	n	n
+Bayern	Alt�tting	160	7	468	1	y	n
+Bayern	Bad T�lz-Wolfratshausen	144	4	686	8	n	n
+Bayern	Berchtesgadener Land	176	10	553	3	y	n
+Bayern	Dachau	138	3	479	1	n	n
+Bayern	Ebersberg	175	9	546	3	y	n
+Bayern	Eichst�tt	180	10	472	1	y	n
+Bayern	Erding	133	2	492	1	y	y
+Bayern	Freising	145	4	456	0	n	y
+Bayern	F�rstenfeldbruck	128	2	590	5	y	n
+Bayern	Garmisch-Partenkirchen	156	6	527	3	y	y
+Bayern	Ingolstadt Städte	139	3	669	7	n	y
+Bayern	Landsberg	143	4	626	6	n	y
+Bayern	Miesbach	131	2	590	5	y	n
+Bayern	M�hldorf	139	3	617	6	n	y
+Bayern	M�nchen	160	7	638	6	n	n
+Bayern	Munich Städte	134	3	671	7	y	y
+Bayern	Neuburg-Schrobenhausen	137	3	610	5	n	n
+Bayern	Pfaffenhofen	147	5	615	6	y	y
+Bayern	Rosenheim Städte	180	10	620	6	n	n
+Bayern	Rosenheim	160	7	705	9	y	y
+Bayern	Starnberg	146	5	576	4	n	n
+Bayern	Traunstein	180	10	647	7	y	y
+Bayern	Weilheim-Schongau	164	8	624	6	y	y
+Bayern	Bamberg Städte	158	7	524	2	y	n
+Bayern	Bamberg	144	4	670	7	n	n
+Bayern	Bayreuth Städte	172	9	512	2	n	y
+Bayern	Bayreuth	120	0	703	8	n	n
+Bayern	Coburg Städte	167	8	598	5	y	n
+Bayern	Coburg	159	7	595	5	y	n
+Bayern	Forchheim	141	4	550	3	y	y
+Bayern	Hof Städte	147	5	468	1	y	y
+Bayern	Hof	152	6	461	0	y	n
+Bayern	Kronach	155	6	578	4	y	y
+Bayern	Kulmbach	131	2	564	4	n	y
+Bayern	Lichtenfels	170	9	667	7	y	y
+Bayern	Wunsiedel	129	2	492	1	n	n
+Bayern	Amberg-Sulzbach	148	5	605	5	y	n
+Bayern	Amberg Städte	141	4	606	5	n	y
+Bayern	Cham	147	5	669	7	y	n
+Bayern	Neumarkt	140	4	559	4	n	n
+Bayern	Neustadt	180	10	520	2	y	n
+Bayern	Regensburg Städte	145	4	731	9	y	y
+Bayern	Regensburg	166	8	652	7	n	y
+Bayern	Schwandorf	170	9	636	6	y	n
+Bayern	Tirschenreuth	166	8	673	7	y	y
+Bayern	Weiden Städte	157	6	550	3	n	y
+Bayern	Aichach-Friedberg	125	1	490	1	y	y
+Bayern	Augsburg Städte	170	9	676	8	n	y
+Bayern	Augsburg	144	4	501	2	n	n
+Bayern	Dillingen	126	1	478	1	n	n
+Bayern	Donau-Ries	178	10	526	3	y	y
+Bayern	G�nzburg	137	3	701	8	y	y
+Bayern	Kaufbeuren Städte	138	3	638	6	y	n
+Bayern	Kempten Städte	167	8	680	8	n	y
+Bayern	Lindau	149	5	630	6	y	n
+Bayern	Memmingen Städte	180	10	595	5	y	n
+Bayern	Neu-Ulm	131	2	520	2	n	y
+Bayern	Oberallg�u	161	7	525	3	n	n
+Bayern	Ostallg�u	148	5	510	2	y	n
+Bayern	Unterallg�u	159	7	549	3	n	y
+Bayern	Aschaffenburg Städte	120	0	524	2	n	n
+Bayern	Aschaffenburg	175	9	685	8	y	y
+Bayern	Bad Kissingen	144	4	720	9	y	y
+Bayern	Ha��berge	133	2	601	5	n	n
+Bayern	Kitzingen	170	9	652	7	y	n
+Bayern	Main-Spessart	154	6	546	3	n	n
+Bayern	Miltenberg	173	9	497	2	y	y
+Bayern	Rh�n-Grabfeld	169	8	495	2	y	n
+Bayern	Schweinfurt Städte	142	4	647	7	n	n
+Bayern	Schweinfurt	151	5	567	4	y	n
+Bayern	W�rzburg Städte	132	2	454	0	n	n
+Bayern	W�rzburg	137	3	679	8	y	n
+Berlin	Berlin	172	9	734	9	y	y
+Brandenburg	Barnim	136	3	658	7	n	n
+Brandenburg	Brandenburg an der Havel Städte	129	2	488	1	n	n
+Brandenburg	Cottbus Städte	169	8	656	7	y	n
+Brandenburg	Dahme-Spreewald	162	7	618	6	y	n
+Brandenburg	Elbe-Elster	137	3	461	0	y	n
+Brandenburg	Frankfurt am Oder Städte	168	8	593	5	y	y
+Brandenburg	Havelland	137	3	491	1	n	n
+Brandenburg	M�rkisch-Oderland	152	6	502	2	n	n
+Brandenburg	Oberhavel	171	9	572	4	n	n
+Brandenburg	Oberspreewald-Lausitz	151	5	513	2	n	n
+Brandenburg	Oder-Spree	177	10	733	9	n	y
+Brandenburg	Ostprignitz-Ruppin	155	6	656	7	n	y
+Brandenburg	Potsdam-Mittelmark	147	5	621	6	y	n
+Brandenburg	Potsdam Städte	155	6	734	9	n	n
+Brandenburg	Prignitz	148	5	517	2	n	n
+Brandenburg	Spree-Nei��e	133	2	520	2	n	y
+Brandenburg	Teltow-Fl�ming	143	4	624	6	n	n
+Brandenburg	Uckermark	134	3	485	1	n	n
+Bremen	Bremen Städte	169	8	472	1	y	y
+Hamburg	Hamburg Städte	138	3	710	9	n	n
+Hessen	Bergstra��e	135	3	654	7	n	y
+Hessen	Darmstadt-Dieburg	137	3	612	5	y	y
+Hessen	Darmstadt Städte	136	3	511	2	y	n
+Hessen	Frankfurt am Main Städte	147	5	556	4	n	n
+Hessen	Gro��-Gerau	156	6	467	1	n	n
+Hessen	Hochtaunuskreis	178	10	485	1	n	y
+Hessen	Main-Kinzig-Kreis	158	7	504	2	n	y
+Hessen	Main-Taunus-Kreis Städte	154	6	511	2	n	n
+Hessen	Odenwaldkreis	149	5	602	5	n	y
+Hessen	Offenbach am Main Städte	125	1	699	8	y	n
+Hessen	Offenbach	143	4	689	8	y	y
+Hessen	Rheingau-Taunus-Kreis	167	8	649	7	n	y
+Hessen	Wetteraukreis	136	3	595	5	y	n
+Hessen	Wiesbaden Städte	170	9	484	1	y	n
+Hessen	Gie��en	177	10	600	5	n	y
+Hessen	Lahn-Dill-Kreis	145	4	632	6	y	y
+Hessen	Limburg-Weilburg	176	10	525	3	y	y
+Hessen	Marburg-Biedenkopf	159	7	557	4	n	y
+Hessen	Vogelsbergkreis	128	2	562	4	y	n
+Hessen	Fulda	180	10	686	8	y	y
+Hessen	Hersfeld-Rotenburg	123	1	512	2	y	n
+Hessen	Kassel Städte	167	8	479	1	y	n
+Hessen	Kassel	132	2	695	8	n	y
+Hessen	Schwalm-Eder-Kreis	169	8	522	2	y	y
+Hessen	Waldeck-Frankenberg	122	1	713	9	n	y
+Hessen	Werra-Mei��ner-Kreis	157	6	537	3	n	y
+Mecklenburg-Vorpommern	Bad Doberan	136	3	545	3	n	y
+Mecklenburg-Vorpommern	Demmin	146	5	566	4	y	n
+Mecklenburg-Vorpommern	Greifswald Städte	127	1	595	5	y	n
+Mecklenburg-Vorpommern	G�strow	141	4	533	3	y	n
+Mecklenburg-Vorpommern	Ludwigslust	147	5	602	5	n	n
+Mecklenburg-Vorpommern	Mecklenburg-Strelitz	162	7	706	9	n	n
+Mecklenburg-Vorpommern	M�ritz	168	8	466	1	n	y
+Mecklenburg-Vorpommern	Neubrandenburg Städte	127	1	554	3	y	y
+Mecklenburg-Vorpommern	Nordvorpommern	164	8	640	6	y	n
+Mecklenburg-Vorpommern	Nordwestmecklenburg	149	5	692	8	n	y
+Mecklenburg-Vorpommern	Ostvorpommern	128	2	652	7	n	y
+Mecklenburg-Vorpommern	Parchim	152	6	579	4	n	n
+Mecklenburg-Vorpommern	Rostock Städte	171	9	566	4	y	n
+Mecklenburg-Vorpommern	R�gen	148	5	489	1	n	y
+Mecklenburg-Vorpommern	Schwerin Städte	174	9	701	8	n	n
+Mecklenburg-Vorpommern	Stralsund Städte	160	7	462	0	y	n
+Mecklenburg-Vorpommern	Uecker-Randow	143	4	573	4	n	y
+Mecklenburg-Vorpommern	Wismar Städte	120	0	693	8	y	y
+Niedersachsen	Braunschweig Städte	145	4	712	9	y	y
+Niedersachsen	Gifhorn	180	10	546	3	n	y
+Niedersachsen	Goslar	152	6	655	7	n	n
+Niedersachsen	G�ttingen	136	3	733	9	y	n
+Niedersachsen	Helmstedt	136	3	483	1	y	y
+Niedersachsen	Northeim	142	4	692	8	n	n
+Niedersachsen	Osterode	178	10	624	6	n	y
+Niedersachsen	Peine	170	9	688	8	n	n
+Niedersachsen	Salzgitter Städte	171	9	636	6	y	y
+Niedersachsen	Wolfenb�ttel	158	7	673	7	y	n
+Niedersachsen	Wolfsburg Städte	145	4	508	2	n	y
+Niedersachsen	Diepholz	174	9	454	0	n	y
+Niedersachsen	Hamelin-Pyrmont	140	4	580	4	y	n
+Niedersachsen	Hanover	173	9	682	8	y	y
+Niedersachsen	Hildesheim	166	8	711	9	y	y
+Niedersachsen	Holzminden	133	2	658	7	n	n
+Niedersachsen	Nienburg	128	2	469	1	n	y
+Niedersachsen	Schaumburg	140	4	514	2	n	y
+Niedersachsen	Celle	152	6	528	3	y	n
+Niedersachsen	Cuxhaven	171	9	708	9	n	n
+Niedersachsen	Harburg	134	3	674	7	y	y
+Niedersachsen	L�chow-Dannenberg	136	3	574	4	y	y
+Niedersachsen	L�neburg	165	8	696	8	n	y
+Niedersachsen	Osterholz	165	8	603	5	n	n
+Niedersachsen	Rotenburg	144	4	552	3	y	n
+Niedersachsen	Soltau-Fallingbostel	146	5	517	2	n	n
+Niedersachsen	Stade	122	1	560	4	y	y
+Niedersachsen	Uelzen	157	6	585	5	n	y
+Niedersachsen	Verden	151	5	591	5	y	n
+Niedersachsen	Ammerland	144	4	677	8	n	y
+Niedersachsen	Aurich	147	5	704	8	y	y
+Niedersachsen	Cloppenburg	165	8	683	8	y	y
+Niedersachsen	Emden Städte	145	4	586	5	y	n
+Niedersachsen	Emsland	163	7	640	6	n	n
+Niedersachsen	Friesland	160	7	735	10	y	n
+Niedersachsen	Grafschaft Bentheim	139	3	513	2	y	y
+Niedersachsen	Leer	163	7	563	4	y	y
+Niedersachsen	Oldenburg Städte	136	3	699	8	n	y
+Nordrhein-Westfalen	Soest	158	7	559	4	y	n
+Nordrhein-Westfalen	Unna	123	1	496	2	y	y
+Nordrhein-Westfalen	Bielefeld Städte	165	8	619	6	y	y
+Nordrhein-Westfalen	G�tersloh	146	5	522	2	n	n
+Nordrhein-Westfalen	Herford	139	3	515	2	y	n
+Nordrhein-Westfalen	H�xter	130	2	621	6	n	n
+Nordrhein-Westfalen	Lippe	147	5	537	3	y	y
+Nordrhein-Westfalen	Minden-L�bbecke	131	2	537	3	n	n
+Nordrhein-Westfalen	Paderborn	143	4	563	4	y	n
+Nordrhein-Westfalen	Cleves	130	2	487	1	y	y
+Nordrhein-Westfalen	Duisburg Städte	179	10	688	8	y	y
+Nordrhein-Westfalen	D�sseldorf Städte	132	2	604	5	n	y
+Nordrhein-Westfalen	Essen Städte	170	9	714	9	y	y
+Nordrhein-Westfalen	Krefeld Städte	157	6	500	2	y	n
+Nordrhein-Westfalen	Mettmann	137	3	675	8	n	n
+Nordrhein-Westfalen	M�nchengladbach Städte	131	2	544	3	n	n
+Nordrhein-Westfalen	M�lheim Städte	129	2	471	1	n	n
+Nordrhein-Westfalen	Oberhausen Städte	171	9	722	9	y	y
+Nordrhein-Westfalen	Remscheid Städte	174	9	635	6	n	n
+Nordrhein-Westfalen	Rhein-Kreis Neuss	129	2	709	9	y	y
+Nordrhein-Westfalen	Solingen Städte	143	4	729	9	y	n
+Nordrhein-Westfalen	Viersen	130	2	587	5	n	n
+Nordrhein-Westfalen	Wesel	175	9	566	4	n	y
+Nordrhein-Westfalen	Wuppertal Städte	171	9	642	6	n	y
+Nordrhein-Westfalen	Aachen Städte	123	1	510	2	y	n
+Nordrhein-Westfalen	Aachen	168	8	613	5	n	n
+Nordrhein-Westfalen	Bonn Städte	169	8	459	0	n	n
+Nordrhein-Westfalen	Cologne Städte	171	9	664	7	n	y
+Nordrhein-Westfalen	D�ren	135	3	488	1	n	n
+Nordrhein-Westfalen	Euskirchen	157	6	598	5	y	y
+Nordrhein-Westfalen	Heinsberg	140	4	632	6	n	n
+Nordrhein-Westfalen	Leverkusen Städte	137	3	726	9	n	n
+Nordrhein-Westfalen	Oberbergischer Kreis	153	6	458	0	n	y
+Nordrhein-Westfalen	Rhein-Erft-Kreis	164	8	627	6	y	n
+Nordrhein-Westfalen	Rhein-Sieg	155	6	542	3	y	n
+Nordrhein-Westfalen	Rheinisch-Bergischer Kreis	166	8	641	6	n	y
+Nordrhein-Westfalen	Borken	150	5	618	6	y	y
+Nordrhein-Westfalen	Bottrop Städte	144	4	475	1	y	y
+Nordrhein-Westfalen	Coesfeld	147	5	714	9	n	n
+Nordrhein-Westfalen	Gelsenkirchen Städte	146	5	644	6	y	n
+Nordrhein-Westfalen	M�nster Städte	180	10	480	1	n	y
+Nordrhein-Westfalen	Recklinghausen	146	5	710	9	y	y
+Nordrhein-Westfalen	Steinfurt	132	2	518	2	n	y
+Nordrhein-Westfalen	Warendorf	132	2	515	2	n	y
+Rheinland-Pfalz	Ahrweiler	133	2	615	6	n	n
+Rheinland-Pfalz	Altenkirchen	169	8	699	8	n	n
+Rheinland-Pfalz	Bad Kreuznach	139	3	557	4	y	y
+Rheinland-Pfalz	Birkenfeld	157	6	514	2	n	y
+Rheinland-Pfalz	Cochem-Zell	121	0	636	6	n	n
+Rheinland-Pfalz	Koblenz Coblenz Städte	168	8	648	7	n	y
+Rheinland-Pfalz	Mayen-Koblenz	129	2	482	1	y	y
+Rheinland-Pfalz	Neuwied	124	1	458	0	n	y
+Rheinland-Pfalz	Rhein-Hunsr�ck	140	4	663	7	y	n
+Rheinland-Pfalz	Rhein-Lahn	156	6	702	8	y	y
+Rheinland-Pfalz	Westerwaldkreis	161	7	457	0	n	y
+Rheinland-Pfalz	Alzey-Worms	132	2	502	2	n	n
+Rheinland-Pfalz	Bad D�rkheim	160	7	701	8	n	n
+Rheinland-Pfalz	Donnersbergkreis	131	2	694	8	n	n
+Rheinland-Pfalz	Frankenthal Städte	135	3	622	6	n	n
+Rheinland-Pfalz	Germersheim	142	4	622	6	y	y
+Rheinland-Pfalz	Kaiserslautern Städte	151	5	539	3	n	n
+Rheinland-Pfalz	Kaiserslautern	133	2	484	1	y	y
+Rheinland-Pfalz	Kusel	144	4	638	6	n	n
+Rheinland-Pfalz	Landau Städte	125	1	621	6	n	y
+Rheinland-Pfalz	Ludwigshafen Städte	129	2	591	5	n	n
+Rheinland-Pfalz	Mainz-Bingen	143	4	463	0	n	y
+Rheinland-Pfalz	Mainz Städte	160	7	483	1	y	y
+Rheinland-Pfalz	Neustadt Städte	172	9	649	7	y	y
+Rheinland-Pfalz	Rhein-Pfalz-Kreis	140	4	681	8	n	y
+Rheinland-Pfalz	Speyer Spires Städte	124	1	732	9	n	n
+Rheinland-Pfalz	S�dliche Weinstra��e	161	7	643	6	y	n
+Rheinland-Pfalz	S�dwestpfalz	120	0	511	2	n	y
+Rheinland-Pfalz	Worms Städte	164	8	462	0	n	y
+Rheinland-Pfalz	Zweibr�cken Städte	146	5	543	3	n	y
+Rheinland-Pfalz	Bernkastel-Wittlich	157	6	530	3	n	n
+Rheinland-Pfalz	Bitburg-Pr�m	172	9	637	6	y	n
+Rheinland-Pfalz	Trier-Saarburg	131	2	577	4	n	y
+Rheinland-Pfalz	Trier Städte	148	5	710	9	n	y
+Rheinland-Pfalz	Vulkaneifel	147	5	520	2	y	y
+Saarland	Merzig-Wadern	125	1	586	5	y	y
+Saarland	Neunkirchen	174	9	577	4	n	n
+Saarland	Saarbr�cken Städte	157	6	701	8	n	n
+Saarland	Saarlouis	175	9	624	6	y	n
+Saarland	Saarpfalz	166	8	511	2	y	n
+Saarland	Sankt Wendel	171	9	698	8	n	n
+Sachsen-Anhalt	Anhalt-Zerbst	167	8	609	5	n	y
+Sachsen-Anhalt	Bernburg	120	0	626	6	y	y
+Sachsen-Anhalt	Bitterfeld	170	9	529	3	y	y
+Sachsen-Anhalt	Dessau Städte	133	2	643	6	n	y
+Sachsen-Anhalt	K�then	127	1	561	4	y	n
+Sachsen-Anhalt	Wittenberg	158	7	655	7	n	n
+Sachsen-Anhalt	Aschersleben-Sta��furt	127	1	649	7	y	n
+Sachsen-Anhalt	Burgenlandkreis	131	2	549	3	n	n
+Sachsen-Anhalt	Halle Städte	155	6	467	1	n	y
+Sachsen-Anhalt	Mansfelder Land	124	1	507	2	n	y
+Sachsen-Anhalt	Merseburg-Querfurt	129	2	517	2	n	y
+Sachsen-Anhalt	Saalkreis	145	4	533	3	n	y
+Sachsen-Anhalt	Sangerhausen	136	3	521	2	y	n
+Sachsen-Anhalt	Wei��enfels	161	7	722	9	n	n
+Sachsen-Anhalt	Altmarkkreis Salzwedel	138	3	672	7	y	n
+Sachsen-Anhalt	B�rdekreis	162	7	649	7	y	y
+Sachsen-Anhalt	Halberstadt	127	1	711	9	n	n
+Sachsen-Anhalt	Jerichower Land	153	6	661	7	y	y
+Sachsen-Anhalt	Magdeburg Städte	135	3	609	5	y	y
+Sachsen-Anhalt	Ohrekreis	123	1	692	8	y	n
+Sachsen-Anhalt	Quedlinburg	155	6	657	7	y	n
+Sachsen-Anhalt	Sch�nebeck	152	6	532	3	n	n
+Sachsen-Anhalt	Stendal	128	2	637	6	n	y
+Sachsen-Anhalt	Wernigerode	179	10	613	5	n	y
+Sachsen	Annaberg	145	4	724	9	n	y
+Sachsen	Aue-Schwarzenberg	172	9	457	0	n	n
+Sachsen	Chemnitz Städte	123	1	670	7	y	y
+Sachsen	Chemnitzer Land	163	7	677	8	y	n
+Sachsen	Freiberg	124	1	562	4	n	n
+Sachsen	Mittlerer Erzgebirgskreis	126	1	686	8	n	n
+Sachsen	Mittweida	130	2	589	5	y	y
+Sachsen	Plauen Städte	166	8	486	1	n	y
+Sachsen	Stollberg	137	3	675	8	y	n
+Sachsen	Vogtlandkreis	131	2	537	3	n	n
+Sachsen	Zwickau Städte	128	2	541	3	n	n
+Sachsen	Zwickauer Land	154	6	668	7	n	y
+Sachsen	Bautzen	147	5	534	3	n	y
+Sachsen	Dresden Städte	134	3	651	7	y	y
+Sachsen	G�rlitz Städte	164	8	535	3	y	n
+Sachsen	Kamenz	120	0	513	2	y	n
+Sachsen	L�bau-Zittau	149	5	697	8	n	y
+Sachsen	Mei��en	179	10	714	9	y	y
+Sachsen	Niederschlesischer Oberlausitzkreis	124	1	714	9	y	n
+Sachsen	Riesa-Gro��enhain	167	8	679	8	n	y
+Sachsen	S�chsische Schweiz	158	7	600	5	y	n
+Sachsen	Wei��eritzkreis	165	8	575	4	y	y
+Sachsen	Delitzsch	129	2	731	9	n	n
+Sachsen	D�beln	132	2	630	6	n	y
+Sachsen	Leipzig Städte	138	3	525	3	n	y
+Sachsen	Leipziger Land	168	8	505	2	y	y
+Sachsen	Muldentalkreis	151	5	477	1	n	y
+Sachsen	Torgau-Oschatz	122	1	570	4	n	n
+Schleswig-Holstein	Dithmarschen	128	2	530	3	y	y
+Schleswig-Holstein	Flensburg Städte	154	6	536	3	y	n
+Schleswig-Holstein	Kiel Städte	153	6	681	8	n	y
+Schleswig-Holstein	Lauenburg	133	2	451	0	n	y
+Schleswig-Holstein	L�beck Städte	152	6	674	7	y	y
+Schleswig-Holstein	Neum�nster Städte	120	0	510	2	n	y
+Schleswig-Holstein	Nordfriesland	176	10	695	8	y	n
+Schleswig-Holstein	Ostholstein	126	1	519	2	y	y
+Schleswig-Holstein	Pinneberg	179	10	634	6	n	n
+Schleswig-Holstein	Pl�n	161	7	667	7	n	y
+Schleswig-Holstein	Rendsburg-Eckernf�rde	160	7	507	2	y	y
+Schleswig-Holstein	Schleswig-Flensburg	172	9	642	6	n	n
+Schleswig-Holstein	Segeberg	121	0	714	9	n	y
+Schleswig-Holstein	Steinburg	127	1	642	6	y	y
+Schleswig-Holstein	Stormarn	145	4	659	7	y	y
+Th�ringen	Altenburger Land	146	5	511	2	n	n
+Th�ringen	Eichsfeld	175	9	704	8	y	n
+Th�ringen	Erfurt Städte	120	0	600	5	y	n
+Th�ringen	Gera Städte	122	1	468	1	y	y
+Th�ringen	Gotha	135	3	730	9	y	y
+Th�ringen	Greiz	159	7	608	5	y	n
+Th�ringen	Hildburghausen	166	8	643	6	y	n
+Th�ringen	Ilm-Kreis	178	10	463	0	n	n
+Th�ringen	Jena Städte	156	6	523	2	n	y
+Th�ringen	Kyffh�userkreis	142	4	537	3	n	n
+Th�ringen	Nordhausen	140	4	502	2	n	y
+Th�ringen	Saale-Holzland	152	6	505	2	n	y
+Th�ringen	Saale-Orla	171	9	510	2	n	n
+Th�ringen	Saalfeld-Rudolstadt	178	10	664	7	y	y
+Th�ringen	Schmalkalden-Meiningen	157	6	705	9	n	y
+Th�ringen	S�mmerda	135	3	498	2	n	n
+Th�ringen	Sonneberg	121	0	451	0	n	y
+Th�ringen	Suhl Städte	169	8	701	8	n	y
+Th�ringen	Unstrut-Hainich	136	3	604	5	y	y
+Th�ringen	Wartburgkreis	156	6	548	3	y	y
+Th�ringen	Weimar Städte	143	4	509	2	y	y
+Th�ringen	Weimarer Land	125	1	717	9	y	y

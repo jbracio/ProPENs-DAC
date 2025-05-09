@@ -1,0 +1,88 @@
+/* Layout-Grundstruktur */
+body[b-65bq2bjef5] {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
+    color: #222;
+}
+
+/* Hauptbereich unterhalb des Headers */
+main[b-65bq2bjef5] {
+    padding: 20px;
+    margin-top: 70px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Modernes Header-Menü */
+header[b-65bq2bjef5] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to right, #003C78, #005EA8);
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+header div:first-child[b-65bq2bjef5] {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+header nav[b-65bq2bjef5] {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header nav span[b-65bq2bjef5] {
+    color: white;
+    font-size: 14px;
+}
+
+header nav a[b-65bq2bjef5] {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header nav a:hover[b-65bq2bjef5] {
+    text-decoration: underline;
+}
+
+/* Logo unten rechts */
+img[alt="TUM Logo"][b-65bq2bjef5] {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 50px;
+    z-index: 1000;
+}
+
+/* Responsive für Mobilgeräte */
+@media (max-width: 768px) {
+    header[b-65bq2bjef5] {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+        align-items: flex-start;
+    }
+
+    header nav[b-65bq2bjef5] {
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    main[b-65bq2bjef5] {
+        margin-top: 120px;
+    }
+}

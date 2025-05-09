@@ -1,0 +1,181 @@
+@page "/karte"
+@inject IJSRuntime JS
+
+<div style="display: flex; align-items: flex-start; gap: 20px; padding: 20px; font-family: 'Segoe UI', sans-serif; color: #003C78;">
+
+    <!-- Linke Spalte: Filterdrawer -->
+    <div id="filter-drawer" style="width: 300px; height: calc(100vh - 40px); background: linear-gradient(to bottom, #003C78, #005EA8); color: white; padding: 20px; box-shadow: -2px 0 12px rgba(0,0,0,0.2); border-radius: 12px; position: sticky; top: 20px; opacity: 0.9;">
+        <button onclick="document.getElementById('filter-drawer').classList.remove('open'); document.getElementById('main-content').style.marginLeft = '0';" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: white; font-size: 20px; font-weight: bold; cursor: pointer;">✖</button>
+        <h3 style="margin-top: 0; margin-bottom: 15px; font-weight: 600;">Filter</h3>
+        <label for="stateFilter" style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Select Bundesländer:</label>
+        <select id="stateFilter" multiple style="width: 100%; padding: 8px; font-size: 14px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 15px; background-color: white; color: #003C78;">
+            <option value="Bayern">Bavaria</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Hamburg">Hamburg</option>
+            <option value="Hessen">Hesse</option>
+            <option value="Bremen">Bremen</option>
+            <option value="Niedersachsen">Lower Saxony</option>
+            <option value="Sachsen">Saxony</option>
+            <option value="Baden-Württemberg">Baden-Württemberg</option>
+            <option value="Brandenburg">Brandenburg</option>
+            <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+            <option value="Nordrhein-Westfalen">North Rhine-Westphalia</option>
+            <option value="Rheinland-Pfalz">Rhineland-Palatinate</option>
+            <option value="Saarland">Saarland</option>
+            <option value="Sachsen-Anhalt">Saxony-Anhalt</option>
+            <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+            <option value="Thüringen">Thuringia</option>
+        </select>
+
+        <label for="co2ScoreSlider" style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Min. CO₂ Price Score:</label>
+        <input type="range" id="co2ScoreSlider" min="1" max="10" value="1" style="width: 100%; accent-color: #003C78; height: 6px; margin-bottom: 5px;" oninput="document.getElementById('scoreValue').textContent = this.value" />
+        <div style="text-align: right; font-size: 13px; margin-bottom: 15px; color: white;"><span id="scoreValue">1</span></div>
+
+        <label for="nettoScoreSlider" style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Min. Netto CO₂ Score:</label>
+        <input type="range" id="nettoScoreSlider" min="1" max="10" value="1" style="width: 100%; accent-color: #003C78; height: 6px; margin-bottom: 5px;" oninput="document.getElementById('nettoScoreValue').textContent = this.value" />
+        <div style="text-align: right; font-size: 13px; margin-bottom: 15px; color: white;"><span id="nettoScoreValue">1</span></div>
+
+        <div style="margin-top: 10px;">
+            <label style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Solar Filter:</label>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
+                <div id="solarToggle" data-value="Y" onclick="this.dataset.value = (this.dataset.value === 'Y' ? 'N' : 'Y'); this.textContent = this.dataset.value;"
+                     style="cursor: pointer; background: white; color: #003C78; padding: 6px 14px; border-radius: 20px; border: 1px solid #ccc; width: 50px; text-align: center; font-weight: 600; user-select: none;">
+                    Y
+                </div>
+                <label for="solarFilterCheckbox" style="font-size: 13px; font-weight: 500; margin-left: 10px; flex-grow: 1; user-select: none;">Include Solar</label>
+                <input type="checkbox" id="solarFilterCheckbox" style="width: 18px; height: 18px;" />
+            </div>
+
+            <label style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Wind Filter:</label>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div id="windToggle" data-value="Y" onclick="this.dataset.value = (this.dataset.value === 'Y' ? 'N' : 'Y'); this.textContent = this.dataset.value;"
+                     style="cursor: pointer; background: white; color: #003C78; padding: 6px 14px; border-radius: 20px; border: 1px solid #ccc; width: 50px; text-align: center; font-weight: 600; user-select: none;">
+                    Y
+                </div>
+                <label for="windFilterCheckbox" style="font-size: 13px; font-weight: 500; margin-left: 10px; flex-grow: 1; user-select: none;">Include Wind</label>
+                <input type="checkbox" id="windFilterCheckbox" style="width: 18px; height: 18px;" />
+            </div>
+        </div>
+
+        <div style="margin-top: 25px; display: flex; flex-direction: column; gap: 10px;">
+            <button onclick="applyStateFilter()" style="background-color: white; color: #003C78; border: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.3s ease;">Apply Filter</button>
+            <button onclick="resetStateFilter()" style="background-color: white; color: #003C78; border: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.3s ease;">Reset Filter</button>
+            <button onclick="toggleCityMarkers()" style="background-color: white; color: #003C78; border: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.3s ease;">Cities On/Off</button>
+        </div>
+    </div>
+
+    <!-- Mittelbereich: Karte + Buttons -->
+    <div id="main-content" style="flex: 1; display: flex; flex-direction: column; gap: 15px;">
+
+        <div style="display: flex; justify-content: center; gap: 15px;">
+            <button onclick="
+                const drawer = document.getElementById('filter-drawer');
+                drawer.classList.toggle('open');
+            "
+                style="background: linear-gradient(to right, #003C78, #005EA8); color: white; border: none; padding: 10px 22px; font-size: 14px; border-radius: 8px; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.15); cursor: pointer; transition: background 0.3s ease;">
+                Filter Options
+            </button>
+            <button onclick="resetStateFilter()"
+                style="background: linear-gradient(to right, #003C78, #005EA8); color: white; border: none; padding: 10px 22px; font-size: 14px; border-radius: 8px; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.15); cursor: pointer; transition: background 0.3s ease;">
+                Reset Filter
+            </button>
+            <button id="toggleColorButton" onclick="toggleColorScale()"
+                style="background: linear-gradient(to right, #003C78, #005EA8); color: white; border: none; padding: 10px 22px; font-size: 14px; border-radius: 8px; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.15); cursor: pointer; transition: background 0.3s ease;">
+                Switch to Netto CO₂ Emission Score
+            </button>
+        </div>
+
+        <div id="map-frame" style="border-radius: 12px; background: white; padding: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); height: 670px; margin-top: 5px;">
+            <div id="map-container" style="width: 530px; height: 600px; background: white; border: 1px solid #ccc; margin: 0 auto;">
+                <div id="map" style="width: 100%; height: 100%; background-color: white; border-radius: 12px;"></div>
+            </div> <!-- #map-container -->
+
+            <div id="info-panel" style="display: none; margin-top: 15px; width: 300px; background: white; border: 1px solid #ccc; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); position: relative;">
+                <button onclick="closePanel()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #003C78; font-size: 18px; font-weight: bold; cursor: pointer;">✖</button>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong id="panel-title">Landkreis</strong>
+                </div>
+                <div id="panel-population" style="margin-top: 15px; font-size: 14px; line-height: 1.4em;"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Rechte Spalte: Dashboard-Kacheln + Diagramme -->
+    <div style="width: 320px; display: flex; flex-direction: column; gap: 20px; position: sticky; top: 20px;">
+
+        <!-- Dashboard Statistik-Kacheln -->
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+            <div style="width: 140px; background: white; border-radius: 10px; padding: 12px; height: 100px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                <h4 style="margin: 0 0 10px; color: #003C78; font-weight: 600; font-size: 16px;">Ø CO₂ Price</h4>
+                <div id="avg-co2-price" style="font-size: 24px; font-weight: 700; color: #003C78;">– €</div>
+            </div>
+            <div style="width: 140px; background: white; border-radius: 10px; padding: 12px; height: 100px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                <h4 style="margin: 0 0 10px; color: #003C78; font-weight: 600; font-size: 16px;">Ø Netto CO₂</h4>
+                <div id="avg-netto-co2" style="font-size: 24px; font-weight: 700; color: #003C78;">– t</div>
+            </div>
+            <div style="width: 140px; background: white; border-radius: 10px; padding: 12px; height: 100px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                <h4 style="margin: 0 0 10px; color: #003C78; font-weight: 600; font-size: 16px;">PV Available</h4>
+                <div id="pv-count" style="font-size: 24px; font-weight: 700; color: #003C78;">– von –</div>
+            </div>
+            <div style="width: 140px; background: white; border-radius: 10px; padding: 12px; height: 100px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                <h4 style="margin: 0 0 10px; color: #003C78; font-weight: 600; font-size: 16px;">Solar Available</h4>
+                <div id="solar-count" style="font-size: 24px; font-weight: 700; color: #003C78;">– von –</div>
+            </div>
+        </div>
+
+        <!-- Diagramme -->
+        <div style="background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <canvas id="scoreChart" style="width: 100%; height: 300px;"></canvas>
+        </div>
+        <div style="background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top: 10px;">
+            <canvas id="nettoScoreChart" style="width: 100%; height: 300px;"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // Variable to track which color scale is used
+    window.useNettoColorScale = window.useNettoColorScale || false;
+    window.toggleColorScale = function () {
+        useNettoColorScale = !useNettoColorScale;
+        const button = document.getElementById("toggleColorButton");
+        if (button) {
+            button.textContent = useNettoColorScale 
+                ? "Switch to CO₂ Prices per Ton Score" 
+                : "Switch to Netto CO₂ Emission Score";
+            // Style-Änderung je nach aktiver Farbskala
+            if (useNettoColorScale) {
+                button.style.background = "linear-gradient(to right, #1b5e20, #4caf50)";
+            } else {
+                button.style.background = "linear-gradient(to right, #003C78, #005EA8)";
+            }
+        }
+        applyStateFilter();
+    }
+</script>
+
+<script src="charts.js"></script>
+<script>
+    function filterChartByState() {
+        const selectedState = document.getElementById("chartStateFilter")?.value || "ALL";
+        if (typeof renderScoreChartFiltered === "function" && window.populationData) {
+            renderScoreChartFiltered(window.populationData, selectedState);
+        }
+        if (typeof renderNettoScoreChartFiltered === "function" && window.populationData) {
+            renderNettoScoreChartFiltered(window.populationData, selectedState);
+        }
+    }
+</script>
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("loadMap");
+            await JS.InvokeVoidAsync("filterChartByState");
+        }
+    }
+}

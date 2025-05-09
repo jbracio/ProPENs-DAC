@@ -1,0 +1,471 @@
+<style>
+.leaflet-bottom.leaflet-left {
+    bottom: 20px;
+    left: unset;
+    right: 20px;
+}
+</style>
+@page "/statistiken"
+@inject IJSRuntime JS
+
+<PageTitle>Statistics</PageTitle>
+
+<!-- Hero Section -->
+<section style="padding: 50px 20px 30px; background: linear-gradient(to right, #003C78, #005EA8); color: white; text-align: center;">
+    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">DAC Statistics-Dashboard</h1>
+    <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+        Interactive insights into CO₂ potentials and site selection factors in Germany.
+    </p>
+</section>
+
+@* <section style="padding: 20px 40px; display: flex; justify-content: center; align-items: center; gap: 20px;">
+    <label for="bundeslandSelect" style="font-weight: 600; color: #003C78;">Bundesland:</label>
+    <select id="bundeslandSelect" onchange="updateKpiStatistik()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc;">
+        <option value="ALL">Gesamt</option>
+        <option value="Bayern">Bayern</option>
+        <option value="Berlin">Berlin</option>
+        <option value="Brandenburg">Brandenburg</option>
+        <option value="Bremen">Bremen</option>
+        <option value="Hamburg">Hamburg</option>
+        <option value="Hessen">Hessen</option>
+        <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+        <option value="Niedersachsen">Niedersachsen</option>
+        <option value="Nordrhein-Westfalen">Nordrhein-Westfalen</option>
+        <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+        <option value="Saarland">Saarland</option>
+        <option value="Sachsen">Sachsen</option>
+        <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+        <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+        <option value="Thüringen">Thüringen</option>
+    </select>
+</section> *@
+
+<style>
+.kpi-card {
+    flex: 1 1 200px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+</style>
+
+
+<section style="padding: 20px 40px;">
+    <h2 style="color: #003C78; margin-bottom: 20px;">Visual Analysis</h2>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+        <div id="resetAllContainer" style="display: none;">
+            <div class="filter-tag" onclick="resetStateFilter(); filterChartByState(); updateActiveFilters()" style="font-weight: 500; background-color: #003C78; color: white;">
+                ✖ Reset all Filters
+            </div>
+        </div>
+        <div id="active-filters" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+    </div>
+    <div style="display: flex; gap: 20px; height: 860px;">
+        <!-- Filter Field -->
+        <div class="hover-frame" style="flex: 0 0 300px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); overflow-y: auto;">
+            <h3 style="margin-top: 0; margin-bottom: 15px; font-weight: 600;">Filter Options</h3>
+        <label for="stateFilter" style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Select Federal States:</label>
+        <select id="stateFilter" multiple style="width: 100%; padding: 8px; font-size: 14px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 15px; background-color: white; color: #003C78;">
+            <option value="Bayern">Bavaria</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Hamburg">Hamburg</option>
+            <option value="Hessen">Hesse</option>
+            <option value="Bremen">Bremen</option>
+            <option value="Niedersachsen">Lower Saxony</option>
+            <option value="Sachsen">Saxony</option>
+            <option value="Baden-Württemberg">Baden-Württemberg</option>
+            <option value="Brandenburg">Brandenburg</option>
+            <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+            <option value="Nordrhein-Westfalen">North Rhine-Westphalia</option>
+            <option value="Rheinland-Pfalz">Rhineland-Palatinate</option>
+            <option value="Saarland">Saarland</option>
+            <option value="Sachsen-Anhalt">Saxony-Anhalt</option>
+            <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+            <option value="Thüringen">Thuringia</option>
+        </select>
+
+        <label for="co2ScoreSlider" style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">
+            Min. CO₂ Price Score: 
+            <span id="scoreValueBox" style="background: #fff; color: #003C78; font-weight: bold; padding: 2px 8px; border-radius: 6px; font-size: 13px; margin-left: 6px;">0</span>
+        </label>
+        <input type="range" id="co2ScoreSlider" min="0" max="10" value="0" style="width: 100%; accent-color: #003C78; height: 6px; margin-bottom: 15px;" oninput="document.getElementById('scoreValueBox').textContent = this.value" />
+
+        <label for="nettoScoreSlider" style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">
+            Min. Net CO₂ Score: 
+            <span id="nettoScoreValueBox" style="background: #fff; color: #003C78; font-weight: bold; padding: 2px 8px; border-radius: 6px; font-size: 13px; margin-left: 6px;">0</span>
+        </label>
+        <input type="range" id="nettoScoreSlider" min="0" max="10" value="0" style="width: 100%; accent-color: #003C78; height: 6px; margin-bottom: 15px;" oninput="document.getElementById('nettoScoreValueBox').textContent = this.value" />
+
+        <div style="margin-top: 10px;">
+            <label style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Solar Filter:</label>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
+                <div id="solarToggle" data-value="Y" onclick="this.dataset.value = (this.dataset.value === 'Y' ? 'N' : 'Y'); this.textContent = this.dataset.value;"
+                     style="cursor: pointer; background: white; color: #003C78; padding: 6px 14px; border-radius: 20px; border: 1px solid #ccc; width: 50px; text-align: center; font-weight: 600; user-select: none;">
+                    Y
+                </div>
+                <label for="solarFilterCheckbox" style="font-size: 13px; font-weight: 500; margin-left: 10px; flex-grow: 1; user-select: none;">Include Solar</label>
+                <input type="checkbox" id="solarFilterCheckbox" style="width: 18px; height: 18px;" />
+            </div>
+
+            <label style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Wind Filter:</label>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div id="windToggle" data-value="Y" onclick="this.dataset.value = (this.dataset.value === 'Y' ? 'N' : 'Y'); this.textContent = this.dataset.value;"
+                     style="cursor: pointer; background: white; color: #003C78; padding: 6px 14px; border-radius: 20px; border: 1px solid #ccc; width: 50px; text-align: center; font-weight: 600; user-select: none;">
+                    Y
+                </div>
+                <label for="windFilterCheckbox" style="font-size: 13px; font-weight: 500; margin-left: 10px; flex-grow: 1; user-select: none;">Include Wind</label>
+                <input type="checkbox" id="windFilterCheckbox" style="width: 18px; height: 18px;" />
+            </div>
+        </div>
+
+        <div style="margin-top: 25px; display: flex; flex-direction: column; gap: 10px;">
+            <button id="toggleColorButton" onclick="toggleColorScale()"
+                style="background: linear-gradient(to right, #003C78, #005EA8); color: white; border: none; padding: 10px 22px; font-size: 14px; border-radius: 8px; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.15); cursor: pointer; transition: background 0.3s ease;">
+                Switch to Netto CO₂ Emission
+            </button>
+            <button onclick="applyStateFilter(); filterChartByState(); updateActiveFilters()" style="background-color: white; color: #003C78; border: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.3s ease;">Apply Filter</button>
+            <button onclick="resetStateFilter(); filterChartByState(); updateActiveFilters()" style="background-color: white; color: #003C78; border: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.3s ease;">Reset Filter</button>
+            <button onclick="toggleCityMarkers()" style="background-color: white; color: #003C78; border: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.3s ease;">Cities On/Off</button>
+        </div>
+        </div>
+        
+        <!-- Mittelspalte: Karte mit Info-Panel, Diagramme rechts daneben -->
+        <div id="map-frame" class="hover-frame" style="flex: 1 1 auto; display: flex; background: white; padding: 10px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); gap: 20px; position: relative; overflow: hidden; box-sizing: border-box; height: 100%; width: 30%;">
+            <div id="map-container" style="flex: 0 0 100%; width: 100%; max-width: 100%; height: 100%; background: white; border: 1px solid #ccc; border-radius: 12px; position: relative;">
+                <!-- Mini-KPI-Statistiken oberhalb der Karte, jetzt schwebend am oberen Rand -->
+                <div style="position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000; display: flex; justify-content: space-between; gap: 10px;">
+                    <div class="mini-kpi"><div class="mini-kpi-icon">💶</div><div class="mini-kpi-label">CO₂ Price</div><div class="mini-kpi-value" id="mini-kpi-co2">– €</div></div>
+                    <div class="mini-kpi"><div class="mini-kpi-icon">🌫️</div><div class="mini-kpi-label">Net CO₂</div><div class="mini-kpi-value" id="mini-kpi-netto">– kg</div></div>
+                    <div class="mini-kpi"><div class="mini-kpi-icon">💨</div><div class="mini-kpi-label">PV Available</div><div class="mini-kpi-value" id="mini-kpi-pv">–</div></div>
+                    <div class="mini-kpi"><div class="mini-kpi-icon">☀️</div><div class="mini-kpi-label">Solar Available</div><div class="mini-kpi-value" id="mini-kpi-solar">–</div></div>
+                </div>
+                <div id="map" style="width: 100%; height: 100%; border-radius: 12px; background-color: white;"></div>
+                <button id="legend-toggle" onclick="toggleLegend()" style="position: absolute; bottom: 10px; left: 10px; z-index: 1000; background-color: #003C78; color: white; border: none; padding: 6px 12px; font-size: 14px; border-radius: 6px; cursor: pointer;">
+                    Legend
+                </button>
+                <div id="legend-box" style="position: absolute; bottom: 50px; left: 10px; z-index: 999; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); display: none; width: 360px; font-size: 12px;">
+                    <div id="legend-title" style="font-weight: bold; margin-bottom: 6px;">Legend</div>
+                    <div id="legend-range" style="margin-top: 6px;"></div>
+                </div>
+                <div id="info-panel" style="width: 300px; height: 50%; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: none; position: absolute; bottom: 10px; right: 10px; z-index: 1000;">
+                    <button onclick="closePanel()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #003C78; font-size: 16px; font-weight: bold; cursor: pointer;">✖</button>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <strong id="panel-title" style="font-size: 1.02rem;">Landkreis</strong>
+                    </div>
+                    <div id="panel-population" style="margin-top: 13px; font-size: 13px; line-height: 1.3em;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right-side Data Frames stacked vertically -->
+        <div style="width: 40%; height: 100%; display: flex; flex-direction: column; gap: 20px;">
+            <div class="hover-frame" style="height: 50%; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                <h3 style="margin-top: 0; color: #003C78;">
+                  CO₂ Price Score Distribution 
+                  <span style="font-size: 12px; font-weight: normal;">(Only Federal State Filter Applies)</span>
+                </h3>
+                <canvas id="scoreChart" style="width: 100%; height: 100%; display: block;"></canvas>
+            </div>
+            <div class="hover-frame" style="height: 50%; background: white; border-radius: 12px; padding: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); box-sizing: border-box; overflow: hidden;">
+                <h3 style="margin-top: 0; color: #1b5e20;">
+                  Net CO₂ Score Distribution 
+                  <span style="font-size: 12px; font-weight: normal;">(Only Federal State Filter Applies)</span>
+                </h3>
+                <canvas id="nettoScoreChart" style="width: 100%; height: 100%; display: block;"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Variable to track which color scale is used
+    window.useNettoColorScale = window.useNettoColorScale || false;
+    window.toggleColorScale = function () {
+        useNettoColorScale = !useNettoColorScale;
+        const button = document.getElementById("toggleColorButton");
+        if (button) {
+            button.textContent = useNettoColorScale 
+                ? "Switch to CO₂ Prices per Ton" 
+                : "Switch to Netto CO₂ Emission";
+            // Style-Änderung je nach aktiver Farbskala
+            if (useNettoColorScale) {
+                button.style.background = "linear-gradient(to right, #1b5e20, #4caf50)";
+            } else {
+                button.style.background = "linear-gradient(to right, #003C78, #005EA8)";
+            }
+        }
+        // Farbanpassung für den Legend-Button
+        const legendButton = document.getElementById("legend-toggle");
+        if (legendButton) {
+            legendButton.style.background = useNettoColorScale
+                ? "linear-gradient(to right, #1b5e20, #4caf50)"
+                : "linear-gradient(to right, #003C78, #005EA8)";
+        }
+        applyStateFilter();
+    }
+</script>
+
+<script>
+function updateActiveFilters() {
+    const container = document.getElementById("active-filters");
+    if (!container) return;
+    container.innerHTML = "";
+
+    const selectedStates = Array.from(document.getElementById("stateFilter").selectedOptions).map(o => o.value);
+    const minCO2 = document.getElementById("co2ScoreSlider").value;
+    const minNetto = document.getElementById("nettoScoreSlider").value;
+    const solar = document.getElementById("solarToggle").dataset.value;
+    const wind = document.getElementById("windToggle").dataset.value;
+    const solarChecked = document.getElementById("solarFilterCheckbox").checked;
+    const windChecked = document.getElementById("windFilterCheckbox").checked;
+
+    if (selectedStates.length > 0)
+        selectedStates.forEach(state =>
+            container.innerHTML += `<div class="filter-tag" onclick="removeFilter('state', '${state}')">✖ ${state}</div>`
+        );
+    if (minCO2 !== "0")
+        container.innerHTML += `<div class="filter-tag" onclick="removeFilter('co2')">✖ Min CO₂ Price Score: ${minCO2}</div>`;
+    else
+        container.innerHTML += `<div class="filter-tag">Min CO₂ Price Score: ${minCO2}</div>`;
+    if (minNetto !== "0")
+        container.innerHTML += `<div class="filter-tag" onclick="removeFilter('netto')">✖ Min Net CO₂ Score: ${minNetto}</div>`;
+    else
+        container.innerHTML += `<div class="filter-tag">Min Net CO₂ Score: ${minNetto}</div>`;
+    if (solarChecked)
+        container.innerHTML += `<div class="filter-tag" onclick="removeFilter('solar')">✖ Solar: ${solar}</div>`;
+    else
+        container.innerHTML += `<div class="filter-tag">Solar: ${solar}</div>`;
+    if (windChecked)
+        container.innerHTML += `<div class="filter-tag" onclick="removeFilter('wind')">✖ Wind: ${wind}</div>`;
+    else
+        container.innerHTML += `<div class="filter-tag">Wind: ${wind}</div>`;
+
+    // Show "Reset all Filters" button only if any filter is active
+    const resetContainer = document.getElementById("resetAllContainer");
+    const anyActive = selectedStates.length > 0 || minCO2 !== "0" || minNetto !== "0" || solarChecked || windChecked;
+    resetContainer.style.display = anyActive ? "block" : "none";
+}
+function removeFilter(type, value) {
+    if (type === "state") {
+        const select = document.getElementById("stateFilter");
+        for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === value) {
+                select.options[i].selected = false;
+                break;
+            }
+        }
+    }
+    else if (type === "co2") {
+        document.getElementById("co2ScoreSlider").value = "0";
+        document.getElementById("scoreValueBox").textContent = "0";
+    }
+    else if (type === "netto") {
+        document.getElementById("nettoScoreSlider").value = "0";
+        document.getElementById("nettoScoreValueBox").textContent = "0";
+    }
+    else if (type === "solar") {
+        document.getElementById("solarFilterCheckbox").checked = false;
+    }
+    else if (type === "wind") {
+        document.getElementById("windFilterCheckbox").checked = false;
+    }
+    // Add support for other types if needed
+    applyStateFilter();
+    filterChartByState();
+    updateActiveFilters();
+}
+</script>
+
+<script>
+    function filterChartByState() {
+        const selectedStates = Array.from(document.getElementById("stateFilter").selectedOptions).map(o => o.value);
+        const filteredData = selectedStates.length === 0 || selectedStates.includes("ALL")
+            ? Object.values(window.populationData)
+            : Object.values(window.populationData).filter(d => selectedStates.includes(d.Bundesland));
+        console.log("Selected states:", selectedStates);
+        console.log("Filtered data:", filteredData);
+        if (typeof renderCO2PriceChart === "function") {
+            renderCO2PriceChart(filteredData);
+        }
+        if (typeof renderNettoCO2ScoreChart === "function") {
+            renderNettoCO2ScoreChart(filteredData);
+        }
+        // Update mini and KPI tiles after filtering
+        if (typeof updateStatKacheln === "function") {
+            updateStatKacheln(filteredData);
+        }
+    }
+</script>
+
+<script>
+function toggleLegend() {
+    const box = document.getElementById("legend-box");
+    if (box.style.display === "block") {
+        box.style.display = "none";
+    } else {
+        box.style.display = "block";
+        updateLegendBox();
+    }
+}
+
+function updateLegendBox() {
+    const rangeBox = document.getElementById("legend-range");
+    if (!rangeBox) return;
+
+    rangeBox.innerHTML = `
+<div style="display: flex; gap: 16px;">
+
+  <!-- CO₂ Price Score -->
+  <div style="flex: 1; text-align: center;">
+    <strong style="font-size: 13px;">CO₂ Price Score</strong>
+    <div style="height: 24px; background: linear-gradient(to right, #d0e8ff, #003C78); border-radius: 4px; margin: 8px 0; position: relative;">
+      ${Array.from({ length: 10 }, (_, i) => `
+        <div style="position: absolute; left: ${(i * 10)}%; width: 1px; height: 100%; background: #444;"></div>
+      `).join("")}
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-top: -2px;">
+      ${Array.from({ length: 10 }, (_, i) => `<span>${i + 1}</span>`).join("")}
+    </div>
+    <div style="font-size: 11px; line-height: 1.4em; margin-top: 6px; text-align: left;">
+      1: 120–125 €/t<br>2: 126–131<br>3: 132–137<br>4: 138–143<br>
+      5: 144–149<br>6: 150–155<br>7: 156–161<br>8: 162–167<br>
+      9: 168–173<br>10: 174–179
+    </div>
+  </div>
+
+  <!-- Trennlinie -->
+  <div style="width: 1px; background: #aaa;"></div>
+
+    <!-- Netto CO₂ Score -->
+  <div style="flex: 1; text-align: center;">
+    <strong style="font-size: 13px;">Net CO₂ Score</strong>
+    <div style="height: 24px; background: linear-gradient(to right, #d0f0e0, #1b5e20); border-radius: 4px; margin: 8px 0; position: relative;">
+      ${Array.from({ length: 10 }, (_, i) => `
+        <div style="position: absolute; left: ${(i * 10)}%; width: 1px; height: 100%; background: #444;"></div>
+      `).join("")}
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-top: -2px;">
+      ${Array.from({ length: 10 }, (_, i) => `<span>${i + 1}</span>`).join("")}
+    </div>
+    <div style="font-size: 11px; line-height: 1.4em; margin-top: 6px; text-align: left;">
+      1: 430–459 kg CO2<br>2: 460–489<br>3: 490–519<br>4: 520–549<br>
+      5: 550–579<br>6: 580–609<br>7: 610–639<br>8: 640–669<br>
+      9: 670–699<br>10: 700–730
+    </div>
+  </div>
+</div>
+`;
+}
+</script>
+
+
+<section style="padding: 30px 40px;">
+    <h2 style="color: #003C78; margin-bottom: 20px;">Key Performance Indicators Germany</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <div class="kpi-card" title="Durchschnittlicher CO₂-Preis pro Landkreis in €">
+            <h3 style="margin-bottom: 8px; color: #003C78;">Ø CO₂ Price</h3>
+            <p style="font-size: 24px; font-weight: bold;" id="kpi-co2">–</p>
+            <div style="height: 6px; background: #e0e0e0; border-radius: 3px; margin-top: 6px;">
+                <div id="kpi-bar-co2" style="height: 100%; background: #005EA8; width: 0%; border-radius: 3px;"></div>
+            </div>
+        </div>
+        <div class="kpi-card" title="Durchschnittlicher Netto CO₂-Ausstoß pro Landkreis in Tonnen">
+            <h3 style="margin-bottom: 8px; color: #003C78;">Ø Net CO₂</h3>
+            <p style="font-size: 24px; font-weight: bold;" id="kpi-netto">–</p>
+            <div style="height: 6px; background: #e0e0e0; border-radius: 3px; margin-top: 6px;">
+                <div id="kpi-bar-netto" style="height: 100%; background: #005EA8; width: 0%; border-radius: 3px;"></div>
+            </div>
+        </div>
+        <div class="kpi-card" title="Durchschnittliche PV-Verfügbarkeit in %">
+            <h3 style="margin-bottom: 8px; color: #003C78;">PV-Availability</h3>
+            <p style="font-size: 24px; font-weight: bold;" id="kpi-pv">–</p>
+            <div style="height: 6px; background: #e0e0e0; border-radius: 3px; margin-top: 6px;">
+                <div id="kpi-bar-pv" style="height: 100%; background: #005EA8; width: 0%; border-radius: 3px;"></div>
+            </div>
+        </div>
+        <div class="kpi-card" title="Durchschnittliche Solar-Verfügbarkeit in %">
+         <h3 style="margin-bottom: 8px; color: #003C78;">Solar-Availability</h3>
+            <p style="font-size: 24px; font-weight: bold;" id="kpi-solar">–</p>
+            <div style="height: 6px; background: #e0e0e0; border-radius: 3px; margin-top: 6px;">
+                <div id="kpi-bar-solar" style="height: 100%; background: #005EA8; width: 0%; border-radius: 3px;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("loadMap");
+            await JS.InvokeVoidAsync("filterChartByState");
+            await JS.InvokeVoidAsync("eval", "setTimeout(() => updateStatKacheln(window.populationData), 200);");
+        }
+    }
+}
+
+<style>
+.hover-frame {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+</style>
+
+<style>
+.hover-frame:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.filter-tag {
+    background-color: #e6eef6;
+    color: #003C78;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 16px;
+    display: inline-block;
+    cursor: pointer;
+}
+.filter-tag:hover {
+    background-color: #d4e2f2;
+}
+</style>
+<style>
+.mini-kpi {
+  background: linear-gradient(to bottom, #f5faff, #ffffff);
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mini-kpi:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.mini-kpi-icon {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+.mini-kpi-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #003C78;
+  margin-bottom: 2px;
+}
+.mini-kpi-value {
+  font-size: 14px;
+  font-weight: bold;
+  color: #003C78;
+}
+</style>

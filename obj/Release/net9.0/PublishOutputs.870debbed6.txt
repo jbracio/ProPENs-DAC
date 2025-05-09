@@ -1,0 +1,7 @@
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/publish/docs/data/deutschland.json
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/publish/docs/ProPENs-DAC/data/deutschland.json
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/publish/docs/ProPENs-DAC/sample-data/weather.json
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/publish/docs/ProPENs-DAC/_framework/blazor.boot.json
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/publish/docs/sample-data/weather.json
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/publish/docs/_framework/blazor.boot.json
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/publish/web.config

@@ -1,0 +1,40 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<!-- HERO SECTION -->
+<section style="padding: 80px 20px 40px; text-align: center; background: linear-gradient(to right, #003C78, #005EA8); color: white;">
+    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 15px;">
+        Welcome to the Direct Air Capture Site Evaluation
+    </h1>
+    <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+        This project visualizes and evaluates the potential for Direct Air Capture (DAC) technologies across German counties using a variety of environmental, infrastructural and economic criteria.
+    </p>
+    <NavLink href="/karte"
+             style="margin-top: 30px; display: inline-block; background-color: white; color: #003C78; padding: 12px 24px; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 16px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+        Explore the Map
+    </NavLink>
+</section>
+
+<!-- ROTATING BOX CAROUSEL -->
+<section style="margin-top: 60px; padding: 40px 20px; text-align: center; background-color: #f5f7fa;">
+    <h2 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 30px; color: #003C78;">Key Evaluation Criteria</h2>
+    <div style="display: flex; overflow-x: auto; gap: 20px; padding: 10px; scroll-behavior: smooth;">
+        <div style="min-width: 240px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <h3 style="color: #005EA8;">CO₂ Price</h3>
+            <p>Economic incentive for removing CO₂ from the atmosphere</p>
+        </div>
+        <div style="min-width: 240px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <h3 style="color: #005EA8;">Net Emissions</h3>
+            <p>Climate impact based on regional CO₂ emission profiles</p>
+        </div>
+        <div style="min-width: 240px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <h3 style="color: #005EA8;">Renewable Potential</h3>
+            <p>Solar and wind availability for powering DAC technologies</p>
+        </div>
+        <div style="min-width: 240px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <h3 style="color: #005EA8;">Grid Access</h3>
+            <p>Infrastructure suitability and energy delivery potential</p>
+        </div>
+    </div>
+</section>
