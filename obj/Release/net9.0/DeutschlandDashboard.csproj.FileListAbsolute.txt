@@ -809,7 +809,6 @@
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/blazor.boot.json
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/0kts6k9t7y-bjqm3fagkm.gz
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/qmpk831x3j-2ixdt5db6t.gz
-/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/2qen2v9lk8-7vvecyt3iw.gz
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/mkz6dcnbt2-bqjiyaj88i.gz
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/6twwod8jt0-c2jlpeoesf.gz
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/gbmvi9df0j-erw9l3u2r3.gz
@@ -1077,10 +1076,11 @@
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/12oho4spav-an0me021eu.gz
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/inclzom3xb-kd7z6e1bkr.gz
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/DeutschlandDashboard.sourcelink.json
-/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.d6fn03vja1.pdb
-/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.e31k59grdj.wasm
-/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.d6fn03vja1.pdb.gz
-/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.e31k59grdj.wasm.gz
-/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/l1agd14epm-e31k59grdj.gz
-/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/7ficqwodcc-d6fn03vja1.gz
-/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/7jhv390ffa-7ms0y76aoj.gz
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.gx6en3hq1j.pdb
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.dl5cig8zze.wasm
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.gx6en3hq1j.pdb.gz
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.dl5cig8zze.wasm.gz
+/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/2qen2v9lk8-l7b5moc8w5.gz
+/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/l1agd14epm-dl5cig8zze.gz
+/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/7ficqwodcc-gx6en3hq1j.gz
+/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/7jhv390ffa-hhmynvgvpv.gz
