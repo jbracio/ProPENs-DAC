@@ -1073,11 +1073,7 @@
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/inclzom3xb-kd7z6e1bkr.gz
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/DeutschlandDashboard.sourcelink.json
 /Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/CsvHelper.4zhysgmj1f.wasm
-/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.uiqio831t8.pdb
-/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.w5ukxrsbzr.wasm
-/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.uiqio831t8.pdb.gz
 /Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/CsvHelper.4zhysgmj1f.wasm.gz
-/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.w5ukxrsbzr.wasm.gz
 /Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/CsvHelper.dll
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/webcil/CsvHelper.wasm
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/bsnnp1g3id-a833ze6r42.gz
@@ -1099,6 +1095,10 @@
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/2qen2v9lk8-iw2b2yly1t.gz
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/12oho4spav-h5yehb0jy3.gz
 /Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/kfp02r1z1w-4zhysgmj1f.gz
-/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/l1agd14epm-w5ukxrsbzr.gz
-/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/7ficqwodcc-uiqio831t8.gz
-/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/7jhv390ffa-slcgqahg96.gz
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.akb2hugs06.pdb
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.hmkeeq0jiu.wasm
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.akb2hugs06.pdb.gz
+/Users/johannesbracio/DeutschlandDashboard/bin/Release/net9.0/wwwroot/_framework/DeutschlandDashboard.hmkeeq0jiu.wasm.gz
+/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/l1agd14epm-hmkeeq0jiu.gz
+/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/7ficqwodcc-akb2hugs06.gz
+/Users/johannesbracio/DeutschlandDashboard/obj/Release/net9.0/compressed/7jhv390ffa-n65s68msu5.gz
