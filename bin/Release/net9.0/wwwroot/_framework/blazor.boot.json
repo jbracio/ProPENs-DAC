@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "DeutschlandDashboard",
   "resources": {
-    "hash": "sha256-RbmsCB4dy4IVo3lyXif965EDCPkaHK0IlSOfLtjgJx0=",
+    "hash": "sha256-9lV/VpbmKwwUE6Dl0TjofV6PdWF+aVnbDRxqu0PBVPY=",
     "fingerprinting": {
       "CsvHelper.4zhysgmj1f.wasm": "CsvHelper.wasm",
       "Microsoft.AspNetCore.Authorization.gf26ou9jj9.wasm": "Microsoft.AspNetCore.Authorization.wasm",
@@ -202,8 +202,8 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "DeutschlandDashboard.oq3s93aqxw.wasm": "DeutschlandDashboard.wasm",
-      "DeutschlandDashboard.yf31t0poe3.pdb": "DeutschlandDashboard.pdb"
+      "DeutschlandDashboard.qeww6g9mi0.wasm": "DeutschlandDashboard.wasm",
+      "DeutschlandDashboard.owcgozioox.pdb": "DeutschlandDashboard.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.hvg7u8bimp.js": "sha256-LX9rFEWGVxhkOkAVPG0w5RxPwzPBlEUz6dQNjWS7M+M="
@@ -414,10 +414,10 @@
       "WindowsBase.5lai2eowco.wasm": "sha256-GcDi5293y2A7oSiFYTbBTUe0d+ISbvgeel4ZNd8KkPM=",
       "mscorlib.wzkfrp7u5k.wasm": "sha256-9PjsU0gaxxz5Vyw++p9DeYUWLsaXbaMS2RbX6wmTUmk=",
       "netstandard.d82br99ghv.wasm": "sha256-DS8keXxU4eQpa1kIoiFxOA2Ii2g9hoNWSaVi8F8AnIE=",
-      "DeutschlandDashboard.oq3s93aqxw.wasm": "sha256-EEkrsapFGaeehvPhVcdhk3nPIqhdK0IZa61gXAuXIbM="
+      "DeutschlandDashboard.qeww6g9mi0.wasm": "sha256-EoJeW5YryX4ixeg/YPX0kViXSs7R1/bUhOL/6QW8iXA="
     },
     "pdb": {
-      "DeutschlandDashboard.yf31t0poe3.pdb": "sha256-Ums/Q+dpYd/GpnkJhik2X8MygneU7Ff91OU4HkLRxCg="
+      "DeutschlandDashboard.owcgozioox.pdb": "sha256-WEkYIvbuSCMbdLtqJuU3tR476BmVIRL4can3rzhpS9g="
     }
   },
   "cacheBootResources": true,

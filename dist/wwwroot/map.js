@@ -2101,7 +2101,24 @@ function updateTotalScoreTableByVisibleLayers() {
   if (!thead || !tbody) return;
 
   // Tabellenkopf mit <span> und Sortierpfeilen
-  const headers = ["County", "Total_Score", "IWH_Score", "E_Score", "RES_Score", "TP_Score", "LU_Score"];
+  const headers = [
+    "County",
+    "Total Score",
+    "Waste Heat Score",
+    "Electricity Score",
+    "Renewable Energy Systems Score",
+    "CO2 Transport Score",
+    "Land Usage Score"
+  ];
+  const keyMapping = {
+    "County": "County",
+    "Total Score": "Total_Score",
+    "Waste Heat Score": "IWH_Score",
+    "Electricity Score": "E_Score",
+    "Renewable Energy Systems Score": "RES_Score",
+    "CO2 Transport Score": "TP_Score",
+    "Land Usage Score": "LU_Score"
+  };
   thead.innerHTML = "";
   const headerRow = document.createElement("tr");
   headers.forEach(header => {
@@ -2152,7 +2169,7 @@ function updateTotalScoreTableByVisibleLayers() {
       const row = document.createElement("tr");
       headers.forEach(key => {
         const cell = document.createElement("td");
-        cell.textContent = entry[key] ?? "—";
+        cell.textContent = entry[keyMapping[key]] ?? "—";
         row.appendChild(cell);
       });
       tbody.appendChild(row);
