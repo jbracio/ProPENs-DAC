@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/DeutschlandDashboard.styles.css"
     },
     {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/404.html",
+      "PackagePath": "staticwebassets/404.html"
+    },
+    {
       "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/charts.js",
       "PackagePath": "staticwebassets/charts.js"
     },
