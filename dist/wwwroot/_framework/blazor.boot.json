@@ -1,10 +1,10 @@
 {
   "mainAssemblyName": "DeutschlandDashboard",
   "resources": {
-    "hash": "sha256-ZEHJxepi1ASLIq/Sb2MGtcZ1uTx9lnXivQ7ejk1hCcY=",
+    "hash": "sha256-7zWARx756ZcPvee1m3nLbUy0vvMaDNuQiLOjy6df4j8=",
     "fingerprinting": {
       "CsvHelper.4zhysgmj1f.wasm": "CsvHelper.wasm",
-      "DeutschlandDashboard.bhvlr1frp5.wasm": "DeutschlandDashboard.wasm",
+      "DeutschlandDashboard.oq3s93aqxw.wasm": "DeutschlandDashboard.wasm",
       "Microsoft.AspNetCore.Components.7a2nnvuuqp.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Web.7snobyj6uw.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
       "Microsoft.AspNetCore.Components.WebAssembly.sgbqg9g0bx.wasm": "Microsoft.AspNetCore.Components.WebAssembly.wasm",
@@ -82,7 +82,7 @@
     },
     "assembly": {
       "CsvHelper.4zhysgmj1f.wasm": "sha256-gIv3rkSTS7t+R5bMtcyMpbn3EuECRPgHZmWECRjdcd4=",
-      "DeutschlandDashboard.bhvlr1frp5.wasm": "sha256-YR7CRveIf5rPE2SCmppWh1CeLBY/LPINffpt0m2ArdU=",
+      "DeutschlandDashboard.oq3s93aqxw.wasm": "sha256-EEkrsapFGaeehvPhVcdhk3nPIqhdK0IZa61gXAuXIbM=",
       "Microsoft.AspNetCore.Components.7a2nnvuuqp.wasm": "sha256-seGKW+N7ZXaZxdR84JBFFdXt/1n4lopYJhPlT9hdoVU=",
       "Microsoft.AspNetCore.Components.Web.7snobyj6uw.wasm": "sha256-mQ75JaiJo4vFK1ZMLlbooOg5mRXMSKJ499ZdCNhh37U=",
       "Microsoft.AspNetCore.Components.WebAssembly.sgbqg9g0bx.wasm": "sha256-dG/zQK3hrNaSkV456Z/t1pVrZFql2xOwiSIwuJoy1n0=",
