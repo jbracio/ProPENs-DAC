@@ -1361,7 +1361,7 @@ window.loadTotalScoreMap = function () {
                   const displayKeys = [
                     { key: "Total_Score", label: "Total Score" },
                     { key: "IWH_Score", label: "Waste Heat Score" },
-                    { key: "E_Score", label: "CO2 Cost Score" },
+                    { key: "E_Score", label: "Cost of tCO₂ Score" },
                     { key: "RES_Score", label: "Renewable Energy Systems Score" },
                     { key: "TP_Score", label: "CO2 Transport Score" },
                     { key: "LU_Score", label: "Land Usage Score" }
@@ -2105,7 +2105,7 @@ function updateTotalScoreTableByVisibleLayers() {
     "County",
     "Total Score",
     "Waste Heat Score",
-    "CO2 Cost Score",
+    "Cost of tCO₂ Score",
     "Renewable Energy Systems Score",
     "CO2 Transport Score",
     "Land Usage Score"
@@ -2114,7 +2114,7 @@ function updateTotalScoreTableByVisibleLayers() {
     "County": "County",
     "Total Score": "Total_Score",
     "Waste Heat Score": "IWH_Score",
-    "CO2 Cost Score": "E_Score",
+    "Cost of tCO₂ Score": "E_Score",
     "Renewable Energy Systems Score": "RES_Score",
     "CO2 Transport Score": "TP_Score",
     "Land Usage Score": "LU_Score"
