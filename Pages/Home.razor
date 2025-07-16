@@ -1,41 +1,101 @@
 ﻿@page "/"
 
+<div style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -1;">
+</div>
+
 <PageTitle>Home</PageTitle>
 
 <!-- HERO SECTION -->
-<section style="padding: 80px 20px 40px; text-align: center; background: linear-gradient(to right, #003C78, #005EA8); color: white;">
-    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 15px;">
+<section style="padding: 80px 20px 40px; margin-bottom: 40px; max-width: 96%; text-align: center; background: linear-gradient(to right, #003C78, #005EA8); border-radius: 12px;  color: white;">
+    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 15x;">
         Welcome to the Direct Air Capture Site Evaluation
     </h1>
     <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
         This project visualizes and evaluates the potential for Direct Air Capture (DAC) technologies across German counties using a variety of environmental, infrastructural and economic criteria.
     </p>
-    <NavLink href="/statistiken"
-             style="margin-top: 30px; display: inline-block; background-color: white; color: #003C78; padding: 12px 24px; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 16px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+    <NavLink class="hover-frame" href="/statistiken" style="margin-top: 30px; display: inline-block; background-color: white; color: #003C78; padding: 12px 24px; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 16px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
         Explore the Map
     </NavLink>
 </section>
 
 <!-- ROTATING BOX CAROUSEL -->
 
-<section style="margin-top: 60px; padding: 40px 20px; text-align: center; background-color: #f5f7fa;">
+<section style="padding: 50px 20px 30px; margin-bottom: 40px; max-width: 96%; text-align: center; background-color: #f5f7fa; border-radius: 12px;">
     <h2 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 30px; color: #003C78;">Key Evaluation Criteria</h2>
     <div style="display: flex; overflow-x: auto; gap: 20px; padding: 10px; scroll-behavior: smooth;">
-        <div style="min-width: 240px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+        <div class="hover-frame" style="width: 400px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
             <h3 style="color: #005EA8;">CO₂ Price</h3>
             <p>Economic incentive for removing CO₂ from the atmosphere</p>
         </div>
-        <div style="min-width: 240px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+        <div class="hover-frame" style="width: 400px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
             <h3 style="color: #005EA8;">Net Emissions</h3>
             <p>Climate impact based on regional CO₂ emission profiles</p>
         </div>
-        <div style="min-width: 240px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+        <div class="hover-frame" style="width: 400px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
             <h3 style="color: #005EA8;">Renewable Potential</h3>
             <p>Solar and wind availability for powering DAC technologies</p>
         </div>
-        <div style="min-width: 240px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
-            <h3 style="color: #005EA8;">Grid Access</h3>
-            <p>Infrastructure suitability and energy delivery potential</p>
+        <div class="hover-frame" style="width: 400px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <h3 style="color: #005EA8;">CO₂ Transport</h3>
+            <p>Distances to the nearest CO₂ pipeline infrastructure</p>
+        </div>
+         <div class="hover-frame" style="width: 400px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <h3 style="color: #005EA8;">Industrial Waste Heat</h3>
+            <p>Availability and quality of nearby IWH</p>
+        </div>
+         <div class="hover-frame" style="width: 400px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0;">
+            <h3 style="color: #005EA8;">Land Usage</h3>
+            <p>Availability of land to build</p>
         </div>
     </div>
 </section>
+
+<!-- DAC EXPLANATION AND USE CASES -->
+<section style="padding: 50px 20px 30px; margin-bottom: 40px; max-width: 96%; background-color: #ffffff; border-radius: 12px;">
+    <h2 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 30px; color: #003C78; text-align: center;">Introducing Direct Air Capture</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+
+        <!-- What is DAC -->
+        <div class="hover-frame" style="flex: 1 1 300px; max-width: 600px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+            <h3 style="color: #003C78; margin-top: 0;">What is Direct Air Capture?</h3>
+            <p style="font-size: 0.95rem; line-height: 1.5;">Direct Air Capture (DAC) is a technology that removes CO₂ directly from the ambient air. The captured CO₂ can then be permanently stored underground or reused in industrial processes. DAC systems typically use chemical solutions or solid sorbents to bind atmospheric CO₂, followed by processes that release and concentrate it for storage.</p>
+            <img src="img/dac_diagram.png" alt="DAC Cycle" style="width: 100%; margin-top: 15px; border-radius: 8px;" />
+
+        </div>
+
+<!-- Pioneering Project: Climeworks -->
+<div class="hover-frame" style="flex: 1 1 300px; max-width: 500px; min-height: 480px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+    <h3 style="color: #003C78; margin-top: 0;">Climeworks – Scaling DAC</h3>
+    <p style="font-size: 0.95rem; line-height: 1.5;">Climeworks, a Swiss company, is a global leader in DAC deployment. Their Iceland-based plant “Orca” is one of the first commercial-scale facilities removing CO₂ from air and storing it underground using geothermal energy and mineralization.</p>
+    <img src="img/climeworks.jpg" alt="Climeworks DAC Plant" style="width: 100%; margin-top: 15px; border-radius: 8px;" />
+</div>
+
+<!-- Pioneering Project: Carbon Engineering -->
+<div class="hover-frame" style="flex: 1 1 300px; max-width: 500px; min-height: 480px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+    <h3 style="color: #003C78; margin-top: 0;">Carbon Engineering – Large-scale Vision</h3>
+    <p style="font-size: 0.95rem; line-height: 1.5;">Based in Canada, Carbon Engineering is developing industrial-scale DAC plants capable of removing up to one million tons of CO₂ per year. They emphasize integration with low-carbon energy sources and CO₂ utilization options.</p>
+    <img src="img/carbonengineering.jpg" alt="Carbon Engineering Facility" style="width: 100%; margin-top: 15px; border-radius: 8px;" />
+</div>
+
+    </div>
+</section>
+
+<style>
+.hover-frame {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+</style>
+
+<style>.hover-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}</style>

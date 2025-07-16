@@ -1,0 +1,402 @@
+﻿NUTS_ID;County;Distance to Nearest CO2 Pipeline (km);Score
+DE111;Stuttgart, Stadtkreis;5,522;9,7
+DE112;Böblingen;5;9,8
+DE113;Esslingen;79,549;6,2
+DE114;Göppingen;56,552;7,3
+DE115;Ludwigsburg;113,104;4,6
+DE116;Rems-Murr-Kreis;15,411;9,3
+DE117;Heilbronn, Stadtkreis;44,851;7,8
+DE118;Heilbronn, Landkreis;57,921;7,2
+DE119;Hohenlohekreis;4,071;9,8
+DE11A;Schwäbisch Hall;30,682;8,5
+DE11B;Main-Tauber-Kreis;0,002;10
+DE11C;Heidenheim;11,268;9,5
+DE11D;Ostalbkreis;1,217;9,9
+DE121;Baden-Baden, Stadtkreis;6,034;9,7
+DE122;Karlsruhe, Stadtkreis;12,887;9,4
+DE123;Karlsruhe, Landkreis;13,918;9,3
+DE124;Rastatt;7,995;9,6
+DE125;Heidelberg, Stadtkreis;0,954;10
+DE126;Mannheim, Stadtkreis;15,978;9,2
+DE127;Neckar-Odenwald-Kreis;44,591;7,9
+DE128;Rhein-Neckar-Kreis;1,87;9,9
+DE129;Pforzheim, Stadtkreis;13,68;9,3
+DE12A;Calw;12,055;9,4
+DE12B;Enzkreis;15,709;9,2
+DE12C;Freudenstadt;31,303;8,5
+DE131;Freiburg im Breisgau, Stadtkreis;52,132;7,5
+DE132;Breisgau-Hochschwarzwald;39,557;8,1
+DE133;Emmendingen;13,4;9,4
+DE134;Ortenaukreis;72,714;6,5
+DE135;Rottweil;71,825;6,5
+DE136;Schwarzwald-Baar-Kreis;55,422;7,3
+DE137;Tuttlingen;84,382;5,9
+DE138;Konstanz;0,122;10
+DE139;Lörrach;19,224;9,1
+DE13A;Waldshut;52,902;7,5
+DE141;Reutlingen;26,723;8,7
+DE142;Tübingen, Landkreis;27,66;8,7
+DE143;Zollernalbkreis;34,85;8,3
+DE144;Ulm, Stadtkreis;0,809;10
+DE145;Alb-Donau-Kreis;0,619;10
+DE146;Biberach;10,323;9,5
+DE147;Bodenseekreis;10,58;9,5
+DE148;Ravensburg;18,12;9,1
+DE149;Sigmaringen;3,966;9,8
+DE211;Ingolstadt, Kreisfreie Stadt;36,219;8,3
+DE212;München, Kreisfreie Stadt;23,713;8,9
+DE213;Rosenheim, Kreisfreie Stadt;5,375;9,7
+DE214;Altötting;27,333;8,7
+DE215;Berchtesgadener Land;2,332;9,9
+DE216;Bad Tölz-Wolfratshausen;25,624;8,8
+DE217;Dachau;1,772;9,9
+DE218;Ebersberg;8,331;9,6
+DE219;Eichstätt;2,065;9,9
+DE21A;Erding;3,735;9,8
+DE21B;Freising;38,261;8,2
+DE21C;Fürstenfeldbruck;39,105;8,1
+DE21D;Garmisch-Partenkirchen;66,229;6,8
+DE21E;Landsberg am Lech;82,803;6
+DE21F;Miesbach;5,738;9,7
+DE21G;Mühldorf a. Inn;37,838;8,2
+DE21H;München, Landkreis;35,85;8,3
+DE21I;Neuburg-Schrobenhausen;34,998;8,3
+DE21J;Pfaffenhofen a. d. Ilm;58,623;7,2
+DE21K;Rosenheim, Landkreis;2,833;9,9
+DE21L;Starnberg;9,855;9,5
+DE21M;Traunstein;35,088;8,3
+DE21N;Weilheim-Schongau;87,759;5,8
+DE221;Landshut, Kreisfreie Stadt;64,416;6,9
+DE222;Passau, Kreisfreie Stadt;68,084;6,7
+DE223;Straubing, Kreisfreie Stadt;3,235;9,8
+DE224;Deggendorf;1,687;9,9
+DE225;Freyung-Grafenau;34,036;8,4
+DE226;Kelheim;4,167;9,8
+DE227;Landshut, Landkreis;53,628;7,4
+DE228;Passau, Landkreis;46,278;7,8
+DE229;Regen;12,919;9,4
+DE22A;Rottal-Inn;8,625;9,6
+DE22B;Straubing-Bogen;11,149;9,5
+DE22C;Dingolfing-Landau;15,937;9,2
+DE231;Amberg, Kreisfreie Stadt;17,203;9,2
+DE232;Regensburg, Kreisfreie Stadt;26,568;8,7
+DE233;Weiden i. d. Opf, Kreisfreie Stadt;72,684;6,5
+DE234;Amberg-Sulzbach;47,952;7,7
+DE235;Cham;45,187;7,8
+DE236;Neumarkt i. d. OPf.;8,621;9,6
+DE237;Neustadt a. d. Waldnaab;7,817;9,6
+DE238;Regensburg, Landkreis;19,268;9,1
+DE239;Schwandorf;3,483;9,8
+DE23A;Tirschenreuth;31,002;8,5
+DE241;Bamberg, Kreisfreie Stadt;25,905;8,8
+DE242;Bayreuth, Kreisfreie Stadt;30,29;8,5
+DE243;Coburg, Kreisfreie Stadt;54,829;7,4
+DE244;Hof, Kreisfreie Stadt;43,166;7,9
+DE245;Bamberg, Landkreis;62,68;7
+DE246;Bayreuth, Landkreis;36,464;8,2
+DE247;Coburg, Landkreis;68,213;6,7
+DE248;Forchheim;88,207;5,8
+DE249;Hof, Landkreis;12,127;9,4
+DE24A;Kronach;41,304;8
+DE24B;Kulmbach;58,301;7,2
+DE24C;Lichtenfels;70,507;6,6
+DE24D;Wunsiedel i. Fichtelgebirge;27,85;8,7
+DE251;Ansbach, Kreisfreie Stadt;37,424;8,2
+DE252;Erlangen, Kreisfreie Stadt;52,418;7,5
+DE253;Fürth, Kreisfreie Stadt;20,651;9
+DE254;Nürnberg, Kreisfreie Stadt;0,913;10
+DE255;Schwabach, Kreisfreie Stadt;2,066;9,9
+DE256;Ansbach, Landkreis;23,726;8,9
+DE257;Erlangen-Höchstadt;40,962;8
+DE258;Fürth, Landkreis;36,792;8,2
+DE259;Nürnberger Land;12,746;9,4
+DE25A;Neustadt a. d. Aisch-Bad Windsheim;10,741;9,5
+DE25B;Roth;8,684;9,6
+DE25C;Weißenburg-Gunzenhausen;5,128;9,8
+DE261;Aschaffenburg, Kreisfreie Stadt;19,621;9,1
+DE262;Schweinfurt, Kreisfreie Stadt;5,563;9,7
+DE263;Würzburg, Kreisfreie Stadt;37,006;8,2
+DE264;Aschaffenburg, Landkreis;41,592;8
+DE265;Bad Kissingen;11,726;9,4
+DE266;Rhön-Grabfeld;11,585;9,4
+DE267;Haßberge;31,284;8,5
+DE268;Kitzingen;7,225;9,7
+DE269;Miltenberg;34,74;8,3
+DE26A;Main-Spessart;27,497;8,7
+DE26B;Schweinfurt, Landkreis;5,825;9,7
+DE26C;Würzburg, Landkreis;18,294;9,1
+DE271;Augsburg, Kreisfreie Stadt;26,632;8,7
+DE272;Kaufbeuren, Kreisfreie Stadt;25,59;8,8
+DE273;Kempten (Allgäu), Kreisfreie Stadt;3,48;9,8
+DE274;Memmingen, Kreisfreie Stadt;7,258;9,7
+DE275;Aichach-Friedberg;16,844;9,2
+DE276;Augsburg, Landkreis;20,315;9
+DE277;Dillingen a.d. Donau;33,833;8,4
+DE278;Günzburg;3,652;9,8
+DE279;Neu-Ulm;2,367;9,9
+DE27A;Lindau (Bodensee);32,386;8,4
+DE27B;Ostallgäu;3,587;9,8
+DE27C;Unterallgäu;35,901;8,3
+DE27D;Donau-Ries;46,474;7,8
+DE27E;Oberallgäu;18,972;9,1
+DE300;Berlin;33,885;8,4
+DE401;Brandenburg an der Havel, Kreisfreie Stadt;2,259;9,9
+DE402;Cottbus, Kreisfreie Stadt;36,9;8,2
+DE403;Frankfurt (Oder), Kreisfreie Stadt;25,541;8,8
+DE404;Potsdam, Kreisfreie Stadt;71,375;6,6
+DE405;Barnim;51,761;7,5
+DE406;Dahme-Spreewald;17,635;9,2
+DE407;Elbe-Elster;3,242;9,8
+DE408;Havelland;6,853;9,7
+DE409;Märkisch-Oderland;2,911;9,9
+DE40A;Oberhavel;58,63;7,2
+DE40B;Oberspreewald-Lausitz;13,877;9,3
+DE40C;Oder-Spree;5,22;9,7
+DE40D;Ostprignitz-Ruppin;9,153;9,6
+DE40E;Potsdam-Mittelmark;0,232;10
+DE40F;Prignitz;24,597;8,8
+DE40G;Spree-Neiße;4,61;9,8
+DE40H;Teltow-Fläming;0,45;10
+DE40I;Uckermark;1,8;9,9
+DE501;Bremen, Kreisfreie Stadt;31,272;8,5
+DE502;Bremerhaven, Kreisfreie Stadt;12,4;9,4
+DE600;Hamburg;2,147;9,9
+DE711;Darmstadt, Kreisfreie Stadt;16,01;9,2
+DE712;Frankfurt am Main, Kreisfreie Stadt;13,479;9,4
+DE713;Offenbach am Main, Kreisfreie Stadt;15,246;9,3
+DE714;Wiesbaden, Kreisfreie Stadt;35,52;8,3
+DE715;Bergstraße;52,448;7,5
+DE716;Darmstadt-Dieburg;24,186;8,8
+DE717;Groß-Gerau;5,496;9,7
+DE718;Hochtaunuskreis;2,872;9,9
+DE719;Main-Kinzig-Kreis;0,734;10
+DE71A;Main-Taunus-Kreis;3,78;9,8
+DE71B;Odenwaldkreis;9,208;9,6
+DE71C;Offenbach, Landkreis;99,465;5,2
+DE71D;Rheingau-Taunus-Kreis;47,593;7,7
+DE71E;Wetteraukreis;72,736;6,5
+DE721;Gießen, Landkreis;41,946;8
+DE722;Lahn-Dill-Kreis;90,55;5,6
+DE723;Limburg-Weilburg;156,558;2,5
+DE724;Marburg-Biedenkopf;94,019;5,5
+DE725;Vogelsbergkreis;112,51;4,6
+DE731;Kassel, Kreisfreie Stadt;152,132;2,7
+DE732;Fulda;186,889;1
+DE733;Hersfeld-Rotenburg;88,326;5,7
+DE734;Kassel, Landkreis;122,729;4,1
+DE735;Schwalm-Eder-Kreis;102,674;5,1
+DE736;Waldeck-Frankenberg;7,722;9,6
+DE737;Werra-Meißner-Kreis;0,197;10
+DE803;Rostock, Kreisfreie Stadt;4,51;9,8
+DE804;Schwerin, Kreisfreie Stadt;18,804;9,1
+DE80J;Mecklenburgische Seenplatte;27,749;8,7
+DE80K;Landkreis Rostock;16,02;9,2
+DE80L;Vorpommern-Rügen;54,614;7,4
+DE80M;Nordwestmecklenburg;3,799;9,8
+DE80N;Vorpommern-Greifswald;2,128;9,9
+DE80O;Ludwigslust-Parchim;65,352;6,9
+DE911;Braunschweig, Kreisfreie Stadt;39,549;8,1
+DE912;Salzgitter, Kreisfreie Stadt;40,868;8
+DE913;Wolfsburg, Kreisfreie Stadt;25,428;8,8
+DE914;Gifhorn;56,435;7,3
+DE916;Goslar;43,205;7,9
+DE917;Helmstedt;36,959;8,2
+DE918;Northeim;0,017;10
+DE91A;Peine;17,326;9,2
+DE91B;Wolfenbüttel;10,282;9,5
+DE91C;Göttingen;1,029;10
+DE922;Diepholz;14,691;9,3
+DE923;Hameln-Pyrmont;19,3;9,1
+DE925;Hildesheim;37,678;8,2
+DE926;Holzminden;30,468;8,5
+DE927;Nienburg (Weser);58,67;7,2
+DE928;Schaumburg;24,114;8,8
+DE929;Region Hannover;46,672;7,8
+DE931;Celle;67,015;6,8
+DE932;Cuxhaven;47,061;7,7
+DE933;Harburg;6,741;9,7
+DE934;Lüchow-Dannenberg;3,446;9,8
+DE935;Lüneburg, Landkreis;21,416;9
+DE936;Osterholz;31,813;8,5
+DE937;Rotenburg (Wümme);16,654;9,2
+DE938;Heidekreis;46,726;7,7
+DE939;Stade;72,57;6,5
+DE93A;Uelzen;75,796;6,3
+DE93B;Verden;46,921;7,7
+DE941;Delmenhorst, Kreisfreie Stadt;33,352;8,4
+DE942;Emden, Kreisfreie Stadt;54,444;7,4
+DE943;Oldenburg (Oldenburg), Kreisfreie Stadt;45,399;7,8
+DE944;Osnabrück, Kreisfreie Stadt;28,213;8,6
+DE945;Wilhelmshaven, Kreisfreie Stadt;14,643;9,3
+DE946;Ammerland;88,014;5,8
+DE947;Aurich;80,557;6,1
+DE948;Cloppenburg;48,216;7,7
+DE949;Emsland;52,661;7,5
+DE94A;Friesland (DE);92,703;5,5
+DE94B;Grafschaft Bentheim;4,449;9,8
+DE94C;Leer;63,135;7
+DE94D;Oldenburg, Landkreis;3,093;9,9
+DE94E;Osnabrück, Landkreis;14,433;9,3
+DE94F;Vechta;27,297;8,7
+DE94G;Wesermarsch;19,271;9,1
+DE94H;Wittmund;33,161;8,4
+DEA11;Düsseldorf, Kreisfreie Stadt;29,674;8,6
+DEA12;Duisburg, Kreisfreie Stadt;56,995;7,3
+DEA13;Essen, Kreisfreie Stadt;6,221;9,7
+DEA14;Krefeld, Kreisfreie Stadt;52,116;7,5
+DEA15;Mönchengladbach, Kreisfreie Stadt;12,274;9,4
+DEA16;Mülheim an der Ruhr, Kreisfreie Stadt;2,439;9,9
+DEA17;Oberhausen, Kreisfreie Stadt;11,876;9,4
+DEA18;Remscheid, Kreisfreie Stadt;27,358;8,7
+DEA19;Solingen, Kreisfreie Stadt;5,953;9,7
+DEA1A;Wuppertal, Kreisfreie Stadt;27,418;8,7
+DEA1B;Kleve;34,347;8,3
+DEA1C;Mettmann;0,133;10
+DEA1D;Rhein-Kreis Neuss;33,552;8,4
+DEA1E;Viersen;6,657;9,7
+DEA1F;Wesel;17,416;9,2
+DEA22;Bonn, Kreisfreie Stadt;10,187;9,5
+DEA23;Köln, Kreisfreie Stadt;21,628;9
+DEA24;Leverkusen, Kreisfreie Stadt;3,396;9,8
+DEA26;Düren;30,47;8,5
+DEA27;Rhein-Erft-Kreis;63,847;6,9
+DEA28;Euskirchen;13,918;9,3
+DEA29;Heinsberg;17,347;9,2
+DEA2A;Oberbergischer Kreis;43,04;7,9
+DEA2B;Rheinisch-Bergischer Kreis;64,888;6,9
+DEA2C;Rhein-Sieg-Kreis;23,848;8,9
+DEA2D;Städteregion Aachen;51,911;7,5
+DEA31;Bottrop, Kreisfreie Stadt;60,413;7,1
+DEA32;Gelsenkirchen, Kreisfreie Stadt;2,032;9,9
+DEA33;Münster, Kreisfreie Stadt;9,578;9,5
+DEA34;Borken;21,145;9
+DEA35;Coesfeld;30,655;8,5
+DEA36;Recklinghausen;9,256;9,6
+DEA37;Steinfurt;15,662;9,2
+DEA38;Warendorf;44,396;7,9
+DEA41;Bielefeld, Kreisfreie Stadt;15,815;9,2
+DEA42;Gütersloh;46,429;7,8
+DEA43;Herford;17,026;9,2
+DEA44;Höxter;36,811;8,2
+DEA45;Lippe;31,563;8,5
+DEA46;Minden-Lübbecke;38,777;8,1
+DEA47;Paderborn;18,203;9,1
+DEA51;Bochum, Kreisfreie Stadt;1,447;9,9
+DEA52;Dortmund, Kreisfreie Stadt;76,794;6,3
+DEA53;Hagen, Kreisfreie Stadt;54,194;7,4
+DEA54;Hamm, Kreisfreie Stadt;2,402;9,9
+DEA55;Herne, Kreisfreie Stadt;37,193;8,2
+DEA56;Ennepe-Ruhr-Kreis;60,359;7,1
+DEA57;Hochsauerlandkreis;22,292;8,9
+DEA58;Märkischer Kreis;28,019;8,7
+DEA59;Olpe;40,48;8,1
+DEA5A;Siegen-Wittgenstein;35,067;8,3
+DEA5B;Soest;77,359;6,3
+DEA5C;Unna;2,541;9,9
+DEB11;Koblenz, Kreisfreie Stadt;49,355;7,6
+DEB12;Ahrweiler;13,19;9,4
+DEB13;Altenkirchen (Westerwald);3,156;9,8
+DEB14;Bad Kreuznach;28,23;8,6
+DEB15;Birkenfeld;6,209;9,7
+DEB17;Mayen-Koblenz;29,367;8,6
+DEB18;Neuwied;95,735;5,4
+DEB1A;Rhein-Lahn-Kreis;48,032;7,7
+DEB1B;Westerwaldkreis;68,511;6,7
+DEB1C;Cochem-Zell;77,479;6,3
+DEB1D;Rhein-Hunsrück-Kreis;79,294;6,2
+DEB21;Trier, Kreisfreie Stadt;82,842;6
+DEB22;Bernkastel-Wittlich;69,5;6,7
+DEB23;Eifelkreis Bitburg-Prüm;105,27;4,9
+DEB24;Vulkaneifel;73,68;6,5
+DEB25;Trier-Saarburg;93,419;5,5
+DEB31;Frankenthal (Pfalz), Kreisfreie Stadt;104,767;5
+DEB32;Kaiserslautern, Kreisfreie Stadt;76,294;6,3
+DEB33;Landau in der Pfalz, Kreisfreie Stadt;61,172;7,1
+DEB34;Ludwigshafen am Rhein, Kreisfreie Stadt;79,342;6,2
+DEB35;Mainz, Kreisfreie Stadt;88,307;5,7
+DEB36;Neustadt an der Weinstraße, Kreisfreie Stadt;41,906;8
+DEB37;Pirmasens, Kreisfreie Stadt;62,205;7
+DEB38;Speyer, Kreisfreie Stadt;61,942;7
+DEB39;Worms, Kreisfreie Stadt;60,15;7,1
+DEB3A;Zweibrücken, Kreisfreie Stadt;64,152;6,9
+DEB3B;Alzey-Worms;37,141;8,2
+DEB3C;Bad Dürkheim;123,82;4
+DEB3D;Donnersbergkreis;122,005;4,1
+DEB3E;Germersheim;25,126;8,8
+DEB3F;Kaiserslautern, Landkreis;5,664;9,7
+DEB3G;Kusel;5,068;9,8
+DEB3H;Südliche Weinstraße;26,948;8,7
+DEB3I;Rhein-Pfalz-Kreis;16,196;9,2
+DEB3J;Mainz-Bingen;26,554;8,7
+DEB3K;Südwestpfalz;27,737;8,7
+DEC01;Regionalverband Saarbrücken;14,231;9,3
+DEC02;Merzig-Wadern;10,795;9,5
+DEC03;Neunkirchen;13,328;9,4
+DEC04;Saarlouis;20,638;9
+DEC05;Saarpfalz-Kreis;14,982;9,3
+DEC06;St. Wendel;0,627;10
+DED21;Dresden, Kreisfreie Stadt;6,879;9,7
+DED2C;Bautzen;39,599;8,1
+DED2D;Görlitz;18,326;9,1
+DED2E;Meißen;50,564;7,6
+DED2F;Sächsische Schweiz-Osterzgebirge;37,917;8,2
+DED41;Chemnitz, Kreisfreie Stadt;30,077;8,6
+DED42;Erzgebirgskreis;15,957;9,2
+DED43;Mittelsachsen;4,161;9,8
+DED44;Vogtlandkreis;58,464;7,2
+DED45;Zwickau;11,085;9,5
+DED51;Leipzig, Kreisfreie Stadt;7,939;9,6
+DED52;Leipzig;17,387;9,2
+DED53;Nordsachsen;31,828;8,5
+DEE01;Dessau-Roßlau, Kreisfreie Stadt;1,188;9,9
+DEE02;Halle (Saale), Kreisfreie Stadt;18,321;9,1
+DEE03;Magdeburg, Kreisfreie Stadt;18,2;9,1
+DEE04;Altmarkkreis Salzwedel;5,547;9,7
+DEE05;Anhalt-Bitterfeld;18,572;9,1
+DEE06;Jerichower Land;3,758;9,8
+DEE07;Börde;28,924;8,6
+DEE08;Burgenlandkreis;27,459;8,7
+DEE09;Harz;32,563;8,4
+DEE0A;Mansfeld-Südharz;44,808;7,8
+DEE0B;Saalekreis;4,065;9,8
+DEE0C;Salzlandkreis;1,891;9,9
+DEE0D;Stendal;0,791;10
+DEE0E;Wittenberg;17,399;9,2
+DEF01;Flensburg, Kreisfreie Stadt;10,079;9,5
+DEF02;Kiel, Kreisfreie Stadt;5,266;9,7
+DEF03;Lübeck, Kreisfreie Stadt;16,714;9,2
+DEF04;Neumünster, Kreisfreie Stadt;34,675;8,3
+DEF05;Dithmarschen;31,865;8,5
+DEF06;Herzogtum Lauenburg;56,998;7,3
+DEF07;Nordfriesland;55,212;7,3
+DEF08;Ostholstein;15,2;9,3
+DEF09;Pinneberg;4,935;9,8
+DEF0A;Plön;22,113;8,9
+DEF0B;Rendsburg-Eckernförde;36,812;8,2
+DEF0C;Schleswig-Flensburg;18,502;9,1
+DEF0D;Segeberg;31,331;8,5
+DEF0E;Steinburg;34,03;8,4
+DEF0F;Stormarn;35,338;8,3
+DEG01;Erfurt, Kreisfreie Stadt;10,335;9,5
+DEG02;Gera, Kreisfreie Stadt;17,42;9,2
+DEG03;Jena, Kreisfreie Stadt;7,864;9,6
+DEG04;Suhl, Kreisfreie Stadt;59,593;7,1
+DEG05;Weimar, Kreisfreie Stadt;51,526;7,5
+DEG06;Eichsfeld;60,266;7,1
+DEG07;Nordhausen;65,06;6,9
+DEG09;Unstrut-Hainich-Kreis;97,691;5,3
+DEG0A;Kyffhäuserkreis;70,6;6,6
+DEG0B;Schmalkalden-Meiningen;52,37;7,5
+DEG0C;Gotha;6,155;9,7
+DEG0D;Sömmerda;9,508;9,5
+DEG0E;Hildburghausen;26,768;8,7
+DEG0F;Ilm-Kreis;3,595;9,8
+DEG0G;Weimarer Land;16,873;9,2
+DEG0H;Sonneberg;19,524;9,1
+DEG0I;Saalfeld-Rudolstadt;27,554;8,7
+DEG0J;Saale-Holzland-Kreis;0,243;10
+DEG0K;Saale-Orla-Kreis;8,104;9,6
+DEG0L;Greiz;14,23;9,3
+DEG0M;Altenburger Land;8,377;9,6
+DEG0N;Eisenach, Kreisfreie Stadt;19,43;9,1
+DEG0P;Wartburgkreis;4,411;9,8

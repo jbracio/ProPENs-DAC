@@ -1,21 +1,79 @@
 ﻿@inherits LayoutComponentBase
 
 <!-- MODERNES HORIZONTALES MENÜ OBEN -->
-<header style="position: fixed; top: 0; left: 0; width: 100%; height: 60px; background: linear-gradient(to right, #003C78, #005EA8); display: flex; align-items: center; padding: 0 40px; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1000;">
-    <div style="color: white; font-size: 18px; font-weight: bold; letter-spacing: 0.5px;">
-        Direct Air Capture Site Evaluation in Germany
+<header style="position: fixed; top: 0; left: 0; width: 100%; height: 60px; background: linear-gradient(to right, #003C78, #005EA8); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1000;">
+    
+    <!-- Menu links -->
+<!-- Menu links -->
+<style>
+    .nav-link {
+        display: block;
+        margin: 10px 0;
+        color: #003C78;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.3s, font-weight 0.3s;
+        opacity: 1;
+    }
+
+    .nav-link:hover {
+        font-weight: bold;
+    }
+
+    #slide-menu:hover .nav-link {
+        opacity: 0.5;
+    }
+
+    #slide-menu:hover .nav-link:hover {
+        opacity: 1;
+    }
+</style>
+
+<div style="position: absolute; left: 40px;" onmouseover="showSlideMenu()" onmouseout="hideSlideMenu()">
+    <div style="background-color: rgba(255, 255, 255, 0.15); color: white; padding: 6px 12px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.3s ease;"
+         onmouseover="showSlideMenu()" onmouseout="hideSlideMenu()">
+        Menu
     </div>
-    <nav style="display: flex; align-items: center; gap: 20px;">
-        <span style="color: white; font-size: 14px;">Menu</span>
-        <NavLink href="/" style="text-decoration: none; color: white; font-weight: 500; transition: color 0.3s;">Start</NavLink>
-        <NavLink href="/ProPENs-DAC/statistiken" style="margin-left: 20px; color: white;">Statistiken</NavLink>
-    </nav>
+    <div id="slide-menu"
+         style="position: fixed; top: 60px; left: -300px; width: 300px; height: 500px;
+                background: linear-gradient(to bottom, #ffffff, #e0e9f4);
+                border-bottom-right-radius: 12px;
+                box-shadow: 4px 0 12px rgba(0,0,0,0.2);
+                z-index: 999; padding: 20px; transition: left 0.3s ease;">
+        <h3 style="margin-top: 0; color: #003C78;">Navigation</h3>
+        <a href="/" class="nav-link">Start</a>
+        <a href="/statistiken" class="nav-link">Statistics Dashboard</a>
+        <a href="/about" class="nav-link">About The Project</a>
+    </div>
+</div>
+
+    <!-- Titel zentriert -->
+        <span style="color: white; font-size: 20px; font-weight: 500;">
+            Direct Air Capture Site Evaluation in Germany
+        </span>
+
 </header>
 
 <!-- HAUPTBEREICH DER SEITE -->
-<main style="margin-top: 70px; padding: 20px; font-family: 'Segoe UI', sans-serif; background-color: #f5f7fa; min-height: 100vh;">
+<main style="margin-top: 70px; padding: 20px; font-family: 'Segoe UI', sans-serif;  min-height: 100vh;">
     @Body
 </main>
 
 <!-- LOGO UNTEN RECHTS -->
 <img src="img/tum-logo.png" alt="TUM Logo" style="position: fixed; bottom: 20px; right: 20px; height: 50px; z-index: 1000;" />
+
+<script>
+  let menuTimer;
+  function showSlideMenu() {
+    clearTimeout(menuTimer);
+    const menu = document.getElementById("slide-menu");
+    menu.style.left = "0px";
+  }
+
+  function hideSlideMenu() {
+    menuTimer = setTimeout(() => {
+      const menu = document.getElementById("slide-menu");
+      menu.style.left = "-300px";
+    }, 300);
+  }
+</script>

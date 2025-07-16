@@ -1,0 +1,402 @@
+﻿NUTS_ID;County;Total_Score;IWH_Score;E_Score;RES_Score;TP_Score;LU_Score
+DE111;Stuttgart;5.91;8;3;6;10;7
+DE112;Böblingen;6.46;5;5;6;10;7
+DE113;Esslingen;5.57;7;4;6;6;7
+DE114;Göppingen;5.97;9;4;8;7;6
+DE115;Ludwigsburg;5.22;7;4;5;5;7
+DE116;Rems-Murr-Kreis;6.28;7;5;6;9;5
+DE117;Heilbronn;4.67;6;5;0;8;3
+DE118;Heilbronn;5.90;6;5;7;7;6
+DE119;Hohenlohekreis;6.30;4;6;7;10;4
+DE11A;Schwäbisch Hall;6.70;6;6;7;9;6
+DE11B;Main-Tauber-Kreis;5.75;2;6;5;10;4
+DE11C;Heidenheim;6.59;8;6;6;10;4
+DE11D;Ostalbkreis;6.28;9;3;6;10;8
+DE121;Baden-Baden;4.48;0;3;6;10;4
+DE122;Karlsruhe;5.32;4;4;5;9;5
+DE123;Karlsruhe;6.46;8;5;6;9;6
+DE124;Rastatt;6.73;10;5;6;10;6
+DE125;Heidelberg;5.59;8;5;4;10;2
+DE126;Mannheim;5.59;9;4;6;9;3
+DE127;Neckar-Odenwald-Kreis;6.25;8;5;5;8;7
+DE128;Rhein-Neckar-Kreis;7.05;8;5;6;10;8
+DE129;Pforzheim;5.03;6;5;0;9;3
+DE12A;Calw;5.03;0;4;6;9;5
+DE12B;Enzkreis;5.33;0;5;6;9;5
+DE12C;Freudenstadt;4.68;5;3;6;9;3
+DE131;Freiburg im Breisgau;4.04;8;1;5;8;5
+DE132;Breisgau-Hochschwarzwald;4.04;5;1;6;8;4
+DE133;Emmendingen;3.74;0;2;4;9;4
+DE134;Ortenaukreis;4.38;6;1;5;7;8
+DE135;Rottweil;4.12;6;1;6;7;6
+DE136;Schwarzwald-Baar-Kreis;3.67;6;1;4;7;5
+DE137;Tuttlingen;3.82;5;2;6;6;4
+DE138;Konstanz;5.16;5;2;5;10;7
+DE139;Lörrach;4.29;7;1;4;9;5
+DE13A;Waldshut;4.71;4;3;7;8;4
+DE141;Reutlingen;5.28;7;2;7;9;7
+DE142;Tübingen;3.85;0;1;7;9;5
+DE143;Zollernalbkreis;5.64;6;3;7;8;8
+DE144;Ulm;4.82;5;3;7;10;2
+DE145;Alb-Donau-Kreis;5.68;8;3;5;10;6
+DE146;Biberach;6.06;5;5;6;10;6
+DE147;Bodenseekreis;5.36;4;3;6;10;6
+DE148;Ravensburg;5.38;6;2;6;9;8
+DE149;Sigmaringen;5.60;8;3;6;10;5
+DE211;Ingolstadt;4.11;0;3;5;8;4
+DE212;München;5.33;6;2;4;9;9
+DE213;Rosenheim;3.56;0;3;0;10;2
+DE214;Altötting;5.16;9;3;6;9;3
+DE215;Berchtesgadener Land;4.32;4;2;5;10;4
+DE216;Bad Tölz-Wolfratshausen;4.55;5;2;7;9;4
+DE217;Dachau;6.08;6;4;8;10;6
+DE218;Ebersberg;4.57;6;2;6;10;3
+DE219;Eichstätt;5.17;6;3;4;10;5
+DE21A;Erding;5.25;5;3;6;10;5
+DE21B;Freising;5.19;7;3;8;8;4
+DE21C;Fürstenfeldbruck;4.04;0;2;6;8;5
+DE21D;Garmisch-Partenkirchen;4.63;5;3;8;7;4
+DE21E;Landsberg am Lech;4.26;6;3;4;6;5
+DE21F;Miesbach;4.65;6;2;8;10;3
+DE21G;Mühldorf a.Inn;5.16;9;3;8;8;3
+DE21H;München;4.67;8;2;6;8;4
+DE21I;Neuburg-Schrobenhausen;5.47;6;4;7;8;5
+DE21J;Pfaffenhofen a.d.Ilm;5.09;10;3;5;7;5
+DE21K;Rosenheim;5.78;8;3;7;10;6
+DE21L;Starnberg;4.65;0;3;7;10;5
+DE21M;Traunstein;4.68;6;2;7;8;5
+DE21N;Weilheim-Schongau;4.04;7;2;5;6;4
+DE221;Landshut;4.39;0;3;7;7;5
+DE222;Passau;3.88;1;4;6;7;1
+DE223;Straubing;4.70;4;3;6;10;3
+DE224;Deggendorf;4.88;5;2;7;10;4
+DE225;Freyung-Grafenau;4.22;5;2;7;8;3
+DE226;Kelheim;5.76;8;4;6;10;4
+DE227;Landshut;5.20;6;4;8;7;4
+DE228;Passau;4.69;2;3;7;8;5
+DE229;Regen;4.19;4;2;6;9;3
+DE22A;Rottal-Inn;5.15;4;3;6;10;5
+DE22B;Straubing-Bogen;4.41;0;3;7;10;3
+DE22C;Dingolfing-Landau;5.06;9;3;6;9;3
+DE231;Amberg;4.58;5;3;7;9;2
+DE232;Regensburg;6.17;5;5;8;9;6
+DE233;Weiden i.d.OPf.;4.52;4;4;7;7;2
+DE234;Amberg-Sulzbach;6.01;5;6;7;8;4
+DE235;Cham;4.20;0;3;6;8;4
+DE236;Neumarkt i.d.OPf.;5.51;8;3;7;10;5
+DE237;Neustadt a.d.Waldnaab;4.97;5;4;5;10;3
+DE238;Regensburg;5.65;2;5;7;9;5
+DE239;Schwandorf;6.19;7;5;6;10;5
+DE23A;Tirschenreuth;5.30;7;4;8;9;3
+DE241;Bamberg;5.15;1;5;8;9;3
+DE242;Bayreuth;5.43;5;4;7;9;5
+DE243;Coburg;5.69;1;6;7;7;5
+DE244;Hof;5.19;1;6;5;8;3
+DE245;Bamberg;4.95;6;4;6;7;4
+DE246;Bayreuth;4.98;1;5;6;8;3
+DE247;Coburg;5.50;7;5;7;7;4
+DE248;Forchheim;5.12;6;5;6;6;4
+DE249;Hof;5.61;5;5;6;9;3
+DE24A;Kronach;5.60;6;6;5;8;2
+DE24B;Kulmbach;5.66;6;6;5;7;3
+DE24C;Lichtenfels;4.91;6;5;6;7;2
+DE24D;Wunsiedel i.Fichtelgebirge;5.79;8;5;7;9;3
+DE251;Ansbach;5.66;1;6;7;8;4
+DE252;Erlangen;4.90;5;6;0;8;3
+DE253;Fürth;5.39;0;6;8;9;2
+DE254;Nürnberg;6.28;10;5;0;10;7
+DE255;Schwabach;5.58;6;5;6;10;2
+DE256;Ansbach;6.35;7;6;6;9;4
+DE257;Erlangen-Höchstadt;5.64;0;6;6;8;5
+DE258;Fürth;6.44;7;5;8;8;6
+DE259;Nürnberger Land;6.24;5;5;6;9;6
+DE25A;Neustadt a.d.Aisch-Bad Windsheim;6.20;4;6;7;10;4
+DE25B;Roth;5.66;7;5;5;10;3
+DE25C;Weißenburg-Gunzenhausen;5.64;6;4;7;10;4
+DE261;Aschaffenburg;4.90;6;4;6;9;1
+DE262;Schweinfurt;5.90;8;5;7;10;2
+DE263;Würzburg;6.01;8;5;7;8;4
+DE264;Aschaffenburg;4.52;3;3;5;8;5
+DE265;Bad Kissingen;5.81;7;5;4;9;4
+DE266;Rhön-Grabfeld;5.39;0;5;7;9;4
+DE267;Haßberge;6.16;9;6;5;9;4
+DE268;Kitzingen;5.23;0;5;7;10;3
+DE269;Miltenberg;5.94;9;5;7;8;3
+DE26A;Main-Spessart;5.97;8;5;7;9;4
+DE26B;Schweinfurt;5.71;0;6;7;10;3
+DE26C;Würzburg;5.33;0;5;6;9;5
+DE271;Augsburg;4.42;5;3;0;9;5
+DE272;Kaufbeuren;4.83;7;3;7;9;2
+DE273;Kempten (Allgäu);5.76;10;4;7;10;3
+DE274;Memmingen;5.36;6;3;7;10;5
+DE275;Aichach-Friedberg;5.59;10;3;7;9;5
+DE276;Augsburg;5.87;2;4;7;9;8
+DE277;Dillingen a.d.Donau;5.73;8;4;7;8;5
+DE278;Günzburg;5.28;4;3;7;10;5
+DE279;Neu-Ulm;5.15;8;2;7;10;4
+DE27A;Lindau (Bodensee);4.19;0;3;7;8;3
+DE27B;Ostallgäu;5.31;6;3;6;10;5
+DE27C;Unterallgäu;5.96;6;5;8;8;5
+DE27D;Donau-Ries;5.71;7;5;4;8;5
+DE27E;Oberallgäu;4.73;8;2;3;9;5
+DE300;Berlin;8.32;6;8;8;8;10
+DE401;Brandenburg an der Havel;6.43;0;7;7;10;5
+DE402;Cottbus;6.75;0;9;7;8;4
+DE403;Frankfurt (Oder);6.66;0;8;7;9;5
+DE404;Potsdam;6.08;0;8;6;7;5
+DE405;Barnim;8.29;6;9;7;8;9
+DE406;Dahme-Spreewald;7.81;7;7;6;9;10
+DE407;Elbe-Elster;7.65;5;8;6;10;7
+DE408;Havelland;8.53;9;8;6;10;9
+DE409;Märkisch-Oderland;8.21;9;8;5;10;8
+DE40A;Oberhavel;7.81;8;8;6;7;9
+DE40B;Oberspreewald-Lausitz;7.84;9;8;6;9;6
+DE40C;Oder-Spree;8.36;9;8;5;10;9
+DE40D;Ostprignitz-Ruppin;7.85;8;8;6;10;7
+DE40E;Potsdam-Mittelmark;7.97;4;8;6;10;9
+DE40F;Prignitz;7.53;8;8;5;9;6
+DE40G;Spree-Neiße;8.09;7;8;6;10;8
+DE40H;Teltow-Fläming;7.73;8;7;5;10;8
+DE40I;Uckermark;8.19;9;8;7;10;7
+DE501;Bremen;8.41;8;9;6;9;9
+DE502;Bremerhaven;7.69;9;9;6;9;4
+DE600;Hamburg;8.99;8;9;6;10;10
+DE711;Darmstadt;4.56;7;3;0;9;4
+DE712;Frankfurt am Main;6.01;10;4;0;9;8
+DE713;Offenbach am Main;5.55;9;4;6;9;3
+DE714;Wiesbaden;5.83;8;5;0;8;7
+DE715;Bergstraße;6.04;9;4;6;8;7
+DE716;Darmstadt-Dieburg;5.41;9;3;6;9;5
+DE717;Groß-Gerau;6.71;9;5;6;10;6
+DE718;Hochtaunuskreis;6.61;5;6;5;10;6
+DE719;Main-Kinzig-Kreis;6.87;9;5;6;10;7
+DE71A;Main-Taunus-Kreis;6.38;6;5;7;10;6
+DE71B;Odenwaldkreis;6.24;10;5;5;10;4
+DE71C;Offenbach;5.45;7;5;6;5;5
+DE71D;Rheingau-Taunus-Kreis;5.37;0;6;5;8;5
+DE71E;Wetteraukreis;5.92;5;6;6;7;6
+DE721;Gießen;6.29;5;6;6;8;6
+DE722;Lahn-Dill-Kreis;5.83;7;6;2;6;7
+DE723;Limburg-Weilburg;4.40;0;6;6;3;5
+DE724;Marburg-Biedenkopf;6.83;7;7;6;6;8
+DE725;Vogelsbergkreis;6.35;9;7;7;5;5
+DE731;Kassel;5.36;9;7;0;3;5
+DE732;Fulda;5.72;8;6;7;1;8
+DE733;Hersfeld-Rotenburg;6.07;8;6;7;6;5
+DE734;Kassel;5.91;0;7;6;4;8
+DE735;Schwalm-Eder-Kreis;6.63;7;7;6;5;7
+DE736;Waldeck-Frankenberg;7.35;7;7;6;10;7
+DE737;Werra-Meißner-Kreis;7.02;10;6;6;10;5
+DE803;Rostock;7.47;4;9;7;10;4
+DE804;Schwerin;6.18;0;8;7;9;2
+DE80J;Mecklenburgische Seenplatte;7.94;9;8;7;9;7
+DE80K;Rostock;7.96;4;9;6;9;8
+DE80L;Vorpommern-Rügen;7.16;0;10;6;7;5
+DE80M;Nordwestmecklenburg;8.25;5;10;5;10;6
+DE80N;Vorpommern-Greifswald;8.65;6;10;6;10;7
+DE80O;Ludwigslust-Parchim;7.90;7;9;6;7;8
+DE911;Braunschweig;7.03;6;8;6;8;5
+DE912;Salzgitter;6.35;4;8;5;8;3
+DE913;Wolfsburg;7.10;5;8;6;9;5
+DE914;Gifhorn;7.30;7;8;4;7;8
+DE916;Goslar;7.02;8;7;6;8;6
+DE917;Helmstedt;6.74;7;8;4;8;4
+DE918;Northeim;7.31;8;7;4;10;6
+DE91A;Peine;7.22;7;8;5;9;5
+DE91B;Wolfenbüttel;7.57;6;8;6;10;6
+DE91C;Göttingen;7.33;6;6;5;10;9
+DE922;Diepholz;8.11;7;8;7;9;8
+DE923;Hameln-Pyrmont;7.72;10;8;6;9;5
+DE925;Hildesheim;7.82;7;8;5;8;9
+DE926;Holzminden;6.60;6;7;6;9;5
+DE927;Nienburg (Weser);7.27;9;8;4;7;7
+DE928;Schaumburg;7.51;6;8;7;9;6
+DE929;Region Hannover;7.92;7;8;5;8;10
+DE931;Celle;7.24;4;8;6;7;9
+DE932;Cuxhaven;8.09;8;9;7;8;8
+DE933;Harburg;8.07;3;9;5;10;9
+DE934;Lüchow-Dannenberg;6.57;4;8;4;10;3
+DE935;Lüneburg;8.17;8;8;7;9;8
+DE936;Osterholz;7.06;4;9;4;9;5
+DE937;Rotenburg (Wümme);8.04;7;9;4;9;7
+DE938;Heidekreis;7.05;6;8;4;8;7
+DE939;Stade;7.78;8;9;7;7;7
+DE93A;Uelzen;6.75;9;8;4;6;5
+DE93B;Verden;7.40;9;8;5;8;6
+DE941;Delmenhorst;7.14;5;9;5;8;4
+DE942;Emden;7.36;6;10;6;7;3
+DE943;Oldenburg (Oldb);6.77;0;9;5;8;6
+DE944;Osnabrück;7.03;5;8;6;9;5
+DE945;Wilhelmshaven;7.50;9;9;4;9;4
+DE946;Ammerland;7.20;7;9;7;6;5
+DE947;Aurich;8.38;8;10;6;6;9
+DE948;Cloppenburg;7.90;7;9;7;8;7
+DE949;Emsland;8.22;9;9;4;8;9
+DE94A;Friesland;7.37;8;10;7;6;4
+DE94B;Grafschaft Bentheim;7.93;9;8;7;10;6
+DE94C;Leer;8.11;9;9;6;7;8
+DE94D;Oldenburg;7.51;3;9;6;10;5
+DE94E;Osnabrück;7.73;7;8;7;9;6
+DE94F;Vechta;6.99;5;8;5;9;5
+DE94G;Wesermarsch;8.01;8;9;7;9;5
+DE94H;Wittmund;6.38;0;9;6;8;3
+DEA11;Düsseldorf;7.61;6;8;7;9;7
+DEA12;Duisburg;7.04;7;8;0;7;8
+DEA13;Essen;7.37;6;9;5;10;4
+DEA14;Krefeld;7.14;9;7;6;8;7
+DEA15;Mönchengladbach;7.65;2;8;6;9;9
+DEA16;Mülheim an der Ruhr;6.58;6;8;6;10;1
+DEA17;Oberhausen;7.31;7;8;0;9;8
+DEA18;Remscheid;4.98;0;6;0;9;4
+DEA19;Solingen;7.46;10;7;0;10;9
+DEA1A;Wuppertal;7.17;9;7;5;9;6
+DEA1B;Kleve;7.63;6;8;6;8;8
+DEA1C;Mettmann;7.95;8;8;7;10;6
+DEA1D;Rhein-Kreis Neuss;8.54;8;9;7;8;9
+DEA1E;Viersen;7.75;8;8;7;10;5
+DEA1F;Wesel;7.76;6;8;7;9;7
+DEA22;Bonn;7.30;10;7;0;10;8
+DEA23;Köln;7.29;8;7;0;9;10
+DEA24;Leverkusen;7.60;8;8;7;10;5
+DEA26;Düren;7.83;7;8;7;9;8
+DEA27;Rhein-Erft-Kreis;7.44;8;8;6;7;7
+DEA28;Euskirchen;7.76;6;8;7;9;7
+DEA29;Heinsberg;7.71;5;8;7;9;7
+DEA2A;Oberbergischer Kreis;7.74;6;8;5;8;9
+DEA2B;Rheinisch-Bergischer Kreis;6.26;0;8;6;7;6
+DEA2C;Rhein-Sieg-Kreis;7.56;6;7;6;9;9
+DEA2D;Städteregion Aachen;8.11;9;8;8;8;9
+DEA31;Bottrop;6.20;7;8;7;7;1
+DEA32;Gelsenkirchen;7.14;9;8;6;10;3
+DEA33;Münster;7.72;8;8;5;10;7
+DEA34;Borken;8.10;8;8;7;9;8
+DEA35;Coesfeld;7.27;7;8;6;9;6
+DEA36;Recklinghausen;8.08;7;8;6;10;8
+DEA37;Steinfurt;7.98;7;8;6;9;8
+DEA38;Warendorf;7.71;5;9;7;8;7
+DEA41;Bielefeld;8.80;10;9;8;9;8
+DEA42;Gütersloh;7.68;7;8;6;8;8
+DEA43;Herford;7.90;6;8;6;9;8
+DEA44;Höxter;7.24;6;8;7;8;6
+DEA45;Lippe;8.03;6;8;7;9;10
+DEA46;Minden-Lübbecke;8.21;7;8;8;8;9
+DEA47;Paderborn;8.63;7;9;7;9;9
+DEA51;Bochum;8.37;8;9;0;10;10
+DEA52;Dortmund;7.77;7;8;8;6;9
+DEA53;Hagen;6.46;0;8;7;7;5
+DEA54;Hamm;7.93;7;9;7;10;5
+DEA55;Herne;5.75;7;8;0;8;1
+DEA56;Ennepe-Ruhr-Kreis;7.89;7;9;4;7;9
+DEA57;Hochsauerlandkreis;7.93;8;8;8;9;7
+DEA58;Märkischer Kreis;8.40;8;9;6;9;8
+DEA59;Olpe;7.01;8;7;9;8;4
+DEA5A;Siegen-Wittgenstein;8.22;8;8;7;8;10
+DEA5B;Soest;7.72;7;9;5;6;8
+DEA5C;Unna;8.37;7;9;7;10;7
+DEB11;Koblenz;6.31;6;7;7;8;3
+DEB12;Ahrweiler;7.08;7;7;6;9;6
+DEB13;Altenkirchen (Westerwald);7.02;6;7;7;10;5
+DEB14;Bad Kreuznach;6.43;8;6;5;9;5
+DEB15;Birkenfeld;6.71;5;7;5;10;5
+DEB17;Mayen-Koblenz;7.67;9;7;7;9;8
+DEB18;Neuwied;6.51;8;7;6;5;6
+DEB1A;Rhein-Lahn-Kreis;5.57;0;6;7;8;5
+DEB1B;Westerwaldkreis;6.18;7;6;7;7;6
+DEB1C;Cochem-Zell;5.66;9;6;7;6;2
+DEB1D;Rhein-Hunsrück-Kreis;5.29;0;7;5;6;4
+DEB21;Trier;6.43;7;7;7;6;5
+DEB22;Bernkastel-Wittlich;6.08;5;7;6;7;4
+DEB23;Eifelkreis Bitburg-Prüm;6.39;5;8;7;5;5
+DEB24;Vulkaneifel;5.91;6;7;6;7;3
+DEB25;Trier-Saarburg;6.18;6;7;7;6;5
+DEB31;Frankenthal (Pfalz);4.14;7;5;0;5;2
+DEB32;Kaiserslautern;5.67;9;6;5;6;3
+DEB33;Landau in der Pfalz;4.85;0;6;6;7;2
+DEB34;Ludwigshafen am Rhein;5.07;8;5;6;6;2
+DEB35;Mainz;5.60;8;5;5;6;6
+DEB36;Neustadt an der Weinstraße;5.02;0;5;6;8;4
+DEB37;Pirmasens;5.85;10;7;0;7;3
+DEB38;Speyer;4.49;5;4;5;7;2
+DEB39;Worms;5.41;8;5;6;7;3
+DEB3A;Zweibrücken;5.40;0;7;3;7;5
+DEB3B;Alzey-Worms;5.37;6;5;4;8;4
+DEB3C;Bad Dürkheim;4.99;9;5;4;4;4
+DEB3D;Donnersbergkreis;4.54;8;5;4;4;3
+DEB3E;Germersheim;5.95;10;6;2;9;3
+DEB3F;Kaiserslautern;6.08;6;6;4;10;3
+DEB3G;Kusel;5.64;5;6;2;10;3
+DEB3H;Südliche Weinstraße;5.89;7;5;7;9;4
+DEB3I;Rhein-Pfalz-Kreis;5.87;7;5;7;9;3
+DEB3J;Mainz-Bingen;5.34;7;4;4;9;5
+DEB3K;Südwestpfalz;5.70;0;6;8;9;4
+DEC01;Regionalverband Saarbrücken;7.97;7;8;7;9;8
+DEC02;Merzig-Wadern;6.49;9;6;6;10;4
+DEC03;Neunkirchen;5.95;2;6;5;9;5
+DEC04;Saarlouis;6.86;9;6;7;9;5
+DEC05;Saarpfalz-Kreis;7.40;7;8;5;9;5
+DEC06;St. Wendel;6.95;7;7;8;10;3
+DED21;Dresden;8.01;8;7;6;10;9
+DED2C;Bautzen;7.41;8;7;6;8;8
+DED2D;Görlitz;7.34;6;7;5;9;8
+DED2E;Meißen;8.14;8;8;7;8;10
+DED2F;Sächsische Schweiz-Osterzgebirge;7.68;8;8;5;8;8
+DED41;Chemnitz;7.44;6;7;6;9;8
+DED42;Erzgebirgskreis;6.80;8;6;2;9;8
+DED43;Mittelsachsen;7.57;8;7;4;10;8
+DED44;Vogtlandkreis;6.58;5;6;4;7;9
+DED45;Zwickau;8.14;9;7;7;10;9
+DED51;Leipzig;7.02;5;7;3;10;7
+DED52;Leipzig;6.80;5;6;4;9;8
+DED53;Nordsachsen;7.86;9;8;4;9;8
+DEE01;Dessau-Roßlau;6.85;9;6;6;10;5
+DEE02;Halle (Saale);6.38;0;8;3;9;5
+DEE03;Magdeburg;7.75;10;7;7;9;7
+DEE04;Altmarkkreis Salzwedel;8.22;9;9;6;10;6
+DEE05;Anhalt-Bitterfeld;7.23;9;6;6;9;8
+DEE06;Jerichower Land;7.88;7;9;4;10;6
+DEE07;Börde;8.18;7;9;7;9;7
+DEE08;Burgenlandkreis;7.48;6;7;7;9;8
+DEE09;Harz;7.60;9;7;5;8;8
+DEE0A;Mansfeld-Südharz;6.50;7;6;5;8;7
+DEE0B;Saalekreis;7.17;9;6;5;10;7
+DEE0C;Salzlandkreis;7.85;10;7;6;10;8
+DEE0D;Stendal;8.00;8;8;6;10;7
+DEE0E;Wittenberg;8.04;8;8;6;9;8
+DEF01;Flensburg;6.86;0;9;6;10;4
+DEF02;Kiel;7.76;10;9;6;10;3
+DEF03;Lübeck;7.89;6;9;6;9;7
+DEF04;Neumünster;6.70;8;9;0;8;3
+DEF05;Dithmarschen;7.99;8;9;4;9;7
+DEF06;Herzogtum Lauenburg;7.30;4;9;4;7;7
+DEF07;Nordfriesland;8.19;7;10;7;7;6
+DEF08;Ostholstein;7.50;5;9;4;9;6
+DEF09;Pinneberg;8.23;7;9;4;10;8
+DEF0A;Plön;7.66;3;9;4;9;8
+DEF0B;Rendsburg-Eckernförde;8.09;5;10;1;8;9
+DEF0C;Schleswig-Flensburg;8.66;8;10;7;9;7
+DEF0D;Segeberg;7.43;7;9;1;9;6
+DEF0E;Steinburg;7.87;9;9;4;8;6
+DEF0F;Stormarn;8.16;9;9;4;8;8
+DEG01;Erfurt;6.91;8;6;4;10;7
+DEG02;Gera;6.27;0;8;4;9;4
+DEG03;Jena;6.00;5;6;5;10;3
+DEG04;Suhl;4.34;0;5;4;7;3
+DEG05;Weimar;5.44;6;6;4;8;3
+DEG06;Eichsfeld;5.95;7;6;4;7;5
+DEG07;Nordhausen;6.02;6;6;6;7;5
+DEG09;Unstrut-Hainich-Kreis;5.80;7;6;2;5;7
+DEG0A;Kyffhäuserkreis;5.34;2;6;3;7;5
+DEG0B;Schmalkalden-Meiningen;6.18;7;5;7;8;6
+DEG0C;Gotha;6.91;8;6;4;10;7
+DEG0D;Sömmerda;5.56;5;6;1;10;3
+DEG0E;Hildburghausen;5.42;6;5;4;9;3
+DEG0F;Ilm-Kreis;6.60;6;6;4;10;6
+DEG0G;Weimarer Land;6.42;8;6;4;9;5
+DEG0H;Sonneberg;5.55;4;6;1;9;4
+DEG0I;Saalfeld-Rudolstadt;6.29;9;5;4;9;6
+DEG0J;Saale-Holzland-Kreis;6.37;7;6;7;10;3
+DEG0K;Saale-Orla-Kreis;6.53;7;6;6;10;5
+DEG0L;Greiz;7.08;8;8;1;9;6
+DEG0M;Altenburger Land;7.00;8;7;4;10;5
+DEG0N;Eisenach;5.35;0;6;5;9;3
+DEG0P;Wartburgkreis;7.00;8;7;4;10;5

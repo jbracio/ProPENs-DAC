@@ -6,410 +6,793 @@
 }
 </style>
 @page "/statistiken"
+@using DeutschlandDashboard.Models
+@using CsvHelper
+@using CsvHelper.Configuration
+@using System.Globalization
+@using System.IO
+@inject HttpClient Http
 @inject IJSRuntime JS
 
-<PageTitle>Statistics</PageTitle>
 
-<!-- Hero Section -->
-<section style="padding: 50px 20px 30px; background: linear-gradient(to right, #003C78, #005EA8); color: white; text-align: center;">
-    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">DAC Statistics-Dashboard</h1>
-    <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
-        Interactive insights into CO₂ potentials and site selection factors in Germany.
+<div style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -1;">
+   
+</div>
+
+
+
+<section class="hover-frame" style="
+    padding: 30px 40px;
+    background: linear-gradient(to right, #003C78, #005EA8);
+    color: white;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
+">
+    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px;">Welcome to the DAC Insights Dashboard</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6;">
+        This interactive platform provides comprehensive visual analyses for Direct Air Capture (DAC) potential across Germany. Explore dynamic maps and tables highlighting key factors like renewable energy, industrial heat availability, electricity costs, land use, and CO₂ transport distance. Use filtering tools and KPI indicators to focus on specific districts and evaluate locations based on combined scoring systems.
     </p>
 </section>
 
-@* <section style="padding: 20px 40px; display: flex; justify-content: center; align-items: center; gap: 20px;">
-    <label for="bundeslandSelect" style="font-weight: 600; color: #003C78;">Bundesland:</label>
-    <select id="bundeslandSelect" onchange="updateKpiStatistik()" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc;">
-        <option value="ALL">Gesamt</option>
-        <option value="Bayern">Bayern</option>
-        <option value="Berlin">Berlin</option>
-        <option value="Brandenburg">Brandenburg</option>
-        <option value="Bremen">Bremen</option>
-        <option value="Hamburg">Hamburg</option>
-        <option value="Hessen">Hessen</option>
-        <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
-        <option value="Niedersachsen">Niedersachsen</option>
-        <option value="Nordrhein-Westfalen">Nordrhein-Westfalen</option>
-        <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
-        <option value="Saarland">Saarland</option>
-        <option value="Sachsen">Sachsen</option>
-        <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
-        <option value="Schleswig-Holstein">Schleswig-Holstein</option>
-        <option value="Thüringen">Thüringen</option>
-    </select>
-</section> *@
 
-<style>
-.kpi-card {
-    flex: 1 1 200px;
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.kpi-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-</style>
 
+<section class="hover-frame" style="padding: 30px 40px; background: linear-gradient(to right, #003C78, #005EA8); border-radius: 12px; color: white; max-width: 96%; margin: 40px auto 0px auto; text-align: left;">
+    <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 15px;">Total Score Overview</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6;">
+        This section visualizes the combined performance indicators across multiple criteria to assess the overall suitability of each district for DAC deployment.
+    </p>
+</section>
+
+<section style="padding: 30px 40px; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; gap: 20px; height: 860px;">
+        <!-- KPI Kacheln für Total Score Map -->
+        <div style="display: flex; gap: 20px; margin-bottom: 15px;">
+        </div>
+        <div id="totalscore-map-frame" class="hover-frame" style="flex: 0 0 35%; width: 35%; background: white; border-radius: 12px; padding: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); height: 100%; position: relative;">
+            <div id="totalScoreKPIContainer" class="kpi-container">
+                <div class="mini-kpi">
+                    <div class="mini-kpi-icon">⚖️</div>
+                    <div class="mini-kpi-label">Average Score</div>
+                    <div id="total-score-kpi-average" class="mini-kpi-value">–</div>
+                </div>
+                <div class="mini-kpi">
+                    <div class="mini-kpi-icon">📍</div>
+                    <div class="mini-kpi-label">Visible Counties</div>
+                    <div id="total-score-kpi-count" class="mini-kpi-value">–</div>
+                </div>
+            </div>
+            <div id="totalscore-map" style="width: 100%; height: 100%; border-radius: 12px; background-color: white; z-index: 0;">
+            </div>
+            <!-- Filter Hover Trigger for Total Score -->
+            <div class="filter-hover-trigger-inline" style="position: absolute; bottom: 10px; left: 100px; z-index: 999;">
+                <button id="totalscore-filter-toggle" class="filter-label-button">Filters</button>
+                <div class="filter-hover-panel-inline">
+                    <div>
+                        <label for="score1-slider" style="font-weight: bold; color: #003C78;">Min Total Score:</label><br>
+                        <input id="score1-slider" type="range" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.textContent = this.value" />
+                        <span id="score1-value" style="font-weight: bold;">0</span>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label for="score2-slider" style="font-weight: bold; color: #003C78;">Min Waste Heat Score:</label><br>
+                        <input id="score2-slider" type="range" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.textContent = this.value" />
+                        <span id="score2-value" style="font-weight: bold;">0</span>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label for="score3-slider" style="font-weight: bold; color: #003C78;">Min Cost Score:</label><br>
+                        <input id="score3-slider" type="range" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.textContent = this.value" />
+                        <span id="score3-value" style="font-weight: bold;">0</span>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label for="score4-slider" style="font-weight: bold; color: #003C78;">Min Renewable Energy Systems Score:</label><br>
+                        <input id="score4-slider" type="range" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.textContent = this.value" />
+                        <span id="score4-value" style="font-weight: bold;">0</span>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label for="score5-slider" style="font-weight: bold; color: #003C78;">Min CO₂ Transport Score:</label><br>
+                        <input id="score5-slider" type="range" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.textContent = this.value" />
+                        <span id="score5-value" style="font-weight: bold;">0</span>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label for="score6-slider" style="font-weight: bold; color: #003C78;">Min Land Usage Score:</label><br>
+                        <input id="score6-slider" type="range" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.textContent = this.value" />
+                        <span id="score6-value" style="font-weight: bold;">0</span>
+                    </div>
+                    <button class="apply-button" onclick="collectTotalScoreThresholdsAndApply()" style="margin-top: 14px; background-color: #003C78; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer;">
+                        Apply
+                    </button>
+                    <button class="apply-button" onclick="resetTotalScoreFilters()" style="margin-top: 10px; background-color: #888; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer;">
+                        Reset Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Legend Hover Trigger for Total Score -->
+            <div class="legend-hover-trigger-inline" style="position: absolute; bottom: 10px; left: 10px; z-index: 999;">
+                <div style="position: relative;">
+                    <button class="filter-label-button">Legend</button>
+                    <div class="legend-hover-panel-inline hover-frame" style="position: absolute; bottom: 40px; left: 0; width: 300px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                        <div class="legend-title">Color Scale by Total Score</div>
+                        <div style="height: 10px;"></div>
+                        <div style="position: relative; height: 20px; background: linear-gradient(to right, 
+  #08519c 0%, 
+    #4d97c2 10%, 
+    #9ecae1 90%, 
+    #deebf7 100%); border-radius: 4px; margin-bottom: 8px;">
+                            <div style="position: absolute; left: 0%; top: 100%; transform: translateX(-50%); font-size: 10px;">10%</div>
+                            <div style="position: absolute; left: 100%; top: 100%; transform: translateX(-50%); font-size: 10px;">90%</div>
+                        </div>
+                        <div style="height: 10px;"></div>
+                        <div class="legend-description">
+                            Total Score indicates the overall performance across multiple criteria. The criteria were weighted: Costs 40%, CO2 Transport and Land Usage 20% each, Industrial Waste Heat and Renewable Energy 10% each.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Score Info Panel -->
+            <div id="totalscore-info-panel" style="width: 300px; height: 50%; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: none; position: absolute; bottom: 10px; right: 10px; z-index: 900;">
+                <button onclick="closeTotalScorePanel()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #003C78; font-size: 16px; font-weight: bold; cursor: pointer;">✖</button>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong id="totalscore-panel-title" style="font-size: 1.02rem;">Landkreis</strong>
+                </div>
+                <div id="totalscore-panel-content" style="margin-top: 13px; font-size: 13px; line-height: 1.3em;"></div>
+            </div>
+        </div>
+        <div id="totalscore-side-frame" class="hover-frame" style="flex: 0 0 64%; width: 65%; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); height: 100%;">
+            <div style="position: relative;">
+                <span 
+                  title="This table displays county-level total score data. Columns include sub-scores across different criteria."
+                  style="position: absolute; top: 10px; right: 10px; font-size: 18px; cursor: pointer;">
+                  ℹ️
+                </span>
+            </div>
+            <div class="table-container">
+                <table id="totalscore-table" class="modern-data-table">
+                    <thead class="table-header">
+                        <tr>
+                            <th @onclick="@(() => SortTotalScoreBy(nameof(TotalScoreEntry.County)))">County @(GetTotalScoreSortIcon(nameof(TotalScoreEntry.County)))</th>
+                            <th @onclick="@(() => SortTotalScoreBy(nameof(TotalScoreEntry.TotalScore)))">Total Score @(GetTotalScoreSortIcon(nameof(TotalScoreEntry.TotalScore)))</th>
+                            <th @onclick="@(() => SortTotalScoreBy(nameof(TotalScoreEntry.WasteHeatScore)))">Waste Heat Score @(GetTotalScoreSortIcon(nameof(TotalScoreEntry.WasteHeatScore)))</th>
+                            <th @onclick="@(() => SortTotalScoreBy(nameof(TotalScoreEntry.ElectricityScore)))">Cost of tCO₂ Score @(GetTotalScoreSortIcon(nameof(TotalScoreEntry.ElectricityScore)))</th>
+                            <th @onclick="@(() => SortTotalScoreBy(nameof(TotalScoreEntry.RenewableScore)))">Renewable Energy Score @(GetTotalScoreSortIcon(nameof(TotalScoreEntry.RenewableScore)))</th>
+                            <th @onclick="@(() => SortTotalScoreBy(nameof(TotalScoreEntry.CO2TransportScore)))">CO₂ Transport Score @(GetTotalScoreSortIcon(nameof(TotalScoreEntry.CO2TransportScore)))</th>
+                            <th @onclick="@(() => SortTotalScoreBy(nameof(TotalScoreEntry.LandUsageScore)))">Land Usage Score @(GetTotalScoreSortIcon(nameof(TotalScoreEntry.LandUsageScore)))</th>
+                        </tr>
+                    </thead>
+                    <tbody id="totalscore-table-body">
+                        @if (totalScoreEntries?.Any() == true)
+                        {
+                            foreach (var entry in totalScoreEntries)
+                            {
+                                <tr>
+                                    <td>@entry.County</td>
+                                    <td>@entry.TotalScore</td>
+                                    <td>@entry.WasteHeatScore</td>
+                                    <td>@entry.ElectricityScore</td>
+                                    <td>@entry.RenewableScore</td>
+                                    <td>@entry.CO2TransportScore</td>
+                                    <td>@entry.LandUsageScore</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="7" style="color: #777;">Loading total score data…</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* ############################################################################### *@
+
+
+
+<section class="hover-frame" style="padding: 30px 40px; background: linear-gradient(to right, #003C78, #005EA8); border-radius: 12px; color: white; max-width: 96%; margin: 40px auto 0px auto; text-align: left;">
+    <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 15px;">Cost Statistics</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6;">
+        This section explores electricity-related DAC factors including operating hours, energy mix, storage, and associated costs per ton of CO₂ captured.
+    </p>
+</section>
 
 <section style="padding: 20px 40px;">
-    <h2 style="color: #003C78; margin-bottom: 20px;">Visual Analysis</h2>
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-        <div id="resetAllContainer" style="display: none;">
-            <div class="filter-tag" onclick="resetStateFilter(); filterChartByState(); updateActiveFilters()" style="font-weight: 500; background-color: #003C78; color: white;">
-                ✖ Reset all Filters
-            </div>
-        </div>
-        <div id="active-filters" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
-    </div>
     <div style="display: flex; gap: 20px; height: 860px;">
-        <!-- Filter Field -->
-        <div class="hover-frame" style="flex: 0 0 300px; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); overflow-y: auto;">
-            <h3 style="margin-top: 0; margin-bottom: 15px; font-weight: 600;">Filter Options</h3>
-        <label for="stateFilter" style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Select Federal States:</label>
-        <select id="stateFilter" multiple style="width: 100%; padding: 8px; font-size: 14px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 15px; background-color: white; color: #003C78;">
-            <option value="Bayern">Bavaria</option>
-            <option value="Berlin">Berlin</option>
-            <option value="Hamburg">Hamburg</option>
-            <option value="Hessen">Hesse</option>
-            <option value="Bremen">Bremen</option>
-            <option value="Niedersachsen">Lower Saxony</option>
-            <option value="Sachsen">Saxony</option>
-            <option value="Baden-Württemberg">Baden-Württemberg</option>
-            <option value="Brandenburg">Brandenburg</option>
-            <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
-            <option value="Nordrhein-Westfalen">North Rhine-Westphalia</option>
-            <option value="Rheinland-Pfalz">Rhineland-Palatinate</option>
-            <option value="Saarland">Saarland</option>
-            <option value="Sachsen-Anhalt">Saxony-Anhalt</option>
-            <option value="Schleswig-Holstein">Schleswig-Holstein</option>
-            <option value="Thüringen">Thuringia</option>
-        </select>
-
-        <label for="co2ScoreSlider" style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">
-            Min. CO₂ Price Score: 
-            <span id="scoreValueBox" style="background: #fff; color: #003C78; font-weight: bold; padding: 2px 8px; border-radius: 6px; font-size: 13px; margin-left: 6px;">0</span>
-        </label>
-        <input type="range" id="co2ScoreSlider" min="0" max="10" value="0" style="width: 100%; accent-color: #003C78; height: 6px; margin-bottom: 15px;" oninput="document.getElementById('scoreValueBox').textContent = this.value" />
-
-        <label for="nettoScoreSlider" style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">
-            Min. Net CO₂ Score: 
-            <span id="nettoScoreValueBox" style="background: #fff; color: #003C78; font-weight: bold; padding: 2px 8px; border-radius: 6px; font-size: 13px; margin-left: 6px;">0</span>
-        </label>
-        <input type="range" id="nettoScoreSlider" min="0" max="10" value="0" style="width: 100%; accent-color: #003C78; height: 6px; margin-bottom: 15px;" oninput="document.getElementById('nettoScoreValueBox').textContent = this.value" />
-
-        <div style="margin-top: 10px;">
-            <label style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Solar Filter:</label>
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
-                <div id="solarToggle" data-value="Y" onclick="this.dataset.value = (this.dataset.value === 'Y' ? 'N' : 'Y'); this.textContent = this.dataset.value;"
-                     style="cursor: pointer; background: white; color: #003C78; padding: 6px 14px; border-radius: 20px; border: 1px solid #ccc; width: 50px; text-align: center; font-weight: 600; user-select: none;">
-                    Y
+        <!-- Left: Karte -->
+        <div id="electricity-map-frame" class="hover-frame" style="flex: 0 0 35%; width: 35%; background: white; border-radius: 12px; padding: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); height: 100%;">
+            
+            <div id="electricity-map" style="width: 100%; height: 100%; border-radius: 12px; background-color: white; z-index: 0; position: relative;">
+                <!-- KPI Kacheln für Electricity Map -->
+                <div id="electricity-kpi-container" class="kpi-container"></div>
+            
+                <div id="electricity-info-panel" style="width: 300px; height: 50%; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: none; position: absolute; bottom: 10px; right: 10px; z-index: 900;">
+                   <button onclick="closeElectricityPanel()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #003C78; font-size: 16px; font-weight: bold; cursor: pointer;">✖</button>
                 </div>
-                <label for="solarFilterCheckbox" style="font-size: 13px; font-weight: 500; margin-left: 10px; flex-grow: 1; user-select: none;">Include Solar</label>
-                <input type="checkbox" id="solarFilterCheckbox" style="width: 18px; height: 18px;" />
-            </div>
 
-            <label style="display: block; font-size: 14px; margin-bottom: 6px; font-weight: 600;">Wind Filter:</label>
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <div id="windToggle" data-value="Y" onclick="this.dataset.value = (this.dataset.value === 'Y' ? 'N' : 'Y'); this.textContent = this.dataset.value;"
-                     style="cursor: pointer; background: white; color: #003C78; padding: 6px 14px; border-radius: 20px; border: 1px solid #ccc; width: 50px; text-align: center; font-weight: 600; user-select: none;">
-                    Y
-                </div>
-                <label for="windFilterCheckbox" style="font-size: 13px; font-weight: 500; margin-left: 10px; flex-grow: 1; user-select: none;">Include Wind</label>
-                <input type="checkbox" id="windFilterCheckbox" style="width: 18px; height: 18px;" />
-            </div>
-        </div>
-
-        <div style="margin-top: 25px; display: flex; flex-direction: column; gap: 10px;">
-            <button id="toggleColorButton" onclick="toggleColorScale()"
-                style="background: linear-gradient(to right, #003C78, #005EA8); color: white; border: none; padding: 10px 22px; font-size: 14px; border-radius: 8px; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.15); cursor: pointer; transition: background 0.3s ease;">
-                Switch to Netto CO₂ Emission
-            </button>
-            <button onclick="applyStateFilter(); filterChartByState(); updateActiveFilters()" style="background-color: white; color: #003C78; border: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.3s ease;">Apply Filter</button>
-            <button onclick="resetStateFilter(); filterChartByState(); updateActiveFilters()" style="background-color: white; color: #003C78; border: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.3s ease;">Reset Filter</button>
-            <button onclick="toggleCityMarkers()" style="background-color: white; color: #003C78; border: none; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.3s ease;">Cities On/Off</button>
-        </div>
-        </div>
-        
-        <!-- Mittelspalte: Karte mit Info-Panel, Diagramme rechts daneben -->
-        <div id="map-frame" class="hover-frame" style="flex: 1 1 auto; display: flex; background: white; padding: 10px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); gap: 20px; position: relative; overflow: hidden; box-sizing: border-box; height: 100%; width: 30%;">
-            <div id="map-container" style="flex: 0 0 100%; width: 100%; max-width: 100%; height: 100%; background: white; border: 1px solid #ccc; border-radius: 12px; position: relative;">
-                <!-- Mini-KPI-Statistiken oberhalb der Karte, jetzt schwebend am oberen Rand -->
-                <div style="position: absolute; top: 10px; left: 10px; right: 10px; z-index: 100; display: flex; justify-content: space-between; gap: 10px;">
-                    <div class="mini-kpi"><div class="mini-kpi-icon">💶</div><div class="mini-kpi-label">CO₂ Price</div><div class="mini-kpi-value" id="mini-kpi-co2">– €</div></div>
-                    <div class="mini-kpi"><div class="mini-kpi-icon">🌫️</div><div class="mini-kpi-label">Net CO₂</div><div class="mini-kpi-value" id="mini-kpi-netto">– kg</div></div>
-                    <div class="mini-kpi"><div class="mini-kpi-icon">💨</div><div class="mini-kpi-label">PV Available</div><div class="mini-kpi-value" id="mini-kpi-pv">–</div></div>
-                    <div class="mini-kpi"><div class="mini-kpi-icon">☀️</div><div class="mini-kpi-label">Solar Available</div><div class="mini-kpi-value" id="mini-kpi-solar">–</div></div>
-                </div>
-                <div id="map" style="width: 100%; height: 100%; border-radius: 12px; background-color: white;"></div>
-                <button id="legend-toggle" onclick="toggleLegend()" style="position: absolute; bottom: 10px; left: 10px; z-index: 1; background-color: #003C78; color: white; border: none; padding: 6px 12px; font-size: 14px; border-radius: 6px; cursor: pointer;">
-                    Legend
-                </button>
-                <div id="legend-box" style="position: absolute; bottom: 50px; left: 10px; z-index: 999; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); display: none; width: 360px; font-size: 12px;">
-                    <div id="legend-title" style="font-weight: bold; margin-bottom: 6px;">Legend</div>
-                    <div id="legend-range" style="margin-top: 6px;"></div>
-                </div>
-                <div id="info-panel" style="width: 300px; height: 50%; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: none; position: absolute; bottom: 10px; right: 10px; z-index: 1000;">
-                    <button onclick="closePanel()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #003C78; font-size: 16px; font-weight: bold; cursor: pointer;">✖</button>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <strong id="panel-title" style="font-size: 1.02rem;">Landkreis</strong>
+                <!-- Electricity Legend and Configuration Buttons (refactored container structure) -->
+                <div style="display: flex; align-items: center; gap: 20px; position: absolute; bottom: 10px; left: 10px; z-index: 999;">
+                    <div class="legend-hover-trigger-inline" style="position: relative;">
+                        <!-- Legend Button + Panel bleiben unverändert -->
+                        <button class="filter-label-button">Legend</button>
+                        <div class="legend-hover-panel-inline hover-frame" style="position: absolute; bottom: 40px; left: 0; width: 300px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                          <div class="legend-title">Color Scale by Cost per ton of CO2 Captured</div>
+                          <div style="height: 10px;"></div>
+                          <div style="position: relative; height: 20px; background: linear-gradient(to right, 
+  #5ca82e 0%, 
+  #c0e788 20%, 
+  #f5ff99 20%, 
+  #ff7043 90%, 
+  #800026 100%); border-radius: 4px; margin-bottom: 12px;">
+                            <!-- Farbskala ohne vertikale Linien -->
+                          </div>
+                          <div style="display: flex; justify-content: space-between; font-size: 10px; padding: 0 2px;">
+                              <span>20%</span>
+                              <span>90%</span>
+                          </div>
+                          <div style="height: 20px;"></div>
+                          <div class="legend-description">
+                            This gradient represents the total cost per ton of CO₂ captured. Lower costs are lighter, higher costs are darker based on their quantile-range.
+                          </div>
+                        </div>
                     </div>
-                    <div id="panel-population" style="margin-top: 13px; font-size: 13px; line-height: 1.3em;"></div>
+                    <div class="config-container-wrapper" style="display: flex; align-items: center;">
+                        <!-- Konfigurationscontainer bleibt unverändert -->
+                        <div style="display: flex; align-items: center; background-color: #003C78; border-radius: 6px; height: 33px; padding: 0 10px; color: white;">
+                            <span style="margin-right: 8px; font-weight: bold;">Configuration:</span>
+                            <select id="electricityDatasetSelector" onchange="switchElectricityDataset(this.value)" style="padding: 4px 8px; border-radius: 6px; height: 24px; font-size: 0.9rem;">
+                                <option value="ESS">Solid Small Heat Pump 50 kt/a</option>
+                                <option value="ESM">Solid Medium Heat Pump 500 kt/a</option>
+                                <option value="ESBHP">Solid Big Heat Pump 1000 kt/a</option>
+                                <option value="ELS">Liquid Small 50 kt/a</option>
+                                <option value="ELM">Liquid Medium 500 kt/a</option>
+                                <option value="ELB">Liquid Big 1000kt/a</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                
         </div>
+        </div>
+@code {
+    // ... (existing code)
 
-        <!-- Right-side Data Frames stacked vertically -->
-        <div style="width: 40%; height: 100%; display: flex; flex-direction: column; gap: 20px;">
-            <div class="hover-frame" style="height: 50%; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-                <h3 style="margin-top: 0; color: #003C78;">
-                  CO₂ Price Score Distribution 
-                  <span style="font-size: 12px; font-weight: normal;">(Only Federal State Filter Applies)</span>
-                </h3>
-                <canvas id="scoreChart" style="width: 100%; height: 100%; display: block;"></canvas>
-            </div>
-            <div class="hover-frame" style="height: 50%; background: white; border-radius: 12px; padding: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); box-sizing: border-box; overflow: hidden;">
-                <h3 style="margin-top: 0; color: #1b5e20;">
-                  Net CO₂ Score Distribution 
-                  <span style="font-size: 12px; font-weight: normal;">(Only Federal State Filter Applies)</span>
-                </h3>
-                <canvas id="nettoScoreChart" style="width: 100%; height: 100%; display: block;"></canvas>
+    // For legend hover (Blazor events)
+    private void ShowElectricityLegend()
+    {
+        var js = (IJSInProcessRuntime)JS;
+        js.InvokeVoid("ShowLegend", "electricity-legend");
+    }
+    private void HideElectricityLegend()
+    {
+        var js = (IJSInProcessRuntime)JS;
+        js.InvokeVoid("HideLegend", "electricity-legend");
+    }
+}
+        <!-- Right: Tabelle -->
+        <div id="electricity-side-frame" class="hover-frame" style="flex: 0 0 64%; width: 65%; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); height: 100%;">
+            <div class="electricity-table-wrapper">
+                <table id="electricity-table" class="electricity-data-table">
+                    <thead>
+                        <tr>
+                            <th>County</th>
+                            <th>Total Costs [€/tCO₂]</th>
+                            <th>Cost of Electricity [€/tCO₂]</th>
+                            <th>Cost of Heat - CAPEX [€/tCO₂]</th>
+                            <th>Additional Costs [€/tCO₂]</th>
+                            <th>CAPEX DAC [€/tCO₂]</th>
+                            <th>Score Technology</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Wird durch map.js dynamisch gefüllt -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </section>
 
-<script>
-    // Variable to track which color scale is used
-    window.useNettoColorScale = window.useNettoColorScale || false;
-    window.toggleColorScale = function () {
-        useNettoColorScale = !useNettoColorScale;
-        const button = document.getElementById("toggleColorButton");
-        if (button) {
-            button.textContent = useNettoColorScale 
-                ? "Switch to CO₂ Prices per Ton" 
-                : "Switch to Netto CO₂ Emission";
-            // Style-Änderung je nach aktiver Farbskala
-            if (useNettoColorScale) {
-                button.style.background = "linear-gradient(to right, #1b5e20, #4caf50)";
-            } else {
-                button.style.background = "linear-gradient(to right, #003C78, #005EA8)";
-            }
-        }
-        // Farbanpassung für den Legend-Button
-        const legendButton = document.getElementById("legend-toggle");
-        if (legendButton) {
-            legendButton.style.background = useNettoColorScale
-                ? "linear-gradient(to right, #1b5e20, #4caf50)"
-                : "linear-gradient(to right, #003C78, #005EA8)";
-        }
-        applyStateFilter();
-    }
-</script>
 
-<script>
-function updateActiveFilters() {
-    const container = document.getElementById("active-filters");
-    if (!container) return;
-    container.innerHTML = "";
+@* ############################################################################### *@
 
-    const selectedStates = Array.from(document.getElementById("stateFilter").selectedOptions).map(o => o.value);
-    const minCO2 = document.getElementById("co2ScoreSlider").value;
-    const minNetto = document.getElementById("nettoScoreSlider").value;
-    const solar = document.getElementById("solarToggle").dataset.value;
-    const wind = document.getElementById("windToggle").dataset.value;
-    const solarChecked = document.getElementById("solarFilterCheckbox").checked;
-    const windChecked = document.getElementById("windFilterCheckbox").checked;
 
-    if (selectedStates.length > 0)
-        selectedStates.forEach(state =>
-            container.innerHTML += `<div class="filter-tag" onclick="removeFilter('state', '${state}')">✖ ${state}</div>`
-        );
-    if (minCO2 !== "0")
-        container.innerHTML += `<div class="filter-tag" onclick="removeFilter('co2')">✖ Min CO₂ Price Score: ${minCO2}</div>`;
-    else
-        container.innerHTML += `<div class="filter-tag">Min CO₂ Price Score: ${minCO2}</div>`;
-    if (minNetto !== "0")
-        container.innerHTML += `<div class="filter-tag" onclick="removeFilter('netto')">✖ Min Net CO₂ Score: ${minNetto}</div>`;
-    else
-        container.innerHTML += `<div class="filter-tag">Min Net CO₂ Score: ${minNetto}</div>`;
-    if (solarChecked)
-        container.innerHTML += `<div class="filter-tag" onclick="removeFilter('solar')">✖ Solar: ${solar}</div>`;
-    else
-        container.innerHTML += `<div class="filter-tag">Solar: ${solar}</div>`;
-    if (windChecked)
-        container.innerHTML += `<div class="filter-tag" onclick="removeFilter('wind')">✖ Wind: ${wind}</div>`;
-    else
-        container.innerHTML += `<div class="filter-tag">Wind: ${wind}</div>`;
 
-    // Show "Reset all Filters" button only if any filter is active
-    const resetContainer = document.getElementById("resetAllContainer");
-    const anyActive = selectedStates.length > 0 || minCO2 !== "0" || minNetto !== "0" || solarChecked || windChecked;
-    resetContainer.style.display = anyActive ? "block" : "none";
-}
-function removeFilter(type, value) {
-    if (type === "state") {
-        const select = document.getElementById("stateFilter");
-        for (let i = 0; i < select.options.length; i++) {
-            if (select.options[i].value === value) {
-                select.options[i].selected = false;
-                break;
-            }
-        }
-    }
-    else if (type === "co2") {
-        document.getElementById("co2ScoreSlider").value = "0";
-        document.getElementById("scoreValueBox").textContent = "0";
-    }
-    else if (type === "netto") {
-        document.getElementById("nettoScoreSlider").value = "0";
-        document.getElementById("nettoScoreValueBox").textContent = "0";
-    }
-    else if (type === "solar") {
-        document.getElementById("solarFilterCheckbox").checked = false;
-    }
-    else if (type === "wind") {
-        document.getElementById("windFilterCheckbox").checked = false;
-    }
-    // Add support for other types if needed
-    applyStateFilter();
-    filterChartByState();
-    updateActiveFilters();
-}
-</script>
 
-<script>
-    function filterChartByState() {
-        const selectedStates = Array.from(document.getElementById("stateFilter").selectedOptions).map(o => o.value);
-        const filteredData = selectedStates.length === 0 || selectedStates.includes("ALL")
-            ? Object.values(window.populationData)
-            : Object.values(window.populationData).filter(d => selectedStates.includes(d.Bundesland));
-        console.log("Selected states:", selectedStates);
-        console.log("Filtered data:", filteredData);
-        if (typeof renderCO2PriceChart === "function") {
-            renderCO2PriceChart(filteredData);
-        }
-        if (typeof renderNettoCO2ScoreChart === "function") {
-            renderNettoCO2ScoreChart(filteredData);
-        }
-        // Update mini and KPI tiles after filtering
-        if (typeof updateStatKacheln === "function") {
-            updateStatKacheln(filteredData);
-        }
-    }
-</script>
+<section class="hover-frame" style="padding: 30px 40px; background: linear-gradient(to right, #003C78, #005EA8); border-radius: 12px; color: white; max-width: 96%; margin: 40px auto 0px auto; text-align: left;">
+    <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 15px;">Industrial Waste Heat</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6;">
+        This map displays the availability and scoring of industrial waste heat in each district, supporting decisions on low-carbon heat sourcing.
+    </p>
+</section>
 
-<script>
-function toggleLegend() {
-    const box = document.getElementById("legend-box");
-    if (box.style.display === "block") {
-        box.style.display = "none";
-    } else {
-        box.style.display = "block";
-        updateLegendBox();
-    }
-}
 
-function updateLegendBox() {
-    const rangeBox = document.getElementById("legend-range");
-    if (!rangeBox) return;
+<section style="padding: 30px 40px; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; gap: 20px; height: 860px;">
+        <div id="iwh-map-frame" class="hover-frame" style="flex: 0 0 35%; width: 35%; background: white; border-radius: 12px; padding: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); height: 100%; position: relative;">
+            <div id="iwh-kpi-container" class="kpi-container">
+                <div class="mini-kpi">
+                    <div class="mini-kpi-icon">🔥</div>
+                    <div class="mini-kpi-label">Average Weighted Score</div>
+                    <div id="iwh-kpi-average" class="mini-kpi-value">–</div>
+                </div>
+                <div class="mini-kpi">
+                    <div class="mini-kpi-icon">📍</div>
+                    <div class="mini-kpi-label">Visible Counties</div>
+                    <div id="iwh-kpi-count" class="mini-kpi-value">–</div>
+                </div>
+            </div>
+            <div id="iwh-map" style="width: 100%; height: 100%; border-radius: 12px; background-color: white; z-index: 0;"></div>
 
-    rangeBox.innerHTML = `
-<div style="display: flex; gap: 16px;">
+            @* <!-- FILTER PANEL FOR IWH MAP -->
+            <div class="filter-hover-trigger-inline" style="position: absolute; bottom: 10px; left: 100px; z-index: 999;">
+                <button id="iwh-filter-toggle" class="filter-label-button">Filters</button>
+                <div class="filter-hover-panel-inline">
+                    <div>
+                        <label for="iwh-weighted-score-slider-hover" style="font-weight: bold; color: #003C78;">Min Weighted Score:</label><br>
+                        <input id="iwh-weighted-score-slider-hover" type="range" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.textContent = this.value" />
+                        <span id="iwh-scoreSliderValueHover" style="font-weight: bold;">0</span>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label for="iwh-best-score-slider-hover" style="font-weight: bold; color: #003C78;">Min Best Score:</label><br>
+                        <input id="iwh-best-score-slider-hover" type="range" min="0" max="10" step="1" value="0" style="width: 100%;" oninput="this.nextElementSibling.textContent = this.value" />
+                        <span id="iwh-bestScoreSliderValueHover" style="font-weight: bold;">0</span>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label for="iwh-total-heat-hover" style="font-weight: bold; color: #003C78;">Min Total Waste Heat (TWh):</label><br>
+                        <input id="iwh-total-heat-hover" type="range" min="0" max="2000" step="100" value="0" style="width: 100%;" oninput="this.nextElementSibling.textContent = this.value" />
+                        <span id="iwh-totalHeatSliderValueHover" style="font-weight: bold;">0</span>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <label for="iwh-direct-connections-hover" style="font-weight: bold; color: #003C78;">Min Direct Connections:</label><br>
+                        <input id="iwh-direct-connections-hover" type="number" min="0" value="0"
+                            style="width: 100%; padding: 4px; font-size: 14px; border-radius: 4px; border: 1px solid #ccc;" />
+                    </div>
+                    <button class="apply-button" onclick="setIwhThresholdsAndApply()" style="margin-top: 14px; background-color: #003C78; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer;">
+                        Apply
+                    </button>
+                    <button class="apply-button" onclick="resetIwhFilters()" style="margin-top: 10px; background-color: #888; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer;">
+                        Reset Filters
+                    </button>
+                </div>
+            </div>
+ *@
+             <div class="legend-hover-trigger-inline" style="position: absolute; bottom: 10px; left: 10px; z-index: 999;">
+                  <div style="position: relative;">
+                    <button class="filter-label-button">Legend</button>
+             <div class="legend-hover-panel-inline hover-frame" style="position: absolute; bottom: 40px; left: 0; width: 300px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                  <div class="legend-title">Color Scale by Weighted Score</div>
+                  <div style="height: 10px;"></div>
+                  <div style="position: relative; height: 20px; background: linear-gradient(to right, 
+  #c5e1a5 0%, 
+  #a3c47c 5%, 
+  #f5ff99 95%, 
+  #1b5e20 100%);
+  border-radius: 4px; margin-bottom: 8px;">
+                        <div style="position: absolute; left: 10%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 20%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 30%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 40%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 60%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 70%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 80%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 90%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 100%; top: 0; bottom: 0; width: 1px; background: #000; opacity: 0.2;"></div>
+                        <div style="position: absolute; left: 0%; top: 100%; transform: translateX(-50%); font-size: 10px;">0</div>
+                        <div style="position: absolute; left: 10%; top: 100%; transform: translateX(-50%); font-size: 10px;">1</div>
+                        <div style="position: absolute; left: 20%; top: 100%; transform: translateX(-50%); font-size: 10px;">2</div>
+                        <div style="position: absolute; left: 30%; top: 100%; transform: translateX(-50%); font-size: 10px;">3</div>
+                        <div style="position: absolute; left: 40%; top: 100%; transform: translateX(-50%); font-size: 10px;">4</div>
+                        <div style="position: absolute; left: 50%; top: 100%; transform: translateX(-50%); font-size: 10px;">5</div>
+                        <div style="position: absolute; left: 60%; top: 100%; transform: translateX(-50%); font-size: 10px;">6</div>
+                        <div style="position: absolute; left: 70%; top: 100%; transform: translateX(-50%); font-size: 10px;">7</div>
+                        <div style="position: absolute; left: 80%; top: 100%; transform: translateX(-50%); font-size: 10px;">8</div>
+                        <div style="position: absolute; left: 90%; top: 100%; transform: translateX(-50%); font-size: 10px;">9</div>
+                        <div style="position: absolute; left: 100%; top: 100%; transform: translateX(-50%); font-size: 10px;">10</div>
+                      </div>
+                      <div style="height: 20px;"></div>
+                      <div class="legend-description">
+                        Weighted score represents average score of each IWH source in a county valued at its percentage of annual waste heat of the total annual waste heat within that county.
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-  <!-- CO₂ Price Score -->
-  <div style="flex: 1; text-align: center;">
-    <strong style="font-size: 13px;">CO₂ Price Score</strong>
-    <div style="height: 24px; background: linear-gradient(to right, #d0e8ff, #003C78); border-radius: 4px; margin: 8px 0; position: relative;">
-      ${Array.from({ length: 10 }, (_, i) => `
-        <div style="position: absolute; left: ${(i * 10)}%; width: 1px; height: 100%; background: #444;"></div>
-      `).join("")}
+            <div id="iwh-info-panel" style="width: 300px; height: 50%; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: none; position: absolute; bottom: 10px; right: 10px; z-index: 900;">
+                <button onclick="closeIwhPanel()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #003C78; font-size: 16px; font-weight: bold; cursor: pointer;">✖</button>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong id="iwh-panel-title" style="font-size: 1.02rem;">Landkreis</strong>
+                </div>
+                <div id="iwh-panel-content" style="margin-top: 13px; font-size: 13px; line-height: 1.3em;"></div>
+            </div>
+        </div>
+
+        <div id="iwh-side-frame" class="hover-frame" style="flex: 0 0 64%; width: 65%; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); height: 100%;">
+            <div style="position: relative;">
+                <span title="This table displays county-level industrial waste heat data." style="position: absolute; top: 10px; right: 10px; font-size: 18px; cursor: pointer;">ℹ️</span>
+            </div>
+            <div class="table-container">
+                <table id="iwh-data-table" class="modern-data-table">
+                    <thead class="table-header">
+                        <tr>
+                            <th>County</th>
+                            <th>Direct Connections</th>
+                            <th>Total Waste Heat</th>
+                            <th>Number of Sources</th>
+                            <th>Weighted Score</th>
+                            <th>Best Score</th>
+                            <th>Amount Waste Heat Best Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="7" style="color: #777;">Loading industrial waste heat data…</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-top: -2px;">
-      ${Array.from({ length: 10 }, (_, i) => `<span>${i + 1}</span>`).join("")}
-    </div>
-    <div style="font-size: 11px; line-height: 1.4em; margin-top: 6px; text-align: left;">
-      1: 120–125 €/t<br>2: 126–131<br>3: 132–137<br>4: 138–143<br>
-      5: 144–149<br>6: 150–155<br>7: 156–161<br>8: 162–167<br>
-      9: 168–173<br>10: 174–179
-    </div>
-  </div>
+</section>
 
-  <!-- Trennlinie -->
-  <div style="width: 1px; background: #aaa;"></div>
 
-    <!-- Netto CO₂ Score -->
-  <div style="flex: 1; text-align: center;">
-    <strong style="font-size: 13px;">Net CO₂ Score</strong>
-    <div style="height: 24px; background: linear-gradient(to right, #d0f0e0, #1b5e20); border-radius: 4px; margin: 8px 0; position: relative;">
-      ${Array.from({ length: 10 }, (_, i) => `
-        <div style="position: absolute; left: ${(i * 10)}%; width: 1px; height: 100%; background: #444;"></div>
-      `).join("")}
-    </div>
-    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-top: -2px;">
-      ${Array.from({ length: 10 }, (_, i) => `<span>${i + 1}</span>`).join("")}
-    </div>
-    <div style="font-size: 11px; line-height: 1.4em; margin-top: 6px; text-align: left;">
-      1: 430–459 kg CO2<br>2: 460–489<br>3: 490–519<br>4: 520–549<br>
-      5: 550–579<br>6: 580–609<br>7: 610–639<br>8: 640–669<br>
-      9: 670–699<br>10: 700–730
-    </div>
-  </div>
-</div>
-`;
-}
-</script>
+@* ############################################################################### *@
 
+<section class="hover-frame" style="padding: 30px 40px; background: linear-gradient(to right, #003C78, #005EA8); border-radius: 12px; color: white; max-width: 96%; margin: 40px auto 0px auto; text-align: left;">
+    <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 15px;">Renewable Energy Systems and Land Usage</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6;">
+        This section analyzes available land surface per district and displays scoring based on potential DAC installation surface and constraints.
+    </p>
+</section>
 
 <section style="padding: 30px 40px;">
-    <h2 style="color: #003C78; margin-bottom: 20px;">Key Performance Indicators Germany</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-        <div class="kpi-card" title="Durchschnittlicher CO₂-Preis pro Landkreis in €">
-            <h3 style="margin-bottom: 8px; color: #003C78;">Ø CO₂ Price</h3>
-            <p style="font-size: 24px; font-weight: bold;" id="kpi-co2">–</p>
-            <div style="height: 6px; background: #e0e0e0; border-radius: 3px; margin-top: 6px;">
-                <div id="kpi-bar-co2" style="height: 100%; background: #005EA8; width: 0%; border-radius: 3px;"></div>
+    <div style="display: flex; gap: 40px; height: 860px;">
+        <div id="landuse-map-frame" class="hover-frame" style="flex: 0 0 32%; background: white; border-radius: 12px; padding: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); height: 100%;">
+            <div style="width: 100%; background-color: #e9f1fb; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                <strong style="color: #003C78; font-size: 1.1rem;">Land Usage Map</strong>
+            </div>
+            <div id="landuse-map" style="width: 100%; height: 94%; border-radius: 12px; background-color: white; z-index: 0; position: relative;">
+                <!-- Info Panel -->
+                <div id="landuse-info-panel" style="width: 300px; height: 50%; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: none; position: absolute; bottom: 10px; right: 10px; z-index: 900;">
+                    <button onclick="closeLandUsagePanel()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #003C78; font-size: 16px; font-weight: bold; cursor: pointer;">✖</button>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <strong id="landuse-panel-title" style="font-size: 1.02rem;">Landkreis</strong>
+                    </div>
+                    <div id="landuse-panel-content" style="margin-top: 13px; font-size: 13px; line-height: 1.3em;"></div>
+                </div>
+                <!-- Legend for Land Usage Map -->
+                <div class="legend-hover-trigger-inline" style="position: absolute; bottom: 10px; left: 10px; z-index: 999;">
+                  <div style="position: relative;">
+                    <button class="filter-label-button">Legend</button>
+                    <div class="legend-hover-panel-inline hover-frame" style="position: absolute; bottom: 40px; left: 0; width: 300px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                      <div class="legend-title">Color Scale by Land Usage Score</div>
+                      <div style="height: 10px;"></div>
+                          <div style="position: relative; height: 20px; background: linear-gradient(to right, 
+  #800026 0%, 
+  #ff7043 10%, 
+  #f5ff99 80%, 
+  #5ca82e 100%); border-radius: 4px; margin-bottom: 12px;">
+                            <!-- Farbskala ohne vertikale Linien -->
+                          </div>
+                          <div style="display: flex; justify-content: space-between; font-size: 10px; padding: 0 2px;">
+                              <span>20%</span>
+                              <span>90%</span>
+                          </div>
+                          <div style="height: 20px;"></div>
+                      <div class="legend-description">
+                        Land usage score is calculated linearly from available surface and constraints for DAC installation per district.
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
-        <div class="kpi-card" title="Durchschnittlicher Netto CO₂-Ausstoß pro Landkreis in Tonnen">
-            <h3 style="margin-bottom: 8px; color: #003C78;">Ø Net CO₂</h3>
-            <p style="font-size: 24px; font-weight: bold;" id="kpi-netto">–</p>
-            <div style="height: 6px; background: #e0e0e0; border-radius: 3px; margin-top: 6px;">
-                <div id="kpi-bar-netto" style="height: 100%; background: #005EA8; width: 0%; border-radius: 3px;"></div>
+        <div id="res-map-frame" class="hover-frame" style="flex: 0 0 32%; background: white; border-radius: 12px; padding: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); height: 100%;">
+            <div style="width: 100%; background-color: #e9f1fb; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                <strong style="color: #003C78; font-size: 1.1rem;">RES Combined Score Map</strong>
+            </div>
+            <div id="res-map" style="width: 100%; height: 94%; border-radius: 12px; background-color: white; z-index: 0; position: relative;">
+                <div id="res-info-panel" style="width: 300px; height: 50%; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: none; position: absolute; bottom: 10px; right: 10px; z-index: 900;">
+                    <button onclick="closeResPanel()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #003C78; font-size: 16px; font-weight: bold; cursor: pointer;">✖</button>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <strong id="res-panel-title" style="font-size: 1.02rem;">Landkreis</strong>
+                    </div>
+                    <div id="res-panel-content" style="margin-top: 13px; font-size: 13px; line-height: 1.3em;"></div>
+                </div>
+                <div class="legend-hover-trigger-inline" style="position: absolute; bottom: 10px; left: 10px; z-index: 999;">
+                    <div style="position: relative;">
+                        <button class="filter-label-button">Legend</button>
+                        <div class="legend-hover-panel-inline hover-frame" style="position: absolute; bottom: 40px; left: 0; width: 300px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                            <div class="legend-title">Color Scale by Combined Score (RES)</div>
+                            <div style="height: 10px;"></div>
+                          <div style="position: relative; height: 20px; background: linear-gradient(to right, 
+  #800026 0%, 
+  #ff7043 10%, 
+  #f5ff99 80%, 
+  #5ca82e 100%); border-radius: 4px; margin-bottom: 12px;">
+                            <!-- Farbskala ohne vertikale Linien -->
+                          </div>
+                          <div style="display: flex; justify-content: space-between; font-size: 10px; padding: 0 2px;">
+                              <span>20%</span>
+                              <span>90%</span>
+                          </div>
+                          <div style="height: 20px;"></div>
+                            <div class="legend-description">
+                                Combined Score indicates suitability for Renewable Energy Systems based on available data.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="kpi-card" title="Durchschnittliche PV-Verfügbarkeit in %">
-            <h3 style="margin-bottom: 8px; color: #003C78;">PV-Availability</h3>
-            <p style="font-size: 24px; font-weight: bold;" id="kpi-pv">–</p>
-            <div style="height: 6px; background: #e0e0e0; border-radius: 3px; margin-top: 6px;">
-                <div id="kpi-bar-pv" style="height: 100%; background: #005EA8; width: 0%; border-radius: 3px;"></div>
+        <div id="transport-map-frame" class="hover-frame" style="flex: 0 0 32%; background: white; border-radius: 12px; padding: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); height: 100%;">
+            <div style="width: 100%; background-color: #e9f1fb; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                <strong style="color: #003C78; font-size: 1.1rem;">CO₂ Transport Distance Map</strong>
             </div>
-        </div>
-        <div class="kpi-card" title="Durchschnittliche Solar-Verfügbarkeit in %">
-         <h3 style="margin-bottom: 8px; color: #003C78;">Solar-Availability</h3>
-            <p style="font-size: 24px; font-weight: bold;" id="kpi-solar">–</p>
-            <div style="height: 6px; background: #e0e0e0; border-radius: 3px; margin-top: 6px;">
-                <div id="kpi-bar-solar" style="height: 100%; background: #005EA8; width: 0%; border-radius: 3px;"></div>
+            <div id="transport-map" style="width: 100%; height: 94%; border-radius: 12px; background-color: white; z-index: 0; position: relative;">
+                <div id="transport-info-panel" style="width: 300px; height: 50%; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: none; position: absolute; bottom: 10px; right: 10px; z-index: 900;">
+                    <button onclick="closeTransportPanel()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; color: #003C78; font-size: 16px; font-weight: bold; cursor: pointer;">✖</button>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <strong id="transport-panel-title" style="font-size: 1.02rem;">Landkreis</strong>
+                    </div>
+                    <div id="transport-panel-content" style="margin-top: 13px; font-size: 13px; line-height: 1.3em;"></div>
+                </div>
+                <!-- Transport Map Inhalt wird via map.js geladen -->
+                <div class="legend-hover-trigger-inline" style="position: absolute; bottom: 10px; left: 10px; z-index: 999;">
+                  <div style="position: relative;">
+                    <button class="filter-label-button">Legend</button>
+                    <div class="legend-hover-panel-inline hover-frame" style="position: absolute; bottom: 40px; left: 0; width: 300px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                      <div class="legend-title">Color Scale by Distance to CO₂ Pipeline</div>
+                      <div style="height: 10px;"></div>
+                          <div style="position: relative; height: 20px; background: linear-gradient(to right, 
+  #5ca82e 0%, 
+  #c0e788 20%, 
+  #f5ff99 20%, 
+  #ff7043 90%, 
+  #800026 100%); border-radius: 4px; margin-bottom: 12px;">
+                            <!-- Farbskala ohne vertikale Linien -->
+                          </div>
+                          <div style="display: flex; justify-content: space-between; font-size: 10px; padding: 0 2px;">
+                              <span>20%</span>
+                              <span>90%</span>
+                          </div>
+                          <div style="height: 20px;"></div>
+                      <div class="legend-description">
+                        Distance to nearest CO₂ pipeline in kilometers. Darker colors indicate greater distance.
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+
+
+
+@* ############################################################################### *@
+
+
 
 
 @code {
+    public static Statistiken? Instance;
+
+    @inject IJSRuntime JSRuntime
+    private List<IWHEntry> allEntries = new();
+    private List<IWHEntry> entries = new();
+    private List<TotalScoreEntry> totalScoreEntries = new();
+
+    // Sorting state
+    private string sortColumn = "";
+    private bool sortDescending = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Instance = this;
+        // Load IWH data
+        using var stream = await Http.GetStreamAsync("data/IWH_data.csv");
+        using var reader = new StreamReader(stream);
+        var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+        {
+            Delimiter = ";",
+            HeaderValidated = null,
+            MissingFieldFound = null
+        };
+        using var csv = new CsvReader(reader, config);
+        csv.Context.RegisterClassMap<IWHEntryMap>();
+        allEntries = csv.GetRecords<IWHEntry>().ToList();
+        foreach (var entry in allEntries)
+        {
+            entry.IsVisible = true;
+        }
+        entries = allEntries.Where(e => e.IsVisible).ToList();
+
+        // Load TotalScore data
+        using var totalScoreStream = await Http.GetStreamAsync("data/totalscore.csv");
+        using var totalScoreReader = new StreamReader(totalScoreStream);
+        var totalScoreConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
+        {
+            Delimiter = ";",
+            HeaderValidated = null,
+            MissingFieldFound = null
+        };
+        using var totalScoreCsv = new CsvReader(totalScoreReader, totalScoreConfig);
+        totalScoreCsv.Context.RegisterClassMap<TotalScoreEntryMap>();
+        totalScoreEntries = totalScoreCsv.GetRecords<TotalScoreEntry>().ToList();
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("loadMap");
-            await JS.InvokeVoidAsync("filterChartByState");
-            await JS.InvokeVoidAsync("eval", "setTimeout(() => updateStatKacheln(window.populationData), 200);");
+            await JS.InvokeVoidAsync("loadTotalScoreMap");
+            await JS.InvokeVoidAsync("loadElectricityMap");
+            await JS.InvokeVoidAsync("loadLandUseMap");
+            await JS.InvokeVoidAsync("loadTransportMap");
+            await JS.InvokeVoidAsync("loadResMap");
+            await JS.InvokeVoidAsync("loadIwhMap");
+
         }
+    }
+
+    private void SortBy(string column)
+    {
+        if (sortColumn == column)
+        {
+            sortDescending = !sortDescending;
+        }
+        else
+        {
+            sortColumn = column;
+            sortDescending = true;
+        }
+        ApplySortInternal();
+    }
+
+    // New method to support forcing ascending sort, e.g. for County column
+    private void ApplySort(string column, bool ascending = false)
+    {
+        if (sortColumn != column)
+        {
+            sortColumn = column;
+            sortDescending = !ascending ? true : false;
+        }
+        else
+        {
+            // If clicking same column, toggle as usual
+            sortDescending = !sortDescending;
+        }
+        ApplySortInternal();
+    }
+
+    private void ApplySortInternal()
+    {
+        entries = sortColumn switch
+        {
+            nameof(IWHEntry.County) => (sortDescending ? entries.OrderByDescending(e => e.County) : entries.OrderBy(e => e.County)).ToList(),
+            "DirectConnections" => (sortDescending ? entries.OrderByDescending(e => e.DirectConnections) : entries.OrderBy(e => e.DirectConnections)).ToList(),
+            "TotalWasteHeat" => (sortDescending ? entries.OrderByDescending(e => e.TotalWasteHeat) : entries.OrderBy(e => e.TotalWasteHeat)).ToList(),
+            "NumberOfSources" => (sortDescending ? entries.OrderByDescending(e => e.NumberOfSources) : entries.OrderBy(e => e.NumberOfSources)).ToList(),
+            "WeightedScore" => (sortDescending ? entries.OrderByDescending(e => e.WeightedScore) : entries.OrderBy(e => e.WeightedScore)).ToList(),
+            "BestScore" => (sortDescending ? entries.OrderByDescending(e => e.BestScore) : entries.OrderBy(e => e.BestScore)).ToList(),
+            "AmountWasteHeatBestScore" => (sortDescending ? entries.OrderByDescending(e => e.AmountWasteHeatBestScore) : entries.OrderBy(e => e.AmountWasteHeatBestScore)).ToList(),
+            _ => entries
+        };
+    }
+
+    private MarkupString GetSortIcon(string column)
+    {
+        if (sortColumn != column) return new MarkupString("");
+        return sortDescending
+            ? new MarkupString("&#9660;") // ▼
+            : new MarkupString("&#9650;"); // ▲
+    }
+
+    private double weightedScoreThreshold = 0;
+    private double bestScoreThreshold = 0;
+    private double directConnectionsThreshold = 0;
+    private int totalWasteHeatThreshold = 0;
+
+    private async Task ApplyFilters()
+    {
+        var filteredCountyNames = await JS.InvokeAsync<string[]>(
+            "setThresholdsAndApplyFilters",
+            weightedScoreThreshold,
+            bestScoreThreshold,
+            directConnectionsThreshold,
+            totalWasteHeatThreshold);
+
+        foreach (var entry in allEntries)
+        {
+            entry.IsVisible = filteredCountyNames.Contains(entry.County, StringComparer.OrdinalIgnoreCase);
+        }
+
+        entries = allEntries
+            .Where(e => e.IsVisible)
+            .ToList();
+
+        StateHasChanged();
+    }
+    private async Task ResetAllFilters()
+    {
+        weightedScoreThreshold = 0;
+        bestScoreThreshold = 0;
+        directConnectionsThreshold = 0;
+        totalWasteHeatThreshold = 0;
+
+        // Reset the slider values and labels via JS
+        await JS.InvokeVoidAsync("resetSliderValues");
+
+        // Setze die Schwellenwerte in JS und aktualisiere Filter (inkl. Karte)
+        var filteredCountyNames = await JS.InvokeAsync<string[]>(
+            "setThresholdsAndApplyFilters",
+            0, 0, 0, 0);
+
+        foreach (var entry in allEntries)
+        {
+            entry.IsVisible = filteredCountyNames.Contains(entry.County, StringComparer.OrdinalIgnoreCase);
+        }
+
+        entries = allEntries
+            .Where(e => e.IsVisible)
+            .ToList();
+
+        StateHasChanged();
+    }
+    // --- Total Score Table Sorting State and Methods ---
+    private string totalScoreSortColumn = "";
+    private bool totalScoreSortDescending = false;
+
+    private void SortTotalScoreBy(string column)
+    {
+        if (totalScoreSortColumn == column)
+        {
+            totalScoreSortDescending = !totalScoreSortDescending;
+        }
+        else
+        {
+            totalScoreSortColumn = column;
+            totalScoreSortDescending = true;
+        }
+
+        // Sortiere nur totalScoreEntries
+        totalScoreEntries = totalScoreSortColumn switch
+        {
+            nameof(TotalScoreEntry.County) => (totalScoreSortDescending ? totalScoreEntries.OrderByDescending(e => e.County) : totalScoreEntries.OrderBy(e => e.County)).ToList(),
+            nameof(TotalScoreEntry.TotalScore) => (totalScoreSortDescending ? totalScoreEntries.OrderByDescending(e => e.TotalScore) : totalScoreEntries.OrderBy(e => e.TotalScore)).ToList(),
+            nameof(TotalScoreEntry.WasteHeatScore) => (totalScoreSortDescending ? totalScoreEntries.OrderByDescending(e => e.WasteHeatScore) : totalScoreEntries.OrderBy(e => e.WasteHeatScore)).ToList(),
+            nameof(TotalScoreEntry.ElectricityScore) => (totalScoreSortDescending ? totalScoreEntries.OrderByDescending(e => e.ElectricityScore) : totalScoreEntries.OrderBy(e => e.ElectricityScore)).ToList(),
+            nameof(TotalScoreEntry.RenewableScore) => (totalScoreSortDescending ? totalScoreEntries.OrderByDescending(e => e.RenewableScore) : totalScoreEntries.OrderBy(e => e.RenewableScore)).ToList(),
+            nameof(TotalScoreEntry.CO2TransportScore) => (totalScoreSortDescending ? totalScoreEntries.OrderByDescending(e => e.CO2TransportScore) : totalScoreEntries.OrderBy(e => e.CO2TransportScore)).ToList(),
+            nameof(TotalScoreEntry.LandUsageScore) => (totalScoreSortDescending ? totalScoreEntries.OrderByDescending(e => e.LandUsageScore) : totalScoreEntries.OrderBy(e => e.LandUsageScore)).ToList(),
+            _ => totalScoreEntries
+        };
+    }
+
+    private MarkupString GetTotalScoreSortIcon(string column)
+    {
+        if (totalScoreSortColumn != column) return new MarkupString("");
+        return totalScoreSortDescending
+            ? new MarkupString("&#9660;")
+            : new MarkupString("&#9650;");
     }
 }
 
@@ -418,6 +801,37 @@ function updateLegendBox() {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 </style>
+<style>
+  .legend-title {
+    font-size: 1.02rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  .legend-description {
+      font-size: .75rem;
+      line-height: 1.5;
+      margin-top: 0;
+  }
+</style>
+
+<script>
+function closeLandUsagePanel() {
+  const panel = document.getElementById("landuse-info-panel");
+  if (panel) {
+    panel.style.display = "none";
+  }
+}
+</script>
+
+<script>
+function closeElectricityPanel() {
+  const panel = document.getElementById("electricity-info-panel");
+  if (panel) {
+    panel.style.display = "none";
+  }
+}
+</script>
 
 <style>
 .hover-frame:hover {
@@ -439,33 +853,518 @@ function updateLegendBox() {
 </style>
 <style>
 .mini-kpi {
-  background: white;
-  padding: 10px 14px;
+  background: #e9f1fb;
+  padding: 14px;
   border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 80px;
   flex: 1;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
 }
 .mini-kpi:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 .mini-kpi-icon {
-  font-size: 20px;
-  margin-bottom: 2px;
+  font-size: 16px;
+  margin-bottom: 4px;
 }
 .mini-kpi-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: #003C78;
   margin-bottom: 2px;
 }
 .mini-kpi-value {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   color: #003C78;
 }
 </style>
+<style>
+.modern-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modern-data-table th, .modern-data-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.modern-data-table tbody tr:hover {
+    background-color: #f5faff;
+}
+
+/* Style every other row with a slight blue background */
+.modern-data-table tbody tr:nth-child(odd) {
+    background-color: #f0f8ff;
+}
+
+.table-header th {
+    background-color: #003C78;
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.modern-data-table td {
+    color: #333;
+    font-size: 12px;
+}
+
+/* Table container for rounded corners, overflow, and sticky header support */
+.table-container {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 12px;
+    /* overflow: hidden;  removed to allow sticky header to work with scroll */
+}
+
+/* Sticky header for thead */
+.modern-data-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #003C78;
+    z-index: 1;
+}
+
+/* Rounded corners for thead (top corners) */
+.modern-data-table th:first-child {
+    border-top-left-radius: 12px;
+}
+.modern-data-table th:last-child {
+    border-top-right-radius: 12px;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const avgScore = window.averageWeightedScore;
+    if (avgScore !== undefined && avgScore !== null) {
+      document.getElementById("mini-kpi-co2").textContent = avgScore.toFixed(2);
+    } else {
+      document.getElementById("mini-kpi-co2").textContent = "—";
+    }
+  });
+</script>
+<style>
+    
+.kpi-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+</style>
+
+<script>
+  function toggleLegend() {
+    const legendBox = document.getElementById("legend-box");
+    if (legendBox) {
+      const isVisible = legendBox.style.display === "block";
+      legendBox.style.display = isVisible ? "none" : "block";
+    }
+  }
+</script>
+
+
+<style>
+.kpi-card {
+    flex: 1 1 200px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+</style>
+
+<style>
+.legend-hover-trigger-inline .legend-hover-panel-inline {
+  display: none;
+}
+.legend-hover-trigger-inline:hover .legend-hover-panel-inline,
+.legend-hover-panel-inline:hover {
+  display: block;
+}
+
+.filter-hover-trigger-inline {
+  position: absolute;
+  bottom: 10px;
+  left: 100px;
+  z-index: 999;
+}
+
+.filter-label-button {
+  background-color: #003C78;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filter-hover-panel-inline {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.filter-hover-trigger-inline:hover .filter-hover-panel-inline,
+.filter-hover-panel-inline:hover {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+</style>
+
+<script>
+  window.addEventListener("load", function () {
+    const legendToggle = document.getElementById("legend-toggle-click");
+    const legendPanel = document.getElementById("legend-panel-click");
+    const filterToggle = document.getElementById("filter-toggle-click");
+    const filterPanel = document.getElementById("filter-panel-click");
+
+    if (legendToggle && legendPanel) {
+      legendToggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        legendPanel.style.display = (legendPanel.style.display === "block") ? "none" : "block";
+      });
+    }
+
+    if (filterToggle && filterPanel) {
+      filterToggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        filterPanel.style.display = (filterPanel.style.display === "block") ? "none" : "block";
+      });
+    }
+
+    document.addEventListener("click", function (e) {
+      if (!legendPanel.contains(e.target) && !legendToggle.contains(e.target)) {
+        legendPanel.style.display = "none";
+      }
+      if (!filterPanel.contains(e.target) && !filterToggle.contains(e.target)) {
+        filterPanel.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<style>
+.legend-wrapper {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 999;
+}
+.legend-button {
+    background-color: #003C78;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+}
+.legend-popup {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 320px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #003C78;
+    font-size: 0.96rem;
+    z-index: 1000;
+}
+.legend-wrapper:hover .legend-popup,
+.legend-popup:hover {
+    display: block;
+}
+</style>
+<script>
+  // Show/hide legend popup for electricity section
+  function ShowLegend(id) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = "block";
+  }
+  function HideLegend(id) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = "none";
+  }
+</script>
+<style>
+.electricity-table-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 12px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.electricity-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.electricity-data-table th,
+.electricity-data-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.electricity-data-table thead th {
+    background-color: #003C78;
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.electricity-data-table th:first-child {
+    border-top-left-radius: 12px;
+}
+.electricity-data-table th:last-child {
+    border-top-right-radius: 12px;
+}
+.electricity-data-table td {
+    color: #333;
+    font-size: 12px;
+}
+.electricity-data-table tbody tr:hover {
+    background-color: #f5faff;
+}
+.electricity-data-table tbody tr:nth-child(odd) {
+    background-color: #f0f8ff;
+}
+</style>
+<style>
+.electricity-filter-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.electricity-filter-controls label {
+    color: #003C78;
+    margin-bottom: 2px;
+    font-size: 14px;
+}
+.electricity-filter-controls input[type="range"] {
+    width: 100%;
+    accent-color: #003C78;
+    margin-bottom: 2px;
+}
+.electricity-filter-controls output {
+    margin-left: 8px;
+    font-weight: bold;
+    color: #003C78;
+    font-size: 13px;
+}
+.apply-filter-btn {
+    margin-top: 10px;
+    background-color: #003C78;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+.apply-filter-btn:hover {
+    background-color: #005EA8;
+}
+.reset-filter-btn {
+    margin-top: 6px;
+    background-color: #888;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+.reset-filter-btn:hover {
+    background-color: #aaa;
+}
+</style>
+<style>
+.electricity-legend-button,
+.electricity-filter-button {
+    background-color: #003C78;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-left: 10px;
+}
+
+.electricity-legend-button:hover,
+.electricity-filter-button:hover {
+    background-color: #005fa3;
+}
+
+.filter-side-panel {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    width: 320px;
+    height: auto;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 20px;
+    z-index: 999;
+}
+
+.filter-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.close-button {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.electricity-filter-frame {
+    position: relative;
+    top: 150px;
+    left: 0;
+    width: 340px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    padding: 20px;
+    z-index: 1000;
+}
+</style>
+
+
+
+<style>
+.electricity-info-sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 320px;
+    background: #fff;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.13);
+    z-index: 1001;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e0e6ef;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.electricity-info-sidebar .info-header {
+    background: #003C78;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 20px 20px 12px 20px;
+    border-radius: 12px 12px 0 0;
+}
+.electricity-info-sidebar .info-content {
+    padding: 18px 20px;
+    color: #003C78;
+    font-size: 1rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
+.info-panel {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  width: 280px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4em;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.info-panel h5 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.info-panel-close {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+</style>
+
+
+
+
+<script>
+function closeTransportPanel() {
+  const panel = document.getElementById("transport-info-panel");
+  if (panel) {
+    panel.style.display = "none";
+  }
+}
+</script>
+<script>
+function closeResPanel() {
+  const panel = document.getElementById("res-info-panel");
+  if (panel) {
+    panel.style.display = "none";
+  }
+}
+</script>

@@ -17,6 +17,50 @@
       "PackagePath": "staticwebassets/css/app.css"
     },
     {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/1_sehr_hoch.geo (1).json",
+      "PackagePath": "staticwebassets/data/1_sehr_hoch.geo (1).json"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/ELB.csv",
+      "PackagePath": "staticwebassets/data/ELB.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/ELM.csv",
+      "PackagePath": "staticwebassets/data/ELM.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/ELS.csv",
+      "PackagePath": "staticwebassets/data/ELS.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/ESBHP.csv",
+      "PackagePath": "staticwebassets/data/ESBHP.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/ESM.csv",
+      "PackagePath": "staticwebassets/data/ESM.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/ESS.csv",
+      "PackagePath": "staticwebassets/data/ESS.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/IWH_data.csv",
+      "PackagePath": "staticwebassets/data/IWH_data.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/LandUse_Scoring.csv",
+      "PackagePath": "staticwebassets/data/LandUse_Scoring.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/RES.csv",
+      "PackagePath": "staticwebassets/data/RES.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/adjusted_landkreise.geojson",
+      "PackagePath": "staticwebassets/data/adjusted_landkreise.geojson"
+    },
+    {
       "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/deutschland.json",
       "PackagePath": "staticwebassets/data/deutschland.json"
     },
@@ -25,12 +69,48 @@
       "PackagePath": "staticwebassets/data/landkreise.csv"
     },
     {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/map.geojson",
+      "PackagePath": "staticwebassets/data/map.geojson"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/mapping.csv",
+      "PackagePath": "staticwebassets/data/mapping.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/totalscore.csv",
+      "PackagePath": "staticwebassets/data/totalscore.csv"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/data/transport.csv",
+      "PackagePath": "staticwebassets/data/transport.csv"
+    },
+    {
       "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/favicon.png",
       "PackagePath": "staticwebassets/favicon.png"
     },
     {
       "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/icon-192.png",
       "PackagePath": "staticwebassets/icon-192.png"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/img/background.jpg",
+      "PackagePath": "staticwebassets/img/background.jpg"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/img/carbonengineering.jpg",
+      "PackagePath": "staticwebassets/img/carbonengineering.jpg"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/img/climeworks.jpg",
+      "PackagePath": "staticwebassets/img/climeworks.jpg"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/img/dac_diagram.png",
+      "PackagePath": "staticwebassets/img/dac_diagram.png"
+    },
+    {
+      "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/img/garching.jpg",
+      "PackagePath": "staticwebassets/img/garching.jpg"
     },
     {
       "Id": "/Users/johannesbracio/DeutschlandDashboard/wwwroot/img/tum-logo.png",

@@ -1,8 +1,9 @@
 {
   "mainAssemblyName": "DeutschlandDashboard",
   "resources": {
-    "hash": "sha256-y2ccpv0d2dPOI3JOoqRTaNIHYPjI6ZHVxVvgPRJcQOQ=",
+    "hash": "sha256-9tP0kKZxAc7QVc5p1ApTVnQuW3eijLpyYMs3k7JrGDg=",
     "fingerprinting": {
+      "CsvHelper.4zhysgmj1f.wasm": "CsvHelper.wasm",
       "Microsoft.AspNetCore.Authorization.gf26ou9jj9.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.v3fd2n5hlr.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Forms.n0ihslit6r.wasm": "Microsoft.AspNetCore.Components.Forms.wasm",
@@ -201,8 +202,8 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "DeutschlandDashboard.p7tf8y47lg.wasm": "DeutschlandDashboard.wasm",
-      "DeutschlandDashboard.rk7juojlys.pdb": "DeutschlandDashboard.pdb"
+      "DeutschlandDashboard.w5ukxrsbzr.wasm": "DeutschlandDashboard.wasm",
+      "DeutschlandDashboard.uiqio831t8.pdb": "DeutschlandDashboard.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.hvg7u8bimp.js": "sha256-LX9rFEWGVxhkOkAVPG0w5RxPwzPBlEUz6dQNjWS7M+M="
@@ -223,6 +224,7 @@
       "System.Private.CoreLib.wejp19zmu1.wasm": "sha256-iEPGi1OS5IQuHAewjUSiRdMd3+Xdkmlu0NIN8J253Vc="
     },
     "assembly": {
+      "CsvHelper.4zhysgmj1f.wasm": "sha256-gIv3rkSTS7t+R5bMtcyMpbn3EuECRPgHZmWECRjdcd4=",
       "Microsoft.AspNetCore.Authorization.gf26ou9jj9.wasm": "sha256-zPFXeeGdBs4UPBpbat5NEN4EI/Ig1eV4jzbgb6Pcurc=",
       "Microsoft.AspNetCore.Components.v3fd2n5hlr.wasm": "sha256-uxsAoGDTMmkORHVq8kyh/BB0ebk1uKUb97qNJkwZeRA=",
       "Microsoft.AspNetCore.Components.Forms.n0ihslit6r.wasm": "sha256-iRpIK6WbESudNMb4Gn8EobxIwBTS9CaF2sk8Lf6gpxo=",
@@ -412,10 +414,10 @@
       "WindowsBase.5lai2eowco.wasm": "sha256-GcDi5293y2A7oSiFYTbBTUe0d+ISbvgeel4ZNd8KkPM=",
       "mscorlib.wzkfrp7u5k.wasm": "sha256-9PjsU0gaxxz5Vyw++p9DeYUWLsaXbaMS2RbX6wmTUmk=",
       "netstandard.d82br99ghv.wasm": "sha256-DS8keXxU4eQpa1kIoiFxOA2Ii2g9hoNWSaVi8F8AnIE=",
-      "DeutschlandDashboard.p7tf8y47lg.wasm": "sha256-pRF3w+GBUwQniDUciL+NHNA9Grgt8SvYzXA6KBZ87jE="
+      "DeutschlandDashboard.w5ukxrsbzr.wasm": "sha256-TJ2CnWkKv4/aBwCBY2gX6SAmC5xE0bmFEllcuS5ubWE="
     },
     "pdb": {
-      "DeutschlandDashboard.rk7juojlys.pdb": "sha256-G1vJa+hNnMxLjR23/Djab9M5e+fxlMW2LmMX1KxxGH4="
+      "DeutschlandDashboard.uiqio831t8.pdb": "sha256-xv6h1cjluVNVfX1Ea6y+vMOYI6kXvwYJBG/30meYLHc="
     }
   },
   "cacheBootResources": true,

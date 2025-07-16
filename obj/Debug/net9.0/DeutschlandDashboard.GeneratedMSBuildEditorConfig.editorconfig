@@ -28,12 +28,12 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/johannesbracio/DeutschlandDashboard/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
+[/Users/johannesbracio/DeutschlandDashboard/Pages/About.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWJvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/johannesbracio/DeutschlandDashboard/Pages/Karte.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvS2FydGUucmF6b3I=
+[/Users/johannesbracio/DeutschlandDashboard/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/johannesbracio/DeutschlandDashboard/Pages/Statistiken.razor]

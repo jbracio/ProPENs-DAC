@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "klha5nRQzXs=",
+  "dgSpecHash": "goFv5Vz13M4=",
   "success": true,
   "projectFilePath": "/Users/johannesbracio/DeutschlandDashboard/DeutschlandDashboard.csproj",
   "expectedPackageFiles": [
+    "/Users/johannesbracio/.nuget/packages/csvhelper/33.1.0/csvhelper.33.1.0.nupkg.sha512",
     "/Users/johannesbracio/.nuget/packages/microsoft.aspnetcore.authorization/9.0.4/microsoft.aspnetcore.authorization.9.0.4.nupkg.sha512",
     "/Users/johannesbracio/.nuget/packages/microsoft.aspnetcore.components/9.0.4/microsoft.aspnetcore.components.9.0.4.nupkg.sha512",
     "/Users/johannesbracio/.nuget/packages/microsoft.aspnetcore.components.analyzers/9.0.4/microsoft.aspnetcore.components.analyzers.9.0.4.nupkg.sha512",
