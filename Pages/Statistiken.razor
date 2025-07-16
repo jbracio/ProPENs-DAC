@@ -136,7 +136,7 @@
                         </div>
                         <div style="height: 10px;"></div>
                         <div class="legend-description">
-                            Total Score indicates the overall performance across multiple criteria. The criteria were weighted: Costs 40%, CO2 Transport and Land Usage 20% each, Industrial Waste Heat and Renewable Energy 10% each.
+                            Quantile based colornig: Total Score indicates the overall performance across multiple criteria. The criteria were weighted: Costs 40%, CO2 Transport and Land Usage 20% each, Industrial Waste Heat and Renewable Energy 10% each.
                         </div>
                     </div>
                 </div>
@@ -247,7 +247,7 @@
                           </div>
                           <div style="height: 20px;"></div>
                           <div class="legend-description">
-                            This gradient represents the total cost per ton of CO₂ captured. Lower costs are lighter, higher costs are darker based on their quantile-range.
+                            Quantile based colornig: This gradient represents the total cost per ton of CO₂ captured. Lower costs are lighter, higher costs are darker based on their quantile-range.
                           </div>
                         </div>
                     </div>
@@ -408,7 +408,7 @@
                       </div>
                       <div style="height: 20px;"></div>
                       <div class="legend-description">
-                        Weighted score represents average score of each IWH source in a county valued at its percentage of annual waste heat of the total annual waste heat within that county.
+                        Quantile based colornig: Weighted score represents average score of each IWH source in a county valued at its percentage of annual waste heat of the total annual waste heat within that county.
                       </div>
                     </div>
                   </div>
@@ -496,7 +496,7 @@
                           </div>
                           <div style="height: 20px;"></div>
                       <div class="legend-description">
-                        Land usage score is calculated linearly from available surface and constraints for DAC installation per district.
+                        Quantile based colornig: Land usage score is calculated linearly from available surface and constraints for DAC installation per district.
                       </div>
                     </div>
                   </div>
@@ -534,7 +534,7 @@
                           </div>
                           <div style="height: 20px;"></div>
                             <div class="legend-description">
-                                Combined Score indicates suitability for Renewable Energy Systems based on available data.
+                                Quantile based colornig: Combined Score indicates suitability for Renewable Energy Systems based on available data.
                             </div>
                         </div>
                     </div>
@@ -574,7 +574,7 @@
                           </div>
                           <div style="height: 20px;"></div>
                       <div class="legend-description">
-                        Distance to nearest CO₂ pipeline in kilometers. Darker colors indicate greater distance.
+                        Quantile based colornig: Distance to nearest CO₂ pipeline in kilometers. Darker colors indicate greater distance.
                       </div>
                     </div>
                   </div>
@@ -1367,7 +1367,7 @@ function closeResPanel() {
     panel.style.display = "none";
   }
 }
-<script>
+
 function closeIwhPanel() {
   const panel = document.getElementById("iwh-info-panel");
   if (panel) {
